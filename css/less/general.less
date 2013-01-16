@@ -1,0 +1,112 @@
+body {
+  background: url(@filos-grain) fixed;
+}
+
+// Logos
+// -------------------------
+.logo {
+  padding: 15px;
+  a {
+    height: 95px;
+    display: block;
+    background: url(@filos-sprite) no-repeat;
+  }
+  .unam {
+    width: 267px;
+    background-position: 0 -95px;
+  }
+  .ffyl {
+    width: 220px;
+  }
+  .clearfix()
+}
+
+// Widgets
+// -------------------------
+.widget {
+  margin-bottom: 20px;
+  .widget-title {
+    margin: 0 0 10px 0;
+    padding: 3px 15px;
+    #gradient > .vertical(lighten(@color1, 5%), @color1);
+    .border-radius(5px);
+    color: @white;
+  }
+  &.info {
+    .widget-title {
+      #gradient > .vertical(lighten(@color2, 5%), @color2);
+    }
+  }
+  .clearfix()
+}
+.widget_calendar {
+  #wp-calendar {
+    width: 100%;
+  }
+}
+
+
+
+// Footer
+// -------------------------
+#footer {
+  margin-top: 30px;
+  #gradient > .vertical(lighten(@color1, 10%), @color1);
+  .footer-inner {
+    padding: 15px 0;
+    color: lighten(@color1, 35%);
+    h4 {
+      margin-top: 5px;
+      font-weight: normal;
+      color: @white;
+    }
+    a {
+      color: lighten(@color1, 50%);
+    }
+    .nav {
+      > li > a {
+        color: lighten(@color1, 50%);
+        &:hover {
+          background-color: lighten(@color1, 10%);
+        }
+      }
+    }
+    .hr-inverse {
+      border-top: 1px solid darken(@color1, 5%);
+      border-bottom: 1px solid lighten(@color1, 5%);
+    }
+    .map {
+      a {
+        display: block;
+        background: url(@filos-sprite) 0 -191px no-repeat;
+        top: 0;
+        width: 150px;
+        height: 100px;
+        .rotate(11deg);
+        &:hover {
+          .rotate(20deg);
+        }
+      }
+    }
+  }
+}
+
+// carousel 
+.carousel.carousel-fade {
+  .item {
+     .transition(opacity 1s ease-in-out);
+  }
+  .active.left, .active.right {
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  .next, .prev {
+    left: 0;
+    z-index: 1;   
+  }
+  .carousel-control {
+    z-index: 3;
+  }
+}

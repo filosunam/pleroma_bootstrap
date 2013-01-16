@@ -1,0 +1,41 @@
+/*************************************************************************************
+Theme Name: Pleroma Bootstrap
+Theme URI: http://www.filos.unam.mx
+Description: Developed with love and joy to FFyL UNAM, based on Twitter Bootstrap
+Author: Marco Godínez (@Markotom)
+Author URI: http://github.com/markotom
+Version: 0.1
+Tags: flexible-width, microformats, theme-options
+
+License: Atribución-NoComercial 2.5 México (CC BY-NC 2.5)
+License URI: http://creativecommons.org/licenses/by-nc/2.5/mx/
+
+--------------------------------------------------------------------------------------
+
+Pleroma Bootstrap is based on Twitter Bootstrap. In development issue such as creating 
+styles, you might build new styles and overrides from bootstrap core (principal goal). 
+You will have the ability to change styles without altering the bootstrap style: you 
+can use core mixins to get custom styles and you will have fun when you see how easy 
+it is to build a website. For instance, is easy create a new button style using LESS:
+
+  .btn-secondary {
+    .buttonBackground(#FF0000, #CC0000);
+    // <a class="btn btn-secondary" href="#">Button</a>
+  }
+
+--------------------------------------------------------------------------------------
+
+Pleroma Bootstrap use LESS markup for compile CSS with any compiler of your choice.
+For achieve this, I recommend follow the next instructions, using less command line:
+
+	1. Download Node.js and its Node Package Manager (NPM) from nodejs.org
+	2. In command line: $ npm install -g less
+	3. Compiling: $ cd css/less && lessc style.less ../style.css
+	4. You will see that it works!
+
+If you want to change the styles frequently, you might use a watcher of LESS as well.
+
+For more info about LESS
+http://lesscss.org
+
+*************************************************************************************/

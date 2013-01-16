@@ -1,0 +1,79 @@
+// Custom navbar
+// -------------------------
+
+@filos-navbarBackgroundHighlight:     lighten(@filos-navbarBackground, 10%);
+
+@filos-navbarText:                    @grayLight;
+@filos-navbarLinkColor:               lighten(@filos-navbarBackground, 50%);
+@filos-navbarLinkColorHover:          @white;
+@filos-navbarLinkColorActive:         @filos-navbarLinkColorHover;
+@filos-navbarLinkBackgroundHover:     lighten(@filos-navbarBackground, 10%);
+@filos-navbarLinkBackgroundActive:    lighten(@filos-navbarBackground, 10%);
+
+@filos-navbarSearchBackground:        lighten(@filos-navbarBackground, 57%);
+@filos-navbarSearchBackgroundFocus:   @white;
+@filos-navbarSearchBorder:            darken(@filos-navbarSearchBackground, 30%);
+@filos-navbarSearchPlaceholderColor:  @grayLight;
+
+.navbar-primary {
+
+  .navbar-inner {
+    min-height: @filos-navbarHeight;
+    #gradient > .vertical(@filos-navbarBackgroundHighlight, @filos-navbarBackground);
+    border-color: darken(@filos-navbarBackground, 10%);
+  }
+
+  .brand,
+  .nav > li > a {
+    color: @filos-navbarLinkColor;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    &:hover {
+      color: @filos-navbarLinkColorHover;
+    }
+  }
+  .brand {
+    display: none;
+  }
+  .nav > li > a {
+    padding: ((@filos-navbarHeight - @baseLineHeight) / 2) 15px ((@filos-navbarHeight - @baseLineHeight) / 2);
+  }
+
+  .navbar-text {
+    color: @filos-navbarText;
+  }
+
+  .nav > li > a:focus,
+  .nav > li > a:hover {
+    background-color: transparent;
+    color: @filos-navbarLinkColorHover;
+  }
+
+  .nav .active > a,
+  .nav .active > a:hover,
+  .nav .active > a:focus,
+  .nav .current-menu-item > a,
+  .nav .current-menu-item > a:hover,
+  .nav .current-menu-item > a:focus {
+    color: @filos-navbarLinkColorActive;
+    background-color: transparent;
+    .box-shadow(none);
+  }
+
+  // Navbar search
+  .navbar-search {
+    padding: (((@filos-navbarHeight - 20) / 2) * 0.5) 15px (((@filos-navbarHeight - 20) / 2) * 0.5);
+    .search-query {
+      background-color: @filos-navbarSearchBackground;
+      &:focus,
+      &.focused {
+        background-color: @filos-navbarSearchBackgroundFocus;
+      }
+    }
+  }
+
+  // Navbar collapse button
+  .btn-navbar {
+    .buttonBackground(darken(@filos-navbarBackgroundHighlight, 5%), darken(@filos-navbarBackground, 10%));
+  }
+
+}

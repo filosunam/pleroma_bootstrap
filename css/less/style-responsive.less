@@ -1,0 +1,45 @@
+@import '../../bootstrap/less/responsive.less';
+@import 'variables.less';
+
+@media (max-width: @navbarCollapseWidth) {
+	.logo {
+	  .unam {
+	    width: 85px;
+	  }
+	  .ffyl {
+	    width: 85px;
+	  }
+	}
+  .navbar {
+    .navbar-inner {
+      min-height: @navbarHeight;
+    }
+    .brand {
+    	display: block;
+    }
+  }
+  .nav-collapse .nav > li > a,
+  .nav-collapse .dropdown-menu a {
+    padding: 9px 15px;
+    color: @white;
+    .opacity(50);
+  }
+  .nav-collapse .nav > li > a:hover {
+    background-color: transparent;
+    .opacity(85);
+  }
+  .nav-collapse .nav > li.active > a {
+    .opacity(100);
+  }
+  .nav-collapse .navbar-form,
+  .nav-collapse .navbar-search {
+    border: 0;
+    .box-shadow(none)
+  }
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
