@@ -1,5 +1,5 @@
 # Pleroma Bootstrap
-Developed with love and joy to [FFyl UNAM](http://www.filos.unam.mx)
+Developed with love and joy to [FFyL UNAM](http://www.filos.unam.mx)
 
 ### Based on [Twitter Bootstrap](https://twitter.github.com/bootstrap)
 
