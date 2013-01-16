@@ -28,10 +28,10 @@ it is to build a website. For instance, is easy create a new button style using 
 Pleroma Bootstrap use LESS markup for compile CSS with any compiler of your choice.
 For achieve this, I recommend follow the next instructions, using less command line:
 
-	1. Download Node.js and its Node Package Manager (NPM) from nodejs.org
-	2. In command line: $ npm install -g less
-	3. Compiling: $ cd css/less && lessc style.less ../style.css
-	4. You will see that it works!
+  1. Download Node.js and its Node Package Manager (NPM) from nodejs.org
+  2. In command line: $ npm install -g less
+  3. Compiling: $ cd css/less && lessc style.less ../style.css
+  4. You will see that it works!
 
 If you want to change the styles frequently, you might use a watcher of LESS as well.
 

@@ -9,16 +9,16 @@
  *****************************/
 
 function disable_default_dashboard_widgets() {
-	
   
-	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');
+  
+  remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');
+  remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');
+  remove_meta_box('dashboard_plugins', 'dashboard', 'core');
 
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');
+  remove_meta_box('dashboard_quick_press', 'dashboard', 'core');
+  remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');
+  remove_meta_box('dashboard_primary', 'dashboard', 'core');
+  remove_meta_box('dashboard_secondary', 'dashboard', 'core');
 
 }
 // removing default widgets
@@ -30,7 +30,7 @@ add_action('admin_menu', 'disable_default_dashboard_widgets');
  ****************************/
 
 function pleroma_custom_admin_footer() {
-	echo '<p><span id="footer-thankyou">
+  echo '<p><span id="footer-thankyou">
         <a href="http://www.filos.unam.mx">Pleroma Bootstrap</a>
         desarrollado inicialmente por <a href="http://github.com/markotom">Markotom</a></span>.
         Basado en <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a>.</p>
@@ -284,7 +284,7 @@ function pleroma_admin_menu ()
   }
 
   add_menu_page( 'Pleroma', 'Pleroma', 'edit_themes', 'pleroma_admin_home', 'pleroma_admin_home');
-		
+    
 }
 
 function pleroma_add_init() {

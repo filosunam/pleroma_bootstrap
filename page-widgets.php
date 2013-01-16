@@ -6,33 +6,33 @@ Template Name: Páginas (widgets)
 
 <?php get_header(); ?>
 
-      	<div class="container-fluid">
-      		
-	          <div id="main" role="main" class="span6">
+        <div class="container-fluid">
+          
+            <div id="main" role="main" class="span6">
 
-	            <?php get_template_part( 'page', 'single' ); ?>
+              <?php get_template_part( 'page', 'single' ); ?>
 
-	            <div class="row-fluid">
+              <div class="row-fluid">
 
-	            	<div class="span6">
-	            		<?php get_sidebar('page-1'); // sidebar info 1 ?>
-	            	</div>
+                <div class="span6">
+                  <?php get_sidebar('page-1'); // sidebar info 1 ?>
+                </div>
 
-	            	<div class="span6">
-	            		<?php get_sidebar('page-2'); // sidebar info 1 ?>
-	            	</div>
-	            	
-	          	</div>
+                <div class="span6">
+                  <?php get_sidebar('page-2'); // sidebar info 1 ?>
+                </div>
+                
+              </div>
 
-	          </div><!-- /.span6 -->
-	            
-	          <div class="span3">
-	        		<?php get_sidebar(1); // sidebar info 1 ?>
-	        	</div><!-- /.span3 -->
+            </div><!-- /.span6 -->
+              
+            <div class="span3">
+              <?php get_sidebar(1); // sidebar info 1 ?>
+            </div><!-- /.span3 -->
 
-	        	<div class="span3">
-	            <?php get_sidebar(2); // sidebar info 2 ?>
-	          </div><!-- /.span3 -->
+            <div class="span3">
+              <?php get_sidebar(2); // sidebar info 2 ?>
+            </div><!-- /.span3 -->
 
         </div><!-- /.container-fluid -->              
 
