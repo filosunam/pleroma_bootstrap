@@ -15,11 +15,11 @@ Template Name: Páginas (widgets)
               <div class="row-fluid">
 
                 <div class="span6">
-                  <?php get_sidebar('page-1'); // sidebar info 1 ?>
+                  <?php get_sidebar('info-1'); // sidebar info 1 ?>
                 </div>
 
                 <div class="span6">
-                  <?php get_sidebar('page-2'); // sidebar info 1 ?>
+                  <?php get_sidebar('info-2'); // sidebar info 1 ?>
                 </div>
                 
               </div>
