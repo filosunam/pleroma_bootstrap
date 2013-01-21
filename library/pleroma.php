@@ -25,6 +25,9 @@ function pleroma_init() {
   add_filter('excerpt_length', 'pleroma_excerpt_length', 999);
   add_filter('the_excerpt',   'pleroma_the_excerpt');
 
+  // featured image
+  add_theme_support( 'post-thumbnails' );
+
 }
 
 function pleroma_head_cleanup(){
