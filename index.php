@@ -63,7 +63,7 @@
             
             <p>
               <a class="btn btn-large btn-secondary btn-block" href="/cat/boletin"><?php echo __('Boletín', 'pleromabootstrap'); ?></a>
-              <a class="btn btn-large btn-primary btn-block" href="/calendario-de-eventos"><?php echo __('Eventos', 'pleromabootstrap'); ?></a>
+              <a class="btn btn-medium btn-primary btn-block" href="http://estacionamiento.filos.unam.mx">Tarjeta de estacionamiento</a>
             </p>
           </div>
         </div>  
