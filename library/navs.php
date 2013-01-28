@@ -47,7 +47,6 @@ function pleroma_nav_menu_args( $args )
     }
 
     if($args['fallback_cb'] == 'pleroma_secondary_nav_args') {
-      $args['items_wrap'] = '<ul class="nav %2$s">%3$s</ul>';
       $args['walker'] = new Pleroma_Nav_Menu();
     }
 
