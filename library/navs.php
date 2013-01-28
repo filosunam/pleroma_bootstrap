@@ -46,7 +46,7 @@ function pleroma_nav_menu_args( $args )
       
     }
 
-    if($args['fallback_cb'] == 'pleroma_secondary_nav_args') {
+    if($args['fallback_cb'] == 'pleroma_nav_menu_args') {
       $args['walker'] = new Pleroma_Nav_Menu();
     }
 
