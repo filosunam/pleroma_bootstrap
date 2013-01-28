@@ -134,11 +134,13 @@ function pleroma_secondary_nav($class = 'nav-tabs nav-stacked') {
   wp_nav_menu(array( 
         'theme_location'  => 'secondary'                  // location in theme
       , 'container'       => false                        // remove nav container
-      , 'depth'           => -1                           // depth nav
+      , 'depth'           => 2                            // depth nav
       , 'items_wrap'      => '<ul class="nav '. $class .'">%3$s</ul>'  // adapted to twitter bootstrap (not yet dropdown)
-      , 'fallback_cb'     => '__return_false'             // avoiding fallback default function
+      , 'fallback_cb'     => 'pleroma_secondary_nav_args'             // avoiding fallback default function
   ));
 }
+
+
 
 function pleroma_secondary_nav_2() {
     wp_nav_menu(array( 
