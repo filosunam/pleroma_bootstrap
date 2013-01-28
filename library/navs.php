@@ -39,12 +39,18 @@ class Pleroma_Nav_Menu extends Walker_Nav_Menu {
 
 function pleroma_nav_menu_args( $args )
 {   
-    if(!$args['fallback_cb'] || $args['fallback_cb'] == 'pleroma_secondary_nav_args'){
+    if(!$args['fallback_cb']){
       
       $args['items_wrap'] = '<ul class="nav nav-tabs nav-stacked %2$s">%3$s</ul>';
       $args['walker'] = new Pleroma_Nav_Menu();
       
     }
+
+    if($args['fallback_cb'] == 'pleroma_secondary_nav_args') {
+      $args['items_wrap'] = '<ul class="nav %2$s">%3$s</ul>';
+      $args['walker'] = new Pleroma_Nav_Menu();
+    }
+
     return $args;
 }
 
