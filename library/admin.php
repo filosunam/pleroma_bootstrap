@@ -245,10 +245,10 @@ function pleroma_admin_menu ()
      
   
 
-  if ( 'pleroma_admin_home' == $_REQUEST['page'] )
+  if ( isset($_REQUEST['page']) && 'pleroma_admin_home' == $_REQUEST['page'] )
   {
       
-    if ( 'save' == $_REQUEST['action'] )
+    if ( isset($_REQUEST['action']) && 'save' == $_REQUEST['action'] )
     {  
       
    
@@ -270,7 +270,7 @@ function pleroma_admin_menu ()
         header("Location: admin.php?page=pleroma_admin_home&saved=true");  
         die;  
 
-    } else if( 'reset' == $_REQUEST['action'] )
+    } else if( isset($_REQUEST['action']) && 'reset' == $_REQUEST['action'] )
     {
        
         foreach ($options as $value)
@@ -295,10 +295,10 @@ function pleroma_add_init() {
 function pleroma_admin_home() {
   global $options;
 
-    if ( $_REQUEST['saved'] )
+    if ( isset($_REQUEST['saved']) )
       echo '<div id="message" class="updated fade"><p><strong>Opciones guardadas.</strong></p></div>';
 
-    if ( $_REQUEST['reset'] )
+    if ( isset($_REQUEST['reset']) )
       echo '<div id="message" class="updated fade"><p><strong>Valores predeterminados guardados.</strong></p></div>'; 
 
   $format = '
