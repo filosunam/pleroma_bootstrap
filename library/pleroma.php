@@ -62,7 +62,6 @@ function pleroma_assets(){
 
     // bootstrap scripts
     wp_register_script( 'bootstrap',            sprintf($asset, 'bootstrap.min', 'js'), null, '', true );
-    wp_register_script( 'holder',               'https://raw.github.com/imsky/holder/master/holder.js', null, null, true );
 
     // enqueue styles
     wp_enqueue_style( 'bootstrap' );
@@ -73,7 +72,6 @@ function pleroma_assets(){
     // enqueue scripts
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bootstrap' );
-    // wp_enqueue_script( 'holder' );
 
   }
 }
