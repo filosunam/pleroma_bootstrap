@@ -79,6 +79,7 @@ function pleroma_assets(){
 }
 
 function pleroma_theme_support(){
+  global $blog_id;
 
   // rss
   add_theme_support('automatic-feed-links');
@@ -95,6 +96,21 @@ function pleroma_theme_support(){
       , 'secondary-3' => __( 'Secundario 3',  'pleromabootstrap' )   // secondary nav in footer
     )
   );
+
+  // wp menus of child blogs
+  if( $blog_id > 1 )
+  {
+
+    register_nav_menus(                      
+      array( 
+          'secondary'   => __( 'Primario',  'pleromabootstrap' )   // fake primary nav
+      )
+    );
+
+    // override primary nav to "network_pleroma_primary_nav" plugin
+    unregister_nav_menu( 'primary' );
+
+  }
 
 }
 
