@@ -99,14 +99,16 @@ function pleroma_theme_support(){
   if( $blog_id > 1 )
   {
 
+    // change nav names
     register_nav_menus(                      
       array( 
-          'secondary'   => __( 'Primario',  'pleromabootstrap' )   // fake primary nav
+          'secondary-2'   => __( 'Secundario 1',  'pleromabootstrap' )
+        , 'secondary-3'   => __( 'Secundario 2',  'pleromabootstrap' )
       )
     );
 
-    // override primary nav to "network_pleroma_primary_nav" plugin
-    unregister_nav_menu( 'primary' );
+    // remove secondary nav
+    unregister_nav_menu( 'secondary' );
 
   }
 
