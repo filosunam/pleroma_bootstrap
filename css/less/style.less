@@ -17,3 +17,55 @@
 // Core Wordpress
 // -----------------------------------------
 @import "wordpress.less";
+
+// Temp
+// -----------------------------------------
+
+div.indice {
+
+    width: 450px;
+    padding: 2px 5px;
+    border: 1px solid @color1;
+    font-size: 12px;
+    background: #fff;
+    color: #000000;
+    .border-radius(5px 5px 0px 0px);
+
+    div#pie {
+      font-size: 11px;
+			font-weight: bold;
+      color:@color1; 
+    }    
+
+}
+
+div.pestania {
+  width: 410px;
+  margin: 10px 0 0 5px;
+  padding: 2px 5px;
+  border: 1px solid @color1;
+  font-size: 12px;
+  background: @color1;
+  color: #ffffff;
+  .border-radius(0 5px 0 0);
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    &:link,
+    &:active,
+    &:visited, {
+      color: #ffffff;
+    }
+    &:hover {
+      color: #D4D1D1;
+    }
+  }
+}
+
+.titulo_page {
+  padding: 0 0 10px 0;
+  color: @color1;
+  font-size: 25px;
+  font-weight: bold;
+}
