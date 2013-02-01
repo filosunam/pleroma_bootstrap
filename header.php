@@ -105,3 +105,17 @@
         <!-- content -->
         <div class="row-fluid">
           <?php the_breadcrumb(); ?>
+
+          <?php
+            global $blog_id;
+            if ( $blog_id > 1 ) {
+          ?>
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="offset3">
+                <h3><a href="<?php bloginfo('url') ?>"><?php bloginfo('name') ?></a></h3>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <?php } ?>
