@@ -2,6 +2,8 @@
 
 function pleroma_register_sidebars() {
 
+  global $blog_id;
+
   register_sidebar(array(
       'id'            => 'sidebar-1'
     , 'name'          => 'Sidebar 1'
@@ -22,45 +24,49 @@ function pleroma_register_sidebars() {
     , 'after_title'   => '</h4>'
   ));
 
-  register_sidebar(array(
-      'id'            => 'sidebar-page-1'
-    , 'name'          => 'Sidebar Page 1'
-    , 'description'   => 'Sidebar Page 1'
-    , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
-    , 'after_widget'  => '</div>'
-    , 'before_title'  => '<h4 class="h4 lead widget-title">'
-    , 'after_title'   => '</h4>'
-  ));
+  if ( $blog_id == 1 ) {
 
-  register_sidebar(array(
-      'id'            => 'sidebar-page-2'
-    , 'name'          => 'Sidebar Page 2'
-    , 'description'   => 'Sidebar Page 2'
-    , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
-    , 'after_widget'  => '</div>'
-    , 'before_title'  => '<h4 class="h4 lead widget-title">'
-    , 'after_title'   => '</h4>'
-  ));
+    register_sidebar(array(
+        'id'            => 'sidebar-page-1'
+      , 'name'          => 'Sidebar Page 1'
+      , 'description'   => 'Sidebar Page 1'
+      , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
+      , 'after_widget'  => '</div>'
+      , 'before_title'  => '<h4 class="h4 lead widget-title">'
+      , 'after_title'   => '</h4>'
+    ));
 
-  register_sidebar(array(
-      'id'            => 'sidebar-info-1'
-    , 'name'          => 'Sidebar Info 1'
-    , 'description'   => 'Sidebar Info 1'
-    , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
-    , 'after_widget'  => '</div>'
-    , 'before_title'  => '<h4 class="h4 lead widget-title">'
-    , 'after_title'   => '</h4>'
-  ));
+    register_sidebar(array(
+        'id'            => 'sidebar-page-2'
+      , 'name'          => 'Sidebar Page 2'
+      , 'description'   => 'Sidebar Page 2'
+      , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
+      , 'after_widget'  => '</div>'
+      , 'before_title'  => '<h4 class="h4 lead widget-title">'
+      , 'after_title'   => '</h4>'
+    ));
 
-  register_sidebar(array(
-      'id'            => 'sidebar-info-2'
-    , 'name'          => 'Sidebar Info 2'
-    , 'description'   => 'Sidebar Info 2'
-    , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
-    , 'after_widget'  => '</div>'
-    , 'before_title'  => '<h4 class="h4 lead widget-title">'
-    , 'after_title'   => '</h4>'
-  ));
+    register_sidebar(array(
+        'id'            => 'sidebar-info-1'
+      , 'name'          => 'Sidebar Info 1'
+      , 'description'   => 'Sidebar Info 1'
+      , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
+      , 'after_widget'  => '</div>'
+      , 'before_title'  => '<h4 class="h4 lead widget-title">'
+      , 'after_title'   => '</h4>'
+    ));
+
+    register_sidebar(array(
+        'id'            => 'sidebar-info-2'
+      , 'name'          => 'Sidebar Info 2'
+      , 'description'   => 'Sidebar Info 2'
+      , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
+      , 'after_widget'  => '</div>'
+      , 'before_title'  => '<h4 class="h4 lead widget-title">'
+      , 'after_title'   => '</h4>'
+    ));
+
+  }
 
   register_sidebar(array(
       'id'            => 'bottom'
