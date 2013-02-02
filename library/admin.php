@@ -4,6 +4,8 @@
 // If I write the fucking manual, I will be ashamed
 // not do it, so you know what I say...
 
+global $blog_id;
+
 /*****************************
  ****** ADMIN DASHBOARD ******
  *****************************/
@@ -134,6 +136,43 @@ $options = array (
 
   array( "type" => "close"),
 
+  // Social Media
+  array( "name" => "Redes sociales",  
+         "type" => "section"),
+
+  array( "type" => "open"), 
+
+  array("name" => "Facebook",  
+        "desc" => "Agrega la URL de tu página o perfil de Facebook",  
+        "id" => "pleroma_facebook",  
+        "type" => "text",  
+        "std" => ""),
+
+  array("name" => "Twitter",  
+        "desc" => "Agrega el <strong>nickname</strong> de tu cuenta de Twitter",  
+        "id" => "pleroma_twitter",  
+        "type" => "text",  
+        "std" => ""),
+
+  array("name" => "Youtube",  
+        "desc" => "Agrega el <strong>nickname</strong> de tu cuenta de Youtube",  
+        "id" => "pleroma_youtube",  
+        "type" => "text",  
+        "std" => ""),
+
+  array("name" => "Vimeo",  
+        "desc" => "Agrega el <strong>nickname</strong> de tu cuenta de Vimeo",  
+        "id" => "pleroma_vimeo",  
+        "type" => "text",  
+        "std" => ""),
+
+  array( "type" => "close"),
+   
+);
+
+if( 1 == $blog_id )
+{
+  $boletin = array(
   // Boletín
   array( "name" => "Boletín",  
          "type" => "section"),
@@ -202,41 +241,15 @@ $options = array (
         "std"     => ""
   ),
 
-  array( "type" => "close"),
+  array( "type" => "close")
 
-  // Social Media
-  array( "name" => "Redes sociales",  
-         "type" => "section"),
+  );
 
-  array( "type" => "open"), 
+  $options = array_merge($options, $boletin);
 
-  array("name" => "Facebook",  
-        "desc" => "Agrega la URL de tu página o perfil de Facebook",  
-        "id" => "pleroma_facebook",  
-        "type" => "text",  
-        "std" => ""),
+}
 
-  array("name" => "Twitter",  
-        "desc" => "Agrega el <strong>nickname</strong> de tu cuenta de Twitter",  
-        "id" => "pleroma_twitter",  
-        "type" => "text",  
-        "std" => ""),
 
-  array("name" => "Youtube",  
-        "desc" => "Agrega el <strong>nickname</strong> de tu cuenta de Youtube",  
-        "id" => "pleroma_youtube",  
-        "type" => "text",  
-        "std" => ""),
-
-  array("name" => "Vimeo",  
-        "desc" => "Agrega el <strong>nickname</strong> de tu cuenta de Vimeo",  
-        "id" => "pleroma_vimeo",  
-        "type" => "text",  
-        "std" => ""),
-
-  array( "type" => "close"),
-   
-);  
 
 function pleroma_admin_menu ()
 {
