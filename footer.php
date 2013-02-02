@@ -29,8 +29,8 @@
   </div><!-- /.container -->
 
       <!-- footer -->
-      <div id="footer" class="container-fluid">
-        <div class="span12 footer-inner">
+      <div id="footer">
+        <div class="container footer-inner">
           <div class="row-fluid">
             <div class="span3">
               <?php pleroma_secondary_nav_2(); ?>
