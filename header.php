@@ -90,7 +90,7 @@
                   <span class="icon-bar"></span>
                 </a>
 
-                <a class="brand" href="/"><?php bloginfo( 'name' ); ?></a>
+                <a class="brand" href="/">FFyL UNAM</a>
 
                 <div class="nav-collapse nav-collapse-primary collapse">
                   <?php get_search_form(); ?>
