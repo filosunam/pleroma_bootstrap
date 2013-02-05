@@ -185,6 +185,19 @@ function pleroma_secondary_nav_3() {
 }
 
 /****************************
+ ******** POST TYPES ********
+ ****************************/
+
+// add rss support
+function myfeed_request($qv) {
+    if (isset($qv['feed']))
+        $qv['post_type'] = get_post_types();
+    return $qv;
+}
+add_filter('request', 'myfeed_request');
+
+
+/****************************
  ********** SEARCH **********
  ****************************/
 
