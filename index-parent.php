@@ -63,9 +63,6 @@
             
             <p style="background: #464C5D; color: white; list-style: none; padding: 10px 0; text-align: center;">648 graduados licenciatura</p>
             <p style="background: #464C5D; color: white; list-style: none; padding: 10px 0; text-align: center">594 graduados posgrado</p>
-            <p>
-              <a class="btn btn-medium btn-primary btn-block" href="http://estacionamiento.filos.unam.mx">Tarjeta de estacionamiento</a>
-            </p>
           </div>
         </div>  
 
