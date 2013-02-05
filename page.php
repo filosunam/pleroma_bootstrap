@@ -3,8 +3,19 @@
 
         <div class="row-fluid">
 
-          <?php if( $blog_id > 1 ) { // if child blog?>
+          <?php if( $blog_id > 1 ) { // if child blog ?>
+          
+          <div class="span3">
+            <?php get_sidebar(1); // sidebar 1 ?>
+          </div><!-- /.span3 -->
 
+          <div id="main" role="main" class="span6">
+            <?php get_template_part( 'page', 'single' ); ?>
+          </div><!-- /.span6#main -->
+
+          <div class="span3">
+            <?php get_sidebar(2); // sidebar 2 ?>
+          </div><!-- /.span3 -->
           
           <?php } else { // if parent blog ?>
 
@@ -22,18 +33,6 @@
 
           <?php } ?>
 
-          <div class="span3">
-            <?php get_sidebar(1); // sidebar 1 ?>
-          </div><!-- /.span3 -->
-
-          <div id="main" role="main" class="span6">
-            <?php get_template_part( 'page', 'single' ); ?>
-          </div><!-- /.span6#main -->
-
-          <div class="span3">
-            <?php get_sidebar(2); // sidebar 2 ?>
-          </div><!-- /.span3 -->
-
-        </div><!-- /.container-fluid -->
+        </div><!-- /.row-fluid -->
 
 <?php get_footer(); ?>
