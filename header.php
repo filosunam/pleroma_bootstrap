@@ -42,8 +42,8 @@
   <!-- end wordpress head -->
 </head>
 <body class="home blog">
-
-  <?php if( !is_home() && has_nav_menu( 'secondary' ) ) : ?>   
+  <?php global $blog_id; ?>
+  <?php if( ( !is_home() && has_nav_menu( 'secondary' ) ) || ( $blog_id > 1 ) ) : ?>   
     <div class="navbar navbar-inverse navbar-static-top">
       <div class="navbar-inner">
         <div class="container">
@@ -105,10 +105,7 @@
         <!-- content -->
         <?php the_breadcrumb(); ?>
 
-        <?php
-          global $blog_id;
-          if ( $blog_id > 1 ) {
-        ?>
+        <?php if ( $blog_id > 1 ) { ?>
         <div class="row-fluid">
           <div class="span12">
             <div class="offset3">

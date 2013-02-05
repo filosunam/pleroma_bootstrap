@@ -147,6 +147,11 @@ function pleroma_primary_nav() {
 
 function pleroma_secondary_nav($class = 'nav-tabs nav-stacked') {
 
+  global $blog_id;
+  
+  if( $blog_id > 1 )
+    switch_to_blog(1);
+
   wp_nav_menu(array( 
         'theme_location'  => 'secondary'                  // location in theme
       , 'container'       => false                        // remove nav container
@@ -154,6 +159,9 @@ function pleroma_secondary_nav($class = 'nav-tabs nav-stacked') {
       , 'items_wrap'      => '<ul class="nav '. $class .'">%3$s</ul>'  // adapted to twitter bootstrap (not yet dropdown)
       , 'fallback_cb'     => 'pleroma_nav_menu_args'      // set fallback
   ));
+
+  restore_current_blog();
+
 }
 
 function pleroma_secondary_nav_2() {
