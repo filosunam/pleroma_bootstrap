@@ -6,7 +6,7 @@ Template Name: Páginas (sidebar derecho)
 
 <?php get_header(); ?>
 
-        <div class="container-fluid">
+        <div class="row-fluid">
 
           <div id="main" role="main" class="span9">
             <?php get_template_part( 'page', 'single' ); ?>
@@ -16,6 +16,6 @@ Template Name: Páginas (sidebar derecho)
             <?php get_sidebar('page-2'); // sidebar page 2 ?>
           </div><!-- /.span3 -->
 
-        </div><!-- /.container-fluid -->
+        </div><!-- /.row-fluid -->
 
 <?php get_footer(); ?>

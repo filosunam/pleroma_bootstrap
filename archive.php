@@ -33,6 +33,6 @@
             </div> <!-- /.span3 -->
                 
         <?php } ?>
-        </div> <!-- /.container-fluid -->
+        </div> <!-- /.row-fluid -->
 
 <?php get_footer(); ?>

@@ -1,4 +1,4 @@
-        </div>
+        
         <!-- end content -->
         <?php if ( is_active_sidebar( 'bottom' ) ) : ?>
         <hr>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-      <div class="container-fluid">
+      <div class="row-fluid">
 
         <div class="span12">
 
@@ -13,6 +13,6 @@
       
         </div> <!-- /.span12 -->
 
-      </div> <!-- /.container-fluid -->
+      </div> <!-- /.row-fluid -->
 
 <?php get_footer(); ?>

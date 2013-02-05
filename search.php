@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-        <div class="container-fluid">
+        <div class="row-fluid">
       
           <div id="main" class="span6" role="main">
         
@@ -29,6 +29,6 @@
               <?php get_sidebar(2); // sidebar 2 ?>
             </div><!-- /.span3 -->
 
-          </div> <!-- /.container-fluid -->
+          </div> <!-- /.row-fluid -->
 
 <?php get_footer(); ?>

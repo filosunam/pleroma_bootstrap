@@ -6,7 +6,7 @@ Template Name: Páginas (widgets)
 
 <?php get_header(); ?>
 
-        <div class="container-fluid">
+        <div class="row-fluid">
           
             <div id="main" role="main" class="span6">
 
@@ -34,6 +34,6 @@ Template Name: Páginas (widgets)
               <?php get_sidebar(2); // sidebar info 2 ?>
             </div><!-- /.span3 -->
 
-        </div><!-- /.container-fluid -->              
+        </div><!-- /.row-fluid -->              
 
 <?php get_footer(); ?>
