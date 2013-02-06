@@ -44,7 +44,9 @@
                       $active = ($i == 1) ? 'active ' : '';
                 ?>
                 <div class="<?php print $active ?>item">
-                  <?php the_post_thumbnail( 'large' ); ?>
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail( 'large' ); ?>
+                  </a>
                 </div>
                 <?php } ?>
                 <?php endforeach; ?>
