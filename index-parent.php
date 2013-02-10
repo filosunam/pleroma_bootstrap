@@ -61,8 +61,8 @@
             </nav>
             <?php endif; // has_nav_menu ?>
             
-            <p style="background: #464C5D; color: white; list-style: none; padding: 10px 0; text-align: center;">648 graduados licenciatura</p>
-            <p style="background: #464C5D; color: white; list-style: none; padding: 10px 0; text-align: center">594 graduados posgrado</p>
+            <p style="background: #464C5D; color: white; list-style: none; padding: 10px 0; text-align: center;">648 graduados licenciatura (2012)</p>
+            <p style="background: #464C5D; color: white; list-style: none; padding: 10px 0; text-align: center">594 graduados posgrado (2012)</p>
           </div>
         </div>  
 
