@@ -53,6 +53,7 @@
           </div>
           <hr class="hr-inverse">
           © <?php echo date('Y') ?> <?php echo __('Facultad de Filosofía y Letras', 'pleromabootstrap'); ?>, UNAM.
+          <?php social_media(); ?>
         </div>
       </div>
       <!-- end footer -->

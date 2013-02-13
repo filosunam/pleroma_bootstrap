@@ -276,3 +276,43 @@ function page_navi($before = '', $after = '') {
   }
   echo '</ul></div>'.$after."";
 }
+
+/****************************
+ ******* SOCIAL MEDIA *******
+ ****************************/
+
+function social_media() {
+
+  $socials = array(
+      'facebook' => get_option('pleroma_facebook')
+    , 'twitter'  => get_option('pleroma_twitter')
+    , 'youtube'  => get_option('pleroma_youtube')
+    , 'vimeo'    => get_option('pleroma_vimeo')
+  );
+  $socials = array_filter($socials);
+
+  if(count($socials) > 0 ) {
+
+    print '<div class="social pull-right">';
+
+    $format = '<span class="%1$s"><a href="%2$s" rel="external" class="btn btn-small btn-primary">%3$s</a></span> ';
+    foreach($socials as $name => $option){
+      switch ($name) {
+        case 'twitter':
+         $option = "http://twitter.com/$option";
+        break;
+        case 'youtube':
+         $option = "http://youtube.com/$option";
+        break;
+        case 'vimeo':
+         $option = "http://vimeo.com/$option";
+        break;
+      }
+      printf($format, $name, $option, ucwords($name));
+    }
+
+    print '</div>';
+
+  }
+
+}
