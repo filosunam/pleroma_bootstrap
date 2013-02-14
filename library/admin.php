@@ -368,7 +368,7 @@ function pleroma_admin_menu ()
     }
   }
 
-  add_menu_page( 'Pleroma', 'Pleroma', 'edit_themes', 'pleroma_admin_home', 'pleroma_admin_home');
+  add_theme_page( 'Pleroma', 'Pleroma', 'switch_themes', 'pleroma_admin_home', 'pleroma_admin_home');
     
 }
 
