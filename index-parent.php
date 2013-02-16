@@ -56,7 +56,10 @@
             
             <?php if ( has_nav_menu( 'secondary' ) ) : ?>
             <nav class="nav-info">
-              <h4>Información</h4>
+              <h4><?php
+                $menus = get_nav_menu_locations();
+                echo wp_get_nav_menu_object($menus['secondary'])->name;
+              ?></h4>
               <?php pleroma_secondary_nav() ?>
             </nav>
             <?php endif; // has_nav_menu ?>
