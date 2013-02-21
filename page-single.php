@@ -2,7 +2,7 @@
 
             <article itemscope id="post-<?php the_ID(); ?>" role="article" itemtype="http://schema.org/BlogPosting">
               
-              <?php if (!is_home()) { ?>
+              <?php if (!is_front_page()) { ?>
               <header class="article-header">
               
                 <h1 class="h3 lead" itemprop="headline"><?php the_title(); ?></h1>
