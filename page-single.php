@@ -2,11 +2,13 @@
 
             <article itemscope id="post-<?php the_ID(); ?>" role="article" itemtype="http://schema.org/BlogPosting">
               
+              <?php if (!is_front()) { ?>
               <header class="article-header">
               
                 <h1 class="h3 lead" itemprop="headline"><?php the_title(); ?></h1>
               
               </header> <!-- end article header -->
+              <?php } ?>
               
               <section class="post-content" itemprop="articleBody">
               
