@@ -5,7 +5,7 @@
               wp_nav_menu(array( 
                   'theme_location'  => 'primary'                  
                 , 'container'       => false                      
-                , 'depth'           => 2                          
+                , 'depth'           => 3                          
                 , 'items_wrap'      => '<ul class="nav nav-tabs nav-stacked">%3$s</ul>'
                 , 'fallback_cb'     => 'pleroma_nav_menu_args'
               ));
