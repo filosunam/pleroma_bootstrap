@@ -47,5 +47,6 @@
               </header> <!-- end article header -->
               <?php the_excerpt(); ?>
             </div> <!-- end article -->
+            <hr class="hidden-desktop">
           <?php endforeach; ?>
           <?php endif; // if is array $ids ?>
