@@ -48,7 +48,7 @@
                   ?>
                 </section> <!-- end article section -->
             
-                <footer class="article-footer">
+                <footer class="article-footer" style="clear: both">
                   <?php if(get_post_type() != 'event') : ?>
                     <div class="well">
                       <?php _e("Publicada", "pleromabootstrap"); ?>
