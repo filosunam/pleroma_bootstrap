@@ -1,7 +1,4 @@
               <?php if (is_category()) { ?>
-                <h1 class="lead h4">
-                  <span><?php _e("Archivos de categoría:", "pleromabootstrap"); ?></span> <?php single_cat_title(); ?>
-                </h1>
               
               <?php } elseif (is_tag()) { ?> 
                 <h1 class="lead h4">
