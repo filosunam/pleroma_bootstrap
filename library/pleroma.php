@@ -75,6 +75,7 @@ function pleroma_assets(){
     // enqueue scripts
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bootstrap' );
+    wp_enqueue_script( 'pleroma' );
 
   }
 }
