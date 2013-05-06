@@ -17,7 +17,7 @@
               if ( $query->post_count > 0 ) :
 
           ?>
-            <div id="myCarousel" class="carousel slide fade">
+            <div id="myCarousel" class="carousel carousel-fade slide">
               <div class="carousel-inner">
                 <?php
 
