@@ -63,6 +63,9 @@ function pleroma_assets(){
     // bootstrap scripts
     wp_register_script( 'bootstrap',            sprintf($asset, 'bootstrap.min', 'js'), array('jquery'), false, true );
 
+    // scripts
+    wp_register_script( 'pleroma',              sprintf($asset, 'pleroma', 'js'), array('jquery'), false, true );
+
     // enqueue styles
     wp_enqueue_style( 'bootstrap' );
     wp_enqueue_style( 'bootstrap-responsive' );
