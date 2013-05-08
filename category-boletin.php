@@ -73,6 +73,7 @@
               <div class="span8">
                 <?php wp_reset_query(); ?>
                 <?php get_template_part( 'archive', 'single' ); ?>
+                <?php page_navi(); ?>
               </div><!-- /.span8 -->
               
               <div class="span4">
