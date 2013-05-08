@@ -40,7 +40,7 @@
                   </span>
                 </p>
 
-                <div class="pull-right">
+                <div class="hidden-phone pull-right">
                   <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('thumbnail') ?></a>
                 </div>
           
