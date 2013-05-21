@@ -99,7 +99,7 @@
           <hr class="hidden-desktop">
 
           <div class="span8">
-            <div class="row-fluid">
+            <div class="row-fluid hidden-phone">
               <?php
                 $ids = array(
                           get_option('pleroma_project_featured_1')
