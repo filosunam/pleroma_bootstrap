@@ -95,6 +95,9 @@
               <?php _e('Calendario de eventos', 'pleromabootstrap'); ?>
             </a>
           </div>
+          
+          <hr class="hidden-desktop">
+
           <div class="span8">
             <div class="row-fluid">
               <?php
