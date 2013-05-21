@@ -75,4 +75,60 @@
           </div>
         </div>
 
+        <hr class="hidden-phone">
+
+        <div class="row-fluid">
+          <div class="span4 home-events">
+            <h2 class="h3 lead">Eventos</h2>
+            <?php
+              $args = array(
+                  'title'          => ''
+                , 'numberposts'    => 3
+                , 'showpastevents' => 0
+                , 'no_events'      => 'No hay eventos recientes'
+              );
+
+              the_widget('EO_Event_List_Widget', $args);
+            ?>
+            <a class="btn btn-small" href="/calendario-de-eventos">
+              <i class="icon-th"></i>
+              <?php _e('Calendario de eventos', 'pleromabootstrap'); ?>
+            </a>
+          </div>
+          <div class="span8">
+            <div class="row-fluid">
+              <?php
+                $ids = array(
+                          get_option('pleroma_project_featured_1')
+                        , get_option('pleroma_project_featured_2')
+                        , get_option('pleroma_project_featured_3')
+                      );
+
+                $args = array(
+                    'post_type' => 'page'
+                  , 'post__in'  => $ids
+                );
+                
+                query_posts($args);
+
+                if (have_posts()) : while (have_posts()) : the_post();
+              ?>
+              <div id="post-<?php the_ID(); ?>" role="article" class="span4">
+                <header class="article-header">
+                  <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                    <?php the_post_thumbnail( 'small' ); ?>
+                  </a>
+                  <h4>
+                    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </h4>    
+                </header>
+              </div>
+              <?php endwhile; ?>
+              <?php endif; ?>
+            </div>
+          </div>
+        </div>
+
 <?php get_footer(); ?>
