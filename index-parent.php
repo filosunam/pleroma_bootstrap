@@ -122,8 +122,11 @@
                     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
                       <?php the_title(); ?>
                     </a>
-                  </h4>    
+                  </h4>
                 </header>
+                <p>
+                  <a class="btn btn-small btn-secondary" href="<?php the_permalink() ?>"><?php _e('Leer más', 'pleromabootstrap'); ?></a>
+                </p>                  
               </div>
               <?php endwhile; ?>
               <?php endif; ?>
