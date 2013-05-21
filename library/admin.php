@@ -193,6 +193,15 @@ if( 1 == $blog_id )
   array( "type" => "open"),
 
   array(
+        "name"    => "Producto de investigación", 
+        "desc"    => "Producto de investigación promocionado en la página principal",  
+        "id"      => "pleroma_research_product",
+        "type"    => "select",
+        "options" => $wp_posts,  
+        "std"     => ""
+  ),
+
+  array(
         "name"    => "#1 proyecto destacado", 
         "desc"    => "",  
         "id"      => "pleroma_project_featured_1",

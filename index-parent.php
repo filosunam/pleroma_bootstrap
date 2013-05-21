@@ -99,6 +99,31 @@
           <hr class="hidden-desktop">
 
           <div class="span8">
+            <?php
+              $research_product = get_option('pleroma_research_product');
+              if($research_product > 0) :
+
+                $post = get_post($research_product);
+            ?>
+
+            <div class="home-product row-fluid hidden-phone" id="post-<?php the_ID(); ?>" role="article">
+              <header class="span8 article-header">
+                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                  <?php the_post_thumbnail( 'large' ); ?>
+                </a>
+              </header>
+              <footer class="span4 article-footer">
+                <h2 class="lead">
+                  <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                    <?php the_title(); ?>
+                  </a>
+                </h2>
+              </footer>
+            </div>
+
+            <hr class="hidden-phone">
+
+            <?php endif; ?>
             <div class="row-fluid hidden-phone">
               <?php
                 $ids = array(
