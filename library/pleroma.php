@@ -209,7 +209,7 @@ function pleroma_search($form) {
 function pleroma_the_excerpt($excerpt) {
   global $post;
 
-  $format = '<a href="%1$s" class="btn" title="%2$s">%3$s <i class="icon-chevron-right"></i></a>';
+  $format = '<a href="%1$s" class="btn btn-primary" title="%2$s">%3$s <i class="icon-chevron-right"></i></a>';
   $more   = sprintf($format, get_permalink($post->ID), get_the_title($post->ID), __('Leer más', 'pleromabootstrap') );
 
   return $excerpt . $more;
