@@ -10,7 +10,7 @@
 
             <div id="main" class="span6" role="main">
         
-              <h1 class="lead h4"><span><?php _e("Buscar por:", "pleromabootstrap"); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
+              <h1 class="lead h4"><span><?php _e('Search for:'); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
             
               <?php get_template_part( 'archive', 'single' ); ?>
               
@@ -35,7 +35,7 @@
 
           <div id="main" class="span6" role="main">
         
-            <h1 class="lead h4"><span><?php _e("Buscar por:", "pleromabootstrap"); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
+            <h1 class="lead h4"><span><?php _e('Search for:'); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
             
               <?php get_template_part( 'archive', 'single' ); ?>
               

@@ -103,7 +103,7 @@ function the_breadcrumb() {
     //Use bullets for same level categories ( parent . parent )
     $delimiter1   = ' <span class="divider">&bull;</span> ';
     //text link for the 'Home' page
-    $main         = __('Inicio', 'pleromabootstrap');
+    $main         = __('Home');
     //Display only the first 30 characters of the post title.
     $maxLength    = 40;
     //variable for archived year
@@ -197,7 +197,7 @@ function the_breadcrumb() {
         }
         //Display breadcrumb for search result page
         elseif ( is_search() ) {  //Check if search result page archive is being displayed.
-            echo '<li>' . __('Resultados de búsqueda de', 'pleromabootstrap') . ': "' .  get_search_query() . '"' . '</li>';
+            echo '<li>' . sprintf( __("Resultados de búsqueda de: \"%s\"", 'pleromabootstrap'), get_search_query() ) . '</li>';
         }
         //Display breadcrumb for top-level pages (top-level menu)
         elseif ( is_page() && !$post->post_parent ) { //Check if this is a top Level page being displayed.
