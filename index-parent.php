@@ -79,7 +79,7 @@
 
         <div class="row-fluid">
           <div class="span4 home-events">
-            <h2 class="h3 lead">Eventos</h2>
+            <h2 class="h3 lead"><?php _e('Events', 'eventorganiser'); ?></h2>
             <?php
               $args = array(
                   'title'          => ''
@@ -92,7 +92,7 @@
             ?>
             <a class="btn btn-small" href="/calendario-de-eventos">
               <i class="icon-th"></i>
-              <?php _e('Calendario de eventos', 'pleromabootstrap'); ?>
+              <?php _e('Events Calendar', 'eventorganiser'); ?>
             </a>
           </div>
           
