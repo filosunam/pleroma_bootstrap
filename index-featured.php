@@ -4,33 +4,33 @@
             $category_featured = get_option('pleroma_home_featured');
 
             if ( $manual ) {
+
               $ids = array(
                         get_option('pleroma_home_featured_1')
                       , get_option('pleroma_home_featured_2')
                       , get_option('pleroma_home_featured_3')
                       , get_option('pleroma_home_featured_4')
                     );
-              
-              $ids = array_filter($ids); // remove nulls
+
+              $args = array(
+                  'post_type' => array( 'post', 'page', 'event')
+                , 'post__in'  => $ids
+                , 'orderby'   => 'post__in'
+              );
 
             } else
             {
-              $query = new wp_query(array(
-                  'cat' => $category_featured
-                , 'posts_per_page' => 4
-              ));
 
-              $ids = array();
-              while($query->have_posts()):
-                $query->the_post();
-                $ids[] = get_the_ID();
-              endwhile;
+              $args = array(
+                  'cat'            => $category_featured
+                , 'posts_per_page' => 4
+              );
+
             }
 
-            if ( is_array($ids) ) :
-              foreach( $ids as $id ) :
+            query_posts($args);
 
-                $post = get_post( $id );
+            if (have_posts()) : while ( have_posts() ) : the_post();
              
           ?>
           
@@ -48,5 +48,6 @@
               <?php the_excerpt(); ?>
             </div> <!-- end article -->
             <hr class="hidden-desktop">
-          <?php endforeach; ?>
-          <?php endif; // if is array $ids ?>
+
+          <?php endwhile; ?>
+          <?php endif; ?>
