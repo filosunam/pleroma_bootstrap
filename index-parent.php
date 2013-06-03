@@ -85,7 +85,7 @@
                   'title'          => ''
                 , 'numberposts'    => 3
                 , 'showpastevents' => 0
-                , 'no_events'      => 'No hay eventos recientes'
+                , 'no_events'      => __('No events found', 'eventorganiser')
               );
 
               the_widget('EO_Event_List_Widget', $args);
