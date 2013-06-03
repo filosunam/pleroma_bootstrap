@@ -45,7 +45,6 @@
                   </a>
                 </h4>    
               </header> <!-- end article header -->
-              <?php the_excerpt(); ?>
             </div> <!-- end article -->
             <hr class="hidden-desktop">
 
