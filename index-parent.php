@@ -138,6 +138,7 @@
                 $args = array(
                     'post_type' => 'page'
                   , 'post__in'  => $ids
+                  , 'orderby'   => 'post__in'
                 );
                 
                 query_posts($args);
