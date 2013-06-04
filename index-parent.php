@@ -156,9 +156,6 @@
                     </a>
                   </h4>
                 </header>
-                <p>
-                  <a class="btn btn-small" href="<?php the_permalink() ?>"><?php _e('Leer más', 'pleromabootstrap'); ?></a>
-                </p>                  
               </div>
               <?php endwhile; ?>
               <?php endif; ?>
