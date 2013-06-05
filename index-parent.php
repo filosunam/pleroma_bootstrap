@@ -105,9 +105,14 @@
           <div class="span8">
             <?php
               $research_product = get_option('pleroma_research_product');
-              if($research_product > 0) :
 
-                $post     = get_post($research_product);
+              query_posts(array(
+                  'p'         => $research_product
+                , 'post_type' => array( 'post', 'page', 'event' )
+              ));
+
+              if (have_posts()) : while ( have_posts() ) : the_post();
+
                 $fields   = get_post_custom();
                 $website  = $fields['website'][0];
                 $url      = !$website ? get_permalink() : $website;
@@ -130,6 +135,7 @@
 
             <hr class="hidden-phone">
 
+            <?php endwhile; ?>
             <?php endif; ?>
             <div class="row-fluid hidden-phone">
               <?php
