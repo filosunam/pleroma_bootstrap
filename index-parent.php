@@ -79,8 +79,8 @@
 
         <div class="row-fluid">
           <div class="span4 home-events">
-            <h2 class="h3 lead"><?php _e('Events', 'eventorganiser'); ?></h2>
             <?php
+
               $args = array(
                   'title'          => ''
                 , 'numberposts'    => 3
@@ -88,12 +88,16 @@
                 , 'no_events'      => __('No events found', 'eventorganiser')
               );
 
-              the_widget('EO_Event_List_Widget', $args);
+              if( eo_get_events( $args ) ) :
+              
             ?>
+            <h2 class="h3 lead"><?php _e('Events', 'eventorganiser'); ?></h2>
+            <?php the_widget('EO_Event_List_Widget', $args); ?>
             <a class="btn btn-small" href="/calendario-de-eventos">
               <i class="icon-th"></i>
               <?php _e('Events Calendar', 'eventorganiser'); ?>
             </a>
+            <?php endif; ?>
           </div>
           
           <hr class="hidden-desktop">
