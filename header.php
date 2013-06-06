@@ -55,8 +55,14 @@
 
           <a class="brand">
             <?php
-                $menus = get_nav_menu_locations();
-                echo wp_get_nav_menu_object($menus['secondary'])->name;
+            
+              switch_to_blog(1);
+
+              $menus = get_nav_menu_locations();
+              echo wp_get_nav_menu_object($menus['secondary'])->name;
+
+              restore_current_blog();
+
             ?>
           </a>
 
