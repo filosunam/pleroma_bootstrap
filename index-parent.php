@@ -69,38 +69,31 @@
           </div>
         </div>  
 
-        <div class="row-fluid">
-          <div class="span12">
-            <?php get_template_part( 'index', 'featured' ); ?>
-          </div>
-        </div>
-
-        <hr class="hidden-phone">
+        <?php get_template_part( 'index', 'featured' ); ?>
 
         <div class="row-fluid">
+          <?php
+
+            $args = array(
+                'title'          => ''
+              , 'numberposts'    => 3
+              , 'showpastevents' => 0
+              , 'no_events'      => __('No events found', 'eventorganiser')
+            );
+
+            if( eo_get_events( $args ) ) :
+            
+          ?>
           <div class="span4 home-events">
-            <?php
-
-              $args = array(
-                  'title'          => ''
-                , 'numberposts'    => 3
-                , 'showpastevents' => 0
-                , 'no_events'      => __('No events found', 'eventorganiser')
-              );
-
-              if( eo_get_events( $args ) ) :
-              
-            ?>
             <h2 class="h3 lead"><?php _e('Events', 'eventorganiser'); ?></h2>
             <?php the_widget('EO_Event_List_Widget', $args); ?>
             <a class="btn btn-small" href="/calendario-de-eventos">
               <i class="icon-th"></i>
               <?php _e('Events Calendar', 'eventorganiser'); ?>
             </a>
-            <?php endif; ?>
           </div>
-          
           <hr class="hidden-desktop">
+          <?php endif; ?>
 
           <div class="span8">
             <?php

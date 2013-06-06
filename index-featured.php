@@ -30,9 +30,13 @@
 
             query_posts($args);
 
-            if (have_posts()) : while ( have_posts() ) : the_post();
-             
           ?>
+
+        <?php if (have_posts()) : ?>
+        <div class="row-fluid">
+          <div class="span12">
+
+          <?php while ( have_posts() ) : the_post(); ?>
           
             <div id="post-<?php the_ID(); ?>" role="article" class="span3">
               <header class="article-header">
@@ -49,4 +53,8 @@
             <hr class="hidden-desktop">
 
           <?php endwhile; ?>
-          <?php endif; ?>
+          </div>
+        </div>
+
+        <hr class="hidden-phone">
+        <?php endif; ?>
