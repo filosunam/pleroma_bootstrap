@@ -53,7 +53,12 @@
             <span class="icon-bar"></span>
           </a>
 
-          <a class="brand">Información</a>
+          <a class="brand">
+            <?php
+                $menus = get_nav_menu_locations();
+                echo wp_get_nav_menu_object($menus['secondary'])->name;
+            ?>
+          </a>
 
           <div class="nav-collapse nav-collapse-secondary collapse">
             <?php pleroma_secondary_nav(''); ?>
