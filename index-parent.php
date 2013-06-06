@@ -95,16 +95,20 @@
           <hr class="hidden-desktop">
           <?php endif; ?>
 
+          <?php
+            $research_product = get_option('pleroma_research_product');
+
+            query_posts(array(
+                'p'         => $research_product
+              , 'post_type' => array( 'post', 'page', 'event' )
+            ));
+
+            if (have_posts()) :
+          ?>
           <div class="span8">
+
             <?php
-              $research_product = get_option('pleroma_research_product');
-
-              query_posts(array(
-                  'p'         => $research_product
-                , 'post_type' => array( 'post', 'page', 'event' )
-              ));
-
-              if (have_posts()) : while ( have_posts() ) : the_post();
+               while ( have_posts() ) : the_post();
 
                 $fields   = get_post_custom();
                 $website  = $fields['website'][0];
@@ -129,7 +133,7 @@
             <hr class="hidden-phone">
 
             <?php endwhile; ?>
-            <?php endif; ?>
+
             <div class="row-fluid hidden-phone">
               <?php
                 $ids = array(
@@ -164,6 +168,8 @@
               <?php endif; ?>
             </div>
           </div>
+
+          <?php endif; ?>
         </div>
 
 <?php get_footer(); ?>
