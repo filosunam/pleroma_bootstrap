@@ -66,6 +66,16 @@ function pleroma_register_sidebars() {
       , 'after_title'   => '</h4>'
     ));
 
+    register_sidebar(array(
+        'id'            => 'sidebar-home'
+      , 'name'          => 'Sidebar Home'
+      , 'description'   => 'Sidebar Home'
+      , 'before_widget' => '<div id="%1$s" class="widget %2$s">'
+      , 'after_widget'  => '</div>'
+      , 'before_title'  => '<h4 class="h4 lead widget-title">'
+      , 'after_title'   => '</h4>'
+    ));
+
   }
 
   register_sidebar(array(
