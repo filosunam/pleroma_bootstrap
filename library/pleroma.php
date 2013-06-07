@@ -92,10 +92,10 @@ function pleroma_theme_support(){
   // registering wp menus
   register_nav_menus(                      
     array( 
-        'primary'     => __( 'Primario',      'pleromabootstrap' )   // primary nav in header
-      , 'secondary'   => __( 'Secundario',    'pleromabootstrap' )   // secondary nav in header
-      , 'secondary-2' => __( 'Secundario 2',  'pleromabootstrap' )   // secondary nav in footer
-      , 'secondary-3' => __( 'Secundario 3',  'pleromabootstrap' )   // secondary nav in footer
+        'primary'     => 'Primario'     // primary nav in header
+      , 'secondary'   => 'Secundario'   // secondary nav in header
+      , 'secondary-2' => 'Secundario 2' // secondary nav in footer
+      , 'secondary-3' => 'Secundario 3' // secondary nav in footer
     )
   );
 
@@ -106,8 +106,8 @@ function pleroma_theme_support(){
     // change nav names
     register_nav_menus(                      
       array( 
-          'secondary-2'   => __( 'Secundario 1',  'pleromabootstrap' )
-        , 'secondary-3'   => __( 'Secundario 2',  'pleromabootstrap' )
+          'secondary-2'   => 'Secundario 1'
+        , 'secondary-3'   => 'Secundario 2'
       )
     );
 
