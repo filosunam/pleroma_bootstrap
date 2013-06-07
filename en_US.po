@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pleromabootstrap\n"
+"POT-Creation-Date: 2013-06-06 19:21-0600\n"
+"PO-Revision-Date: 2013-06-06 19:21-0600\n"
+"Last-Translator: Marco Godínez <mgodinez@filos.unam.mx>\n"
+"Language-Team: Facultad de Filosofía y Letras <web@filos.unam.mx>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e;_\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:9 library/navs.php:237
+msgid "Error 404 - Artículo no encontrado"
+msgstr ""
+
+#: 404.php:10
+msgid ""
+"El artículo que buscas no fue encontrado, puedes intentar realizar una "
+"búsqueda"
+msgstr ""
+
+#: archive-single.php:3
+msgid "Archivos de categoría:"
+msgstr ""
+
+#: archive-single.php:8
+msgid "Entradas etiquetadas:"
+msgstr ""
+
+#: archive-single.php:13
+msgid "Publicado por:"
+msgstr ""
+
+#: archive-single.php:18
+msgid "Archivo diario:"
+msgstr ""
+
+#: archive-single.php:23
+msgid "Archivo mensual:"
+msgstr ""
+
+#: archive-single.php:28
+msgid "Archivo anual:"
+msgstr ""
+
+#: footer.php:43 footer.php:46
+msgid "Visita la Facultad"
+msgstr "Visit the Faculty"
+
+#: footer.php:51
+msgid "Edificio"
+msgstr ""
+
+#: footer.php:55
+msgid "Facultad de Filosofía y Letras"
+msgstr "Faculty of Philosophy and Literature"
+
+#: header.php:15
+#, php-format
+msgid "Página %s"
+msgstr ""
+
+#: index-parent.php:81
+msgid "No events found"
+msgstr ""
+
+#: index-parent.php:88
+msgid "Events"
+msgstr ""
+
+#: index-parent.php:92
+msgid "Events Calendar"
+msgstr ""
+
+#: search.php:13 search.php:38
+msgid "Search for:"
+msgstr ""
+
+#: search.php:22 search.php:47
+msgid "Disculpa, no hay resultados."
+msgstr ""
+
+#: search.php:23 search.php:48
+msgid "Intenta de nuevo la búsqueda."
+msgstr ""
+
+#: single-part.php:54
+msgid "Publicada"
+msgstr ""
+
+#: single-part.php:57
+msgid "archivada en"
+msgstr ""
+
+#: library/boletin.php:10
+msgid "Boletín"
+msgstr ""
+
+#: library/navs.php:106
+msgid "Home"
+msgstr ""
+
+#: library/navs.php:180
+msgid "Archivos de categoría"
+msgstr ""
+
+#: library/navs.php:185
+msgid "Entradas etiquetadas"
+msgstr ""
+
+#: library/navs.php:200
+#, php-format
+msgid "Resultados de búsqueda de: \"%s\""
+msgstr ""
+
+#: library/navs.php:233
+msgid "Publicado por"
+msgstr ""
+
+#: library/pleroma.php:95
+msgid "Primario"
+msgstr ""
+
+#: library/pleroma.php:96
+msgid "Secundario"
+msgstr ""
+
+#: library/pleroma.php:97 library/pleroma.php:110
+msgid "Secundario 2"
+msgstr ""
+
+#: library/pleroma.php:98
+msgid "Secundario 3"
+msgstr ""
+
+#: library/pleroma.php:109
+msgid "Secundario 1"
+msgstr ""
+
+#: library/pleroma.php:213
+msgid "Leer más"
+msgstr ""
