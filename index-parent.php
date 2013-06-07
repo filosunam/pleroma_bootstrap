@@ -98,6 +98,8 @@
           <?php
             $research_product = get_option('pleroma_research_product');
 
+            wp_reset_query();
+
             query_posts(array(
                 'p'         => $research_product
               , 'post_type' => array( 'post', 'page', 'event' )
