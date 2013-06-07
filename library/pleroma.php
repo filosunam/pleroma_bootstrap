@@ -1,6 +1,6 @@
 <?php
 
-add_action('after_setup_theme', 'pleroma_init', 15);
+add_action('after_setup_theme', 'pleroma_init', 1);
 
 function pleroma_init() {
 
