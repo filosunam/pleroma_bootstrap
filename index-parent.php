@@ -71,50 +71,47 @@
 
         <?php get_template_part( 'index', 'featured' ); ?>
 
+        <?php if( 'es-ES' == get_bloginfo('language') ): ?>
+
         <div class="row-fluid">
-          <?php
-
-            $args = array(
-                'title'          => ''
-              , 'numberposts'    => 3
-              , 'showpastevents' => 0
-              , 'no_events'      => __('No events found', 'eventorganiser')
-            );
-
-            if( eo_get_events( $args ) ) :
-            
-          ?>
           <div class="span4 home-events">
             <h2 class="h3 lead"><?php _e('Events', 'eventorganiser'); ?></h2>
-            <?php the_widget('EO_Event_List_Widget', $args); ?>
+            <?php
+
+              $args = array(
+                  'title'          => ''
+                , 'numberposts'    => 3
+                , 'showpastevents' => 0
+                , 'no_events'      => __('No events found', 'eventorganiser')
+              );
+
+              the_widget('EO_Event_List_Widget', $args);
+
+            ?>
             <a class="btn btn-small" href="/calendario-de-eventos">
               <i class="icon-th"></i>
               <?php _e('Events Calendar', 'eventorganiser'); ?>
             </a>
           </div>
           <hr class="hidden-desktop">
-          <?php endif; ?>
 
-          <?php
-            $research_product = get_option('pleroma_research_product');
-
-            wp_reset_query();
-
-            query_posts(array(
-                'p'         => $research_product
-              , 'post_type' => array( 'post', 'page', 'event' )
-            ));
-
-            if (have_posts()) :
-          ?>
           <div class="span8">
-
             <?php
-                the_post();
+                
+                $research_product = get_option('pleroma_research_product');
+
+                query_posts(array(
+                    'p'         => $research_product
+                  , 'post_type' => array( 'post', 'page', 'event' )
+                ));
+
 
                 $fields   = get_post_custom();
                 $website  = $fields['website'][0];
                 $url      = !$website ? get_permalink() : $website;
+
+                if (have_posts()) : the_post();
+
             ?>
 
             <div class="home-product row-fluid hidden-phone" id="post-<?php the_ID(); ?>" role="article">
@@ -133,6 +130,8 @@
             </div>
 
             <hr class="hidden-phone">
+
+            <?php endif; ?>
 
             <div class="row-fluid hidden-phone">
               <?php
@@ -169,7 +168,8 @@
             </div>
           </div>
 
-          <?php endif; ?>
         </div>
+
+        <?php endif; ?>
 
 <?php get_footer(); ?>
