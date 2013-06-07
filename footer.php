@@ -40,19 +40,19 @@
             </div>
             <div class="span6">
               <div class="map pull-right">
-                <a href="http://www.filos.unam.mx/visitantes/" title="<?php echo __('Visita la Facultad', 'pleromabootstrap'); ?>">
+                <a href="http://www.filos.unam.mx/visitantes/" title="<?php __e('Visita la Facultad', 'pleromabootstrap'); ?>">
                 </a>
               </div>
-              <h4><?php echo __('Visita la Facultad', 'pleromabootstrap'); ?></h4>
+              <h4><?php __e('Visita la Facultad', 'pleromabootstrap'); ?></h4>
               <p>
                 Circuito Interior.
                 Ciudad Universitaria, s/n. C.P. 04510. México, DF.
               </p>
-              <p><a href="http://www.filos.unam.mx/asv/"><?php echo __('Edificio', 'pleromabootstrap'); ?> “Adolfo Sánchez Vázquez”</a></p>
+              <p><a href="http://www.filos.unam.mx/asv/"><?php __e('Edificio "Adolfo Sánchez Vázquez"', 'pleromabootstrap'); ?></a></p>
             </div>
           </div>
           <hr class="hr-inverse">
-          © <?php echo date('Y') ?> <?php echo __('Facultad de Filosofía y Letras', 'pleromabootstrap'); ?>, UNAM.
+          © <?php echo date('Y') ?> <?php __e('Facultad de Filosofía y Letras', 'pleromabootstrap'); ?>, UNAM.
           <?php social_media(); ?>
         </div>
       </div>
