@@ -108,7 +108,7 @@
           <div class="span8">
 
             <?php
-               while ( have_posts() ) : the_post();
+                the_post();
 
                 $fields   = get_post_custom();
                 $website  = $fields['website'][0];
@@ -131,8 +131,6 @@
             </div>
 
             <hr class="hidden-phone">
-
-            <?php endwhile; ?>
 
             <div class="row-fluid hidden-phone">
               <?php
