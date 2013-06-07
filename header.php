@@ -84,7 +84,11 @@
             <a href="http://www.unam.mx" class="unam"></a>
           </div>
           <div class="logo pull-right">
+            <?php if( get_current_blog_id() > 1 ) : ?> 
             <a href="http://www.filos.unam.mx" class="ffyl"></a>
+            <?php else : ?>
+            <a href="<?php bloginfo('url'); ?>" rel="home" class="ffyl"></a>
+            <?php endif; ?>
           </div>
         </div>
         <!-- end header -->
