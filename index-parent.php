@@ -105,12 +105,11 @@
                   , 'post_type' => array( 'post', 'page', 'event' )
                 ));
 
+                if (have_posts()) : the_post();
 
                 $fields   = get_post_custom();
                 $website  = $fields['website'][0];
                 $url      = !$website ? get_permalink() : $website;
-
-                if (have_posts()) : the_post();
 
             ?>
 
