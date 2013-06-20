@@ -38,10 +38,15 @@
                     {
                       
                       $url = eo_get_the_GoogleLink();
-                      echo '<p>
-                              <a class="btn btn-success" href="'.esc_url($url).'" title="Añadir a Google Calendar"> Añadir a Google Calendar </a>
-                              <a class="btn btn-secondary" href="/calendario-de-eventos" title="Ver más eventos"> Ver más eventos </a>
-                            </p>';
+                      
+                      echo '<p>';
+                      echo '  <a class="btn btn-success" href="'.esc_url($url).'" title="Añadir a Google Calendar"> Añadir a Google Calendar </a>';
+
+                      if( get_current_blog_id() === 1 ) {
+                        echo '<a class="btn btn-secondary" href="/calendario-de-eventos" title="Ver más eventos"> Ver más eventos </a>';
+                      }
+
+                      echo '</p>';
                       echo "<p>" . do_shortcode('[eo_venue_map]') . "</p>";
                     }
                       
