@@ -4,6 +4,16 @@
               
               <?php if (!is_front_page()) { ?>
               <header class="article-header">
+
+                <?php
+                  if ( has_post_thumbnail() ) :
+                  $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+                  $format_img      = '<img src="%s" alt="%s">';
+                ?>
+                <figure>
+                  <?php printf( $format_img, $large_image_url[0], the_title_attribute('echo=0') ); ?>
+                </figure>
+                <?php endif; ?>
               
                 <h1 class="h3 lead" itemprop="headline"><?php the_title(); ?></h1>
               
