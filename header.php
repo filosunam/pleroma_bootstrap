@@ -42,9 +42,8 @@
   <!-- end wordpress head -->
 </head>
 <body class="home blog">
-  <?php global $blog_id; ?>
-  <?php if( ( has_nav_menu( 'secondary' ) ) || ( $blog_id > 1 ) ) : ?>   
-    <div class="navbar navbar-inverse navbar-static-top <?php if (is_home()) print 'visible-phone'; ?>">
+  <?php if( ( has_nav_menu( 'secondary' ) ) || ( get_current_blog_id() > 1 ) ) : ?>   
+    <div class="navbar navbar-inverse navbar-static-top <?php if( get_current_blog_id() == 1 && is_home() ) print 'visible-phone' ?>">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse-secondary">
