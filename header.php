@@ -119,7 +119,7 @@
         <!-- content -->
         <?php the_breadcrumb(); ?>
 
-        <?php if ( $blog_id > 1 ) { ?>
+        <?php if ( get_current_blog_id() > 1 ) { ?>
         <div class="row-fluid">
           <div class="span12">
             <div class="offset3">
