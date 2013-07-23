@@ -52,7 +52,7 @@
 
           </div>
 
-          <div class="span3 hidden-tablet">
+          <div class="span3 visible-desktop">
             
             <?php if ( has_nav_menu( 'secondary' ) ) : ?>
             <nav class="nav-info">
