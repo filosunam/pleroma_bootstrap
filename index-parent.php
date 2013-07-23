@@ -93,7 +93,7 @@
               <?php _e('Events Calendar', 'eventorganiser'); ?>
             </a>
           </div>
-          <hr class="hidden-desktop">
+          <hr class="visible-phone">
 
           <div class="span8">
             <?php

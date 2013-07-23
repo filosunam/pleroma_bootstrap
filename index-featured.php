@@ -50,7 +50,7 @@
                 </h4>    
               </header> <!-- end article header -->
             </div> <!-- end article -->
-            <hr class="hidden-desktop">
+            <hr class="visible-phone">
 
           <?php endwhile; ?>
           </div>
