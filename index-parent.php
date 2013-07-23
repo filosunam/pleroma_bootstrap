@@ -1,7 +1,7 @@
 <?php get_header(); ?>
         
         <div class="row-fluid">
-          <div class="span12" style="width: auto;">
+          <div class="span9 visible-tablet-span9">
             
           <?php
 
