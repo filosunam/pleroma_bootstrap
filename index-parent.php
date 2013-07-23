@@ -1,7 +1,7 @@
 <?php get_header(); ?>
         
         <div class="row-fluid">
-          <div class="span9">
+          <div class="span12" style="width: auto;">
             
           <?php
 
@@ -52,10 +52,10 @@
 
           </div>
 
-          <div class="span3">
+          <div class="span3 hidden-tablet">
             
             <?php if ( has_nav_menu( 'secondary' ) ) : ?>
-            <nav class="nav-info hidden-phone">
+            <nav class="nav-info">
               <h4><?php
                 $menus = get_nav_menu_locations();
                 echo wp_get_nav_menu_object($menus['secondary'])->name;
