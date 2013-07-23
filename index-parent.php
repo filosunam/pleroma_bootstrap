@@ -55,7 +55,7 @@
           <div class="span3">
             
             <?php if ( has_nav_menu( 'secondary' ) ) : ?>
-            <nav class="nav-info">
+            <nav class="nav-info hidden-phone">
               <h4><?php
                 $menus = get_nav_menu_locations();
                 echo wp_get_nav_menu_object($menus['secondary'])->name;
