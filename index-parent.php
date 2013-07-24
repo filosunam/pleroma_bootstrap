@@ -113,13 +113,13 @@
 
             ?>
 
-            <div class="home-product row-fluid hidden-phone" id="post-<?php the_ID(); ?>" role="article">
-              <header class="span8 article-header">
+            <div class="home-product hidden-phone" id="post-<?php the_ID(); ?>" role="article">
+              <header class="article-header">
                 <a href="<?php echo $url ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
                   <?php the_post_thumbnail( 'large' ); ?>
                 </a>
               </header>
-              <footer class="span4 article-footer">
+              <footer class="article-footer">
                 <h2 class="lead">
                   <a href="<?php echo $url ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
                     <?php the_title(); ?>
