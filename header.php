@@ -125,7 +125,6 @@
             <div class="offset3">
               <h3><a href="<?php bloginfo('url') ?>"><?php bloginfo('name') ?></a></h3>
             </div>
-            <hr>
           </div>
         </div>
         <?php } ?>
