@@ -1,15 +1,19 @@
-# Pleroma Bootstrap
-Developed with love and joy to [FFyL UNAM](http://www.filos.unam.mx)
+# Pleroma Bootstrap (Wordpress Theme)
+Desarrollado para la [Facultad de Filosofía y Letras, UNAM](http://www.filos.unam.mx). Basado en [Twitter Bootstrap](https://twitter.github.com/bootstrap)
 
-### Based on [Twitter Bootstrap](https://twitter.github.com/bootstrap)
+# ¿Cómo empezar?
 
-___
+Esta plantilla utiliza el *core* [Boostrap](https://twitter.github.com/bootstrap). Hay un *workflow* definido para el desarrollo web de esta plantilla.
 
-#### Developed by [Markotom](http://twitter.com/markotom)
-https://github.com/markotom/pleroma_bootstrap/
+Es muy sencillo generar todos los archivos necesarios (css, js, imágenes) para la plantilla,  utilizando [Grunt.js](http://gruntjs.com).
 
-___
+    $ cd [path]/pleroma_bootstrap
+    $ grunt build
 
-#### Contributors
+# ¿Cómo contribuir?
 
-Your name ([@your_twitter](http://twitter.com/your_twitter))
+Utiliza la tarea *watch* para que el desarrollo web de la plantilla sea mucho más rápido y fácil.
+
+    $ grunt watch
+
+De tal manera que puedes editar archivos LESS y PHP con *livereload*.
