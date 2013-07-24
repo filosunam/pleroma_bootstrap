@@ -60,11 +60,8 @@ function pleroma_assets(){
     wp_register_style( 'pleroma',               sprintf($asset, 'style', 'css') );
     wp_register_style( 'pleroma-responsive',    sprintf($asset, 'style-responsive', 'css') );
 
-    // bootstrap scripts
-    wp_register_script( 'bootstrap',            sprintf($asset, 'bootstrap.min', 'js'), array('jquery'), false, true );
-
-    // scripts
-    wp_register_script( 'pleroma',              sprintf($asset, 'pleroma', 'js'), array('jquery'), false, true );
+    // bootstrap & pleroma scripts
+    wp_register_script( 'pleroma_bootstrap',    sprintf($asset, 'pleroma_bootstrap.min', 'js'), array('jquery'), false, true );
 
     // enqueue styles
     wp_enqueue_style( 'bootstrap' );
@@ -74,8 +71,7 @@ function pleroma_assets(){
 
     // enqueue scripts
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'bootstrap' );
-    wp_enqueue_script( 'pleroma' );
+    wp_enqueue_script( 'pleroma_bootstrap' );
 
   }
 }
