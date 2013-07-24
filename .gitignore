@@ -1,5 +1,10 @@
 node_modules/
 
+css/*.css
+js/pleroma_bootstrap.min.js
+img/glyphicons-halflings.png
+img/glyphicons-halflings-white.png
+
 # Compiled source #
 ###################
 *.com
