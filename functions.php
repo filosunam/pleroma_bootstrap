@@ -10,6 +10,7 @@ require_once('library/admin.php');
 require_once('library/sidebars.php');
 require_once('library/navs.php');
 require_once('library/widgets.php');
+require_once('library/dev.php');
 
 require_once('library/boletin.php'); // this line is embarrassing and no standard
 

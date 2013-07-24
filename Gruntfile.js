@@ -23,6 +23,20 @@ grunt.initConfig({
         ]
       }
     },
+    watch: {
+      less: {
+        files: [ 'css/less/*.less' ],
+        tasks: [ 'less' ],
+        options: { nospawn: true }
+      },
+      livereload: {
+        options: { livereload: true },
+        files: [
+          '**/*.less',
+          '**/*.php'
+        ]
+      }
+    },
     uglify: {
       target: {
         files: {
@@ -54,8 +68,8 @@ grunt.initConfig({
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('build', ['less', 'uglify', 'exec']);
-
 };
