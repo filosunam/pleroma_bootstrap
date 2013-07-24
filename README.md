@@ -11,8 +11,7 @@ Plantilla de Wordpress diseñada y desarrollada para la [Facultad de Filosofía 
 Es muy sencillo generar todos los archivos (css, js, imágenes) para la plantilla,  utilizando [Grunt.js](http://gruntjs.com):
 
     $ cd [path]/pleroma_bootstrap
-    $ npm install -g grunt-cli
-    $ npm install
+    $ npm install && npm install -g grunt-cli
     $ grunt build
 
 También puedes generar por tipo de archivo:
