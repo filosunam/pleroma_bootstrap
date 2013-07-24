@@ -3,13 +3,16 @@ Plantilla de Wordpress diseñada y desarrollada para la [Facultad de Filosofía 
 
 ## ¿Cómo empezar?
 
-    $ git clone https://github.com/markotom/pleroma_bootstrap.git
+    $ git clone git@github.com:FFyL-UNAM/pleroma_bootstrap.git
+    $ git submodule update --init
 
 ## Generar archivos
 
 Es muy sencillo generar todos los archivos (css, js, imágenes) para la plantilla,  utilizando [Grunt.js](http://gruntjs.com):
 
     $ cd [path]/pleroma_bootstrap
+    $ npm install -g grunt-cli
+    $ npm install
     $ grunt build
 
 También puedes generar por tipo de archivo:
