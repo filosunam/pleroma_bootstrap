@@ -1,9 +1,7 @@
 <?php
 
-global $blog_id;
-
 // no support for child blogs
-if( 1 == $blog_id )
+if( 1 == get_current_blog_id() )
 {
 
   register_nav_menus(                      
