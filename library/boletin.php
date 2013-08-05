@@ -24,7 +24,7 @@ if( 1 == get_current_blog_id() )
       global $wp_query;
 
       if ($wp_query->is_page)
-          return true; // apply to category & single
+          return false; // apply to category & single
 
       // get current object
       $cat = $wp_query->get_queried_object();
