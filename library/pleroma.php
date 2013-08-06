@@ -28,6 +28,9 @@ function pleroma_init() {
   // featured image
   add_theme_support( 'post-thumbnails' );
 
+  // add languages support
+  add_action('init', 'languages_init');
+
 }
 
 function pleroma_head_cleanup(){
@@ -122,6 +125,14 @@ function pleroma_remove_widgets(){
   unregister_widget( 'WP_Widget_Tag_Cloud' );
   unregister_widget( 'WP_Widget_Archives' );
   unregister_widget( 'WP_Widget_Categories' );
+}
+
+/****************************
+ ******** LANGUAGES *********
+ ****************************/  
+
+function languages_init(){
+  load_theme_textdomain('pleromabootstrap', get_template_directory() . '/languages');
 }
 
 /****************************
