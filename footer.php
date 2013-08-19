@@ -57,6 +57,17 @@
         </div>
       </div>
       <!-- end footer -->
+
+      <?php if (function_exists('pll_the_languages')): ?>
+      <?php $translations = pll_the_languages(array('raw'=>1)); ?>
+      <div class="selectlang">
+        <ul>
+          <?php foreach($translations as $lang) : ?>
+            <li><a href="<?php print $lang['url']; ?>"><?php print $lang['name']; ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <?php endif; ?>
   
   <?php wp_footer();?>
 
