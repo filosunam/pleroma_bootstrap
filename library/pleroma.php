@@ -85,6 +85,9 @@ function pleroma_theme_support(){
   // rss
   add_theme_support('automatic-feed-links');
 
+  // post formats
+  add_theme_support('post-formats', array('link', 'image', 'audio', 'video'));
+
   // wp menus
   add_theme_support( 'menus' );  
   
