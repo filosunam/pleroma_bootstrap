@@ -38,6 +38,13 @@
 
           <?php while ( have_posts() ) : the_post(); ?>
           
+            <?php
+              if ('video' === get_post_format()) { 
+                get_template_part( 'featured', 'video' );
+              } else {
+
+            ?>
+
             <div id="post-<?php the_ID(); ?>" role="article" class="span3">
               <header class="article-header">
                   <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
@@ -50,6 +57,9 @@
                 </h4>    
               </header> <!-- end article header -->
             </div> <!-- end article -->
+
+            <?php } ?>
+
             <hr class="visible-phone">
 
           <?php endwhile; ?>
