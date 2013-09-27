@@ -21,7 +21,7 @@
 			              if ( $query->post_count > 0 ) :
 
 			          ?>
-			            <div id="myCarousel" class="carousel carousel-fade slide">
+			            <div id="homeCarousel" class="carousel carousel-fade slide">
 			              <div class="carousel-inner">
 			                <?php
 
@@ -31,23 +31,24 @@
 			                    $query->the_post();
 
 			                ?>
+			                <?php if ( has_post_thumbnail() ) { ?>
 			                <div class="<?php print $active ?>item">
 			                  <?php 
-			                    if ( has_post_thumbnail() ) {
-			                      $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-			                      echo '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute('echo=0') . '">';
-			                    }
+		                      $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+		                      echo '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute('echo=0') . '">';
 			                  ?>
 			                  <div class="carousel-caption">
 			                    <p><?php the_title() ?></p>
 			                  </div>
 			                </div>
+											<?php } ?>
+
 			                <?php endwhile; ?>
 			              </div>
 
 			              <?php if ( $query->post_count > 1 ) : ?>
-			              <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-			              <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			              <a class="carousel-control left" href="#homeCarousel" data-slide="prev">&lsaquo;</a>
+			              <a class="carousel-control right" href="#homeCarousel" data-slide="next">&rsaquo;</a>
 			              <?php endif; ?>
 			            
 			            </div>
