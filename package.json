@@ -1,6 +1,6 @@
 {
   "name": "pleroma_bootstrap",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Wordpress Theme. Developed with love and joy to FFyL UNAM, based on Twitter Bootstrap",
   "main": "Gruntfile.js",
   "repository": {
@@ -16,6 +16,8 @@
     "grunt-contrib-less": "~0.6.4",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-exec": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.1"
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-release": "~0.5.1",
+    "load-grunt-tasks": "~0.1.0"
   }
 }
