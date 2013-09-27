@@ -108,8 +108,8 @@
                 if (have_posts()) : the_post();
 
                 $fields   = get_post_custom();
-                $website  = $fields['website'][0];
-                $url      = !$website ? get_permalink() : $website;
+                $website  = isset($fields['website']) ? $fields['website'][0] : null;
+                $url      = isset($website) ? $website : get_permalink();
 
             ?>
 

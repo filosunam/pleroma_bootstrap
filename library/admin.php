@@ -174,84 +174,88 @@ if( 1 == $blog_id )
 {
 
   $page  = get_page_by_path('investigacion/proyectos');
-  $pages = get_children(
-    array( 
-        'post_parent' => $page->ID
-      , 'post_type'   => 'page'
-      , 'post_status' => 'publish' 
-    )
-  );
-  $wp_researches = array('Elige un contenido');
-  foreach ( $pages as $page_list )
-    $wp_researches[$page_list->ID] = $page_list->post_title;
 
-  $proyectos = array(
+  if ($page) {
 
-  array( "name" => "Proyectos de Investigación",  
-         "type" => "section"),
+    $pages = get_children(
+      array( 
+          'post_parent' => $page->ID
+        , 'post_type'   => 'page'
+        , 'post_status' => 'publish' 
+      )
+    );
+    $wp_researches = array('Elige un contenido');
+    foreach ( $pages as $page_list )
+      $wp_researches[$page_list->ID] = $page_list->post_title;
 
-  array( "type" => "open"),
+    $proyectos = array(
 
-  array(
-        "name"    => "Producto de investigación", 
-        "desc"    => "Producto de investigación promocionado en la página principal",  
-        "id"      => "pleroma_research_product",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
+    array( "name" => "Proyectos de Investigación",  
+           "type" => "section"),
 
-  array(
-        "name"    => "#1 proyecto destacado", 
-        "desc"    => "",  
-        "id"      => "pleroma_project_featured_1",
-        "type"    => "select",
-        "options" => $wp_researches,  
-        "std"     => ""
-  ),
+    array( "type" => "open"),
 
-  array(
-        "name"    => "#2 proyecto destacado", 
-        "desc"    => "",  
-        "id"      => "pleroma_project_featured_2",
-        "type"    => "select",
-        "options" => $wp_researches,  
-        "std"     => ""
-  ),
+    array(
+          "name"    => "Producto de investigación", 
+          "desc"    => "Producto de investigación promocionado en la página principal",  
+          "id"      => "pleroma_research_product",
+          "type"    => "select",
+          "options" => $wp_posts,  
+          "std"     => ""
+    ),
 
-  array(
-        "name"    => "#3 proyecto destacado", 
-        "desc"    => "",  
-        "id"      => "pleroma_project_featured_3",
-        "type"    => "select",
-        "options" => $wp_researches,  
-        "std"     => ""
-  ),
+    array(
+          "name"    => "#1 proyecto destacado", 
+          "desc"    => "",  
+          "id"      => "pleroma_project_featured_1",
+          "type"    => "select",
+          "options" => $wp_researches,  
+          "std"     => ""
+    ),
 
-  array(
-        "name"    => "#4 proyecto destacado", 
-        "desc"    => "",  
-        "id"      => "pleroma_project_featured_4",
-        "type"    => "select",
-        "options" => $wp_researches,  
-        "std"     => ""
-  ),
+    array(
+          "name"    => "#2 proyecto destacado", 
+          "desc"    => "",  
+          "id"      => "pleroma_project_featured_2",
+          "type"    => "select",
+          "options" => $wp_researches,  
+          "std"     => ""
+    ),
 
-  array(
-        "name"    => "#5 proyecto destacado", 
-        "desc"    => "",  
-        "id"      => "pleroma_project_featured_5",
-        "type"    => "select",
-        "options" => $wp_researches,  
-        "std"     => ""
-  ),
+    array(
+          "name"    => "#3 proyecto destacado", 
+          "desc"    => "",  
+          "id"      => "pleroma_project_featured_3",
+          "type"    => "select",
+          "options" => $wp_researches,  
+          "std"     => ""
+    ),
 
-  array( "type" => "close")
+    array(
+          "name"    => "#4 proyecto destacado", 
+          "desc"    => "",  
+          "id"      => "pleroma_project_featured_4",
+          "type"    => "select",
+          "options" => $wp_researches,  
+          "std"     => ""
+    ),
 
-  );
+    array(
+          "name"    => "#5 proyecto destacado", 
+          "desc"    => "",  
+          "id"      => "pleroma_project_featured_5",
+          "type"    => "select",
+          "options" => $wp_researches,  
+          "std"     => ""
+    ),
 
-  $options = array_merge($options, $proyectos);
+    array( "type" => "close")
 
+    );
+
+    $options = array_merge($options, $proyectos);
+
+  }
 
   $boletin = array(
   // Boletín

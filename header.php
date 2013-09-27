@@ -10,6 +10,8 @@
 
     global $page, $paged;
 
+    $page_title = '';
+
     // Add page numeral if needed
     if ( $paged > 1 || $page > 1 )
       $page_title = '&lsaquo; ' . sprintf( __( 'Página %s', 'pleromabootstrap' ), max( $paged, $page ) ) . ' |';
