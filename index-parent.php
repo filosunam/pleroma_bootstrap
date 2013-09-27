@@ -74,20 +74,21 @@
 <?php if( 'es-ES' == get_bloginfo('language') ): ?>
 
 <div class="row-fluid">
+
+  <?php
+
+    $args = array(
+        'title'          => ''
+      , 'numberposts'    => 3
+      , 'showpastevents' => 0
+      , 'no_events'      => __('No events found', 'eventorganiser')
+    );
+
+  ?>
+  <?php if (eo_get_events($args)) : ?>
   <div class="span4 home-events">
     <h2 class="h3 lead"><?php _e('Events', 'eventorganiser'); ?></h2>
-    <?php
-
-      $args = array(
-          'title'          => ''
-        , 'numberposts'    => 3
-        , 'showpastevents' => 0
-        , 'no_events'      => __('No events found', 'eventorganiser')
-      );
-
-      the_widget('EO_Event_List_Widget', $args);
-
-    ?>
+    <?php the_widget('EO_Event_List_Widget', $args); ?>
     <a class="btn btn-small" href="/calendario-de-eventos">
       <i class="icon-th"></i>
       <?php _e('Events Calendar', 'eventorganiser'); ?>
@@ -95,22 +96,25 @@
   </div>
   
   <hr class="visible-phone">
+  <?php endif; ?>
 
   <div class="span8">
     <?php
         
         $research_product = get_option('pleroma_research_product');
 
-        query_posts(array(
-            'p'         => $research_product
-          , 'post_type' => array( 'post', 'page', 'event' )
-        ));
+        if ($research_product) {
 
-        if (have_posts()) : the_post();
+          query_posts(array(
+              'p'         => $research_product
+            , 'post_type' => array( 'post', 'page', 'event' )
+          ));
 
-        $fields   = get_post_custom();
-        $website  = isset($fields['website']) ? $fields['website'][0] : null;
-        $url      = isset($website) ? $website : get_permalink();
+          if (have_posts()) : the_post();
+
+          $fields   = get_post_custom();
+          $website  = isset($fields['website']) ? $fields['website'][0] : null;
+          $url      = isset($website) ? $website : get_permalink();
 
     ?>
 
@@ -132,6 +136,7 @@
     <hr class="hidden-phone">
 
     <?php endif; ?>
+    <?php } ?>
 
     <div class="row-fluid hidden-phone">
       <?php
