@@ -431,8 +431,8 @@ function pleroma_admin_home() {
                     </div>
                   ';
 
-        $default  = get_settings( $value['id'] )
-                  ? stripslashes(get_settings( $value['id'] ))
+        $default  = get_option( $value['id'] )
+                  ? stripslashes(get_option( $value['id'] ))
                   : $value['std'];
 
         printf( $format, $value['id'], $value['type'], $value['name'], $value['desc'], $default );
@@ -448,8 +448,8 @@ function pleroma_admin_home() {
                     </div>
                   ';
 
-        $default  = get_settings( $value['id'] )
-                  ? stripslashes(get_settings( $value['id'] ))
+        $default  = get_option( $value['id'] )
+                  ? stripslashes(get_option( $value['id'] ))
                   : $value['std'];
 
         printf( $format, $value['id'], $value['type'], $value['name'], $value['desc'], $default );
@@ -472,7 +472,7 @@ function pleroma_admin_home() {
           $options_select = '';
           foreach ($value['options'] as $id => $option)
           {
-            $selected = (get_settings( $value['id'] ) == $id)
+            $selected = (get_option( $value['id'] ) == $id)
                       ? ' selected="selected"'
                       : '';
             $options_select .= "<option value=\"$id\"$selected>$option</option>\n";
