@@ -1,9 +1,8 @@
 <?php get_header(); ?>
-<?php global $blog_id; ?>
       
         <div class="row-fluid">
       
-          <?php if( $blog_id == 1 ) { ?>
+          <?php if( get_current_blog_id() == 1 ) { ?>
 
           <div id="main" class="span6" role="main">
             <?php get_template_part( 'single', 'part' ); ?>

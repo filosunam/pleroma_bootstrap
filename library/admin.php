@@ -4,8 +4,6 @@
 // If I write the fucking manual, I will be ashamed
 // not do it, so you know what I say...
 
-global $blog_id;
-
 /*****************************
  ****** ADMIN DASHBOARD ******
  *****************************/
@@ -170,7 +168,7 @@ $options = array (
    
 );
 
-if( 1 == $blog_id )
+if( 1 == get_current_blog_id() )
 {
 
   $page  = get_page_by_path('investigacion/proyectos');

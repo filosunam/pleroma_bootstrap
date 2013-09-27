@@ -80,7 +80,6 @@ function pleroma_assets(){
 }
 
 function pleroma_theme_support(){
-  global $blog_id;
 
   // rss
   add_theme_support('automatic-feed-links');
@@ -102,7 +101,7 @@ function pleroma_theme_support(){
   );
 
   // wp menus of child blogs
-  if( $blog_id > 1 )
+  if( get_current_blog_id() > 1 )
   {
 
     // change nav names
@@ -161,9 +160,7 @@ function pleroma_primary_nav() {
 
 function pleroma_secondary_nav($class = 'nav-tabs nav-stacked') {
 
-  global $blog_id;
-  
-  if( $blog_id > 1 )
+  if( get_current_blog_id() > 1 )
     switch_to_blog(1);
 
   wp_nav_menu(array( 

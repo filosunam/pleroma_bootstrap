@@ -1,6 +1,5 @@
-          <?php global $blog_id; ?>
           <?php
-            if ( $blog_id > 1 )
+            if ( get_current_blog_id() > 1 )
             {
               wp_nav_menu(array( 
                   'theme_location'  => 'primary'                  

@@ -68,10 +68,9 @@ add_filter('nav_menu_item_id', '__return_null');
  
 function network_primary_nav( $menu_items, $args )
 {
-  global $blog_id;
   $menu_name = 'primary';
 
-  if ( ( $blog_id > 1 ) && $menu_name == $args->theme_location && $args->fallback_cb != 'pleroma_nav_menu_args' )
+  if ( ( get_current_blog_id() > 1 ) && $menu_name == $args->theme_location && $args->fallback_cb != 'pleroma_nav_menu_args' )
   {
     // to parent blog
     switch_to_blog(1);

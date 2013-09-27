@@ -5,7 +5,6 @@ Template Name: Páginas (sidebar derecho)
 ?>
 
 <?php get_header(); ?>
-<?php global $blog_id; ?>
 
         <div class="row-fluid">
 
@@ -15,7 +14,7 @@ Template Name: Páginas (sidebar derecho)
 
           <div class="span3">
             <?php
-              if( $blog_id > 1 )
+              if( get_current_blog_id() > 1 )
               {
                 get_sidebar(2);        // sidebar 2
               } else

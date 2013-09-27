@@ -2,8 +2,6 @@
 
 function pleroma_register_sidebars() {
 
-  global $blog_id;
-
   register_sidebar(array(
       'id'            => 'sidebar-1'
     , 'name'          => 'Sidebar 1'
@@ -24,7 +22,7 @@ function pleroma_register_sidebars() {
     , 'after_title'   => '</h4>'
   ));
 
-  if ( $blog_id == 1 ) {
+  if ( get_current_blog_id() == 1 ) {
 
     register_sidebar(array(
         'id'            => 'sidebar-page-1'

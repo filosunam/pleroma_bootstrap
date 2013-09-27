@@ -5,13 +5,12 @@ Template Name: Páginas (sidebar izquierdo)
 ?>
 
 <?php get_header(); ?>
-<?php global $blog_id; ?>
 
         <div class="row-fluid">
 
           <div class="span3">
             <?php
-              if( $blog_id > 1 )
+              if( get_current_blog_id() > 1 )
               {
                 get_sidebar(1);        // sidebar 1
               } else

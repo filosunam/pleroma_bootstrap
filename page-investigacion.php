@@ -1,5 +1,4 @@
-<?php global $blog_id; ?>
-<?php if ( $blog_id == 1 ) { // if parent home ?>
+<?php if ( get_current_blog_id() == 1 ) { // if parent home ?>
 
 <?php get_header(); ?>
 
