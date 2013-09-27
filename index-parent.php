@@ -7,7 +7,7 @@
 
     $category_slides = get_option('pleroma_home_slider');
 
-    if( is_home() && $category_slides ) : 
+    if( is_home() ) :
 
       $query = new wp_query(array(
         'cat' => $category_slides,
