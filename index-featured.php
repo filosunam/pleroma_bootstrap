@@ -71,7 +71,13 @@
                   </a>
                 </h4>    
               </header> <!-- end article header -->
-              <p><?php the_excerpt(); ?></p>
+              <p>
+                <?php
+                  if (get_current_blog_id() != 1) {
+                    the_excerpt();
+                  }
+                ?>
+              </p>
             </div> <!-- end article -->
 
             <?php } ?>
