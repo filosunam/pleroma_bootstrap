@@ -71,6 +71,7 @@
                   </a>
                 </h4>    
               </header> <!-- end article header -->
+              <p><?php the_excerpt(); ?></p>
             </div> <!-- end article -->
 
             <?php } ?>
