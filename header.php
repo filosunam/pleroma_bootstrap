@@ -60,7 +60,11 @@
               switch_to_blog(1);
 
               $menus = get_nav_menu_locations();
-              echo wp_get_nav_menu_object($menus['secondary'])->name;
+
+              if (isset($menus['secondary'])) {
+                $menu = wp_get_nav_menu_object($menus['secondary']);
+                echo $menu->name;
+              }
 
               restore_current_blog();
 
