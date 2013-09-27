@@ -1,4 +1,4 @@
-<?php if (is_category() && !is_category('Boletín')) { ?>
+<?php if (is_category() && !is_category('boletin')) { ?>
   <h1 class="lead h4">
     <span><?php _e("Archivos de categoría", "pleromabootstrap"); ?>:</span> <?php single_cat_title(); ?>
   </h1>

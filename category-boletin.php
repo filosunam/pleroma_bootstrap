@@ -6,7 +6,7 @@
 
     <div id="main" role="main">
       <h1 class="lead h3 hide"><?php single_cat_title(); ?></h1>
-      <?php if (!is_paged()) : ?>
+      <?php if (!is_paged() && is_category('boletin')) : ?>
 
         <div id="homeCarousel" class="carousel slide carousel-fade">
           <div class="carousel-inner">
