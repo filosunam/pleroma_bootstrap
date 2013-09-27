@@ -150,7 +150,7 @@ function pleroma_primary_nav() {
     wp_nav_menu(array( 
         'theme_location'  => 'primary'                    // location in theme
       , 'container'       => false                        // remove nav container
-      , 'depth'           => -1                           // depth of the nav
+      , 'depth'           => 1                            // depth of the nav
       , 'items_wrap'      => '<ul class="nav">%3$s</ul>'  // adapted to twitter bootstrap (not yet dropdown)    // 
       , 'fallback_cb'     => '__return_false'             // avoiding fallback default function
     ));
