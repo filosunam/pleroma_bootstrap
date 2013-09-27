@@ -3,7 +3,7 @@ Plantilla de Wordpress diseñada y desarrollada para la [Facultad de Filosofía 
 
 ## ¿Cómo empezar?
 
-    $ git clone git@github.com:FFyL-UNAM/pleroma_bootstrap.git
+    $ git clone git@github.com:filosunam/pleroma_bootstrap.git
     $ git submodule update --init
 
 ## Generar archivos
