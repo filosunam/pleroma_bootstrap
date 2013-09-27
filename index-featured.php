@@ -21,10 +21,25 @@
             } else
             {
 
-              $args = array(
-                  'cat'            => $category_featured
-                , 'posts_per_page' => 4
-              );
+              $sticky = get_option('sticky_posts');
+
+              if ($sticky) {
+
+                rsort($sticky);
+
+                $args = array(
+                  'post__in'            => array_slice($sticky, 0, 5),
+                  'ignore_sticky_posts' => 1
+                );
+
+              } else {
+
+                $args = array(
+                  'posts_per_page'      => 4,
+                  'ignore_sticky_posts' => 0
+                );
+
+              }
 
             }
 

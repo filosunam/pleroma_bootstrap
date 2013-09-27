@@ -78,18 +78,9 @@ $options = array (
       "options" => $wp_cats,
       "std"     => "Elige una categoría"
   ), 
-           
-  array(
-        "name"    => "Categoría destacada",  
-        "desc"    => "Elige una categoría para destacarla en la página inicial.",  
-        "id"      => "pleroma_home_featured",  
-        "type"    => "select",  
-        "options" => $wp_cats,
-        "std"     => "Elige una categoría"
-  ),  
 
   array(
-        "name"    => "Mostrar contenido destacado elegido manualmente",  
+        "name"    => "Destacar contenido manualmente en la página principal",  
         "desc"    => "Si está activado podrá desplegarse el contenido que se añade manualmente.",  
         "id"      => "pleroma_home_manual",  
         "type"    => "checkbox",  
