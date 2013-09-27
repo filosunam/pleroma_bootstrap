@@ -11,7 +11,7 @@
 
       $query = new wp_query(array(
         'cat' => $category_slides,
-        'posts_per_page' => 8        
+        'posts_per_page' => 8
       ));
 
       if ( $query->post_count > 0 ) :
@@ -27,18 +27,21 @@
             $query->the_post();
 
         ?>
+        
+        <?php if ( has_post_thumbnail() ) { ?>
         <div class="<?php print $active ?>item">
           <?php 
-            if ( has_post_thumbnail() ) {
-              $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-              echo '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute('echo=0') . '">';
-            }
+            $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+            echo '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute('echo=0') . '">';
           ?>
           <div class="carousel-caption">
             <p><?php the_title() ?></p>
           </div>
         </div>
+        <?php } ?>
+
         <?php endwhile; ?>
+
       </div>
 
       <?php if ( $query->post_count > 1 ) : ?>
