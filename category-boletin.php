@@ -8,7 +8,7 @@
       <h1 class="lead h3 hide"><?php single_cat_title(); ?></h1>
       <?php if (!is_paged()) : ?>
 
-        <div id="myCarousel" class="carousel slide carousel-fade">
+        <div id="homeCarousel" class="carousel slide carousel-fade">
           <div class="carousel-inner">
             <?php
 
@@ -62,8 +62,8 @@
           </div>
 
           <?php if ( $i > 1 ) : ?>
-          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          <a class="carousel-control left" href="#homeCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#homeCarousel" data-slide="next">&rsaquo;</a>
           <?php endif; ?>
 
         </div>
