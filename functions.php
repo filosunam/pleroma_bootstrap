@@ -19,7 +19,7 @@ update_option('thumbnail_size_w', 125);
 update_option('thumbnail_size_h', 125);
 update_option('thumbnail_crop', 1);
 
-add_image_size( 'small', 10000, 161 );
+add_image_size( 'small', 347, 161, 1 );
 
 update_option('medium_size_w', 700);
 update_option('medium_size_h', 322);
