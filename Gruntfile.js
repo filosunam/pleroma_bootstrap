@@ -66,6 +66,16 @@ grunt.initConfig({
       bootstrap: {
         command: 'cp ./bootstrap/img/* ./img'
       }
+    },
+    release: {
+      options: {
+        commit: false,
+        push: false,
+        pushTags: false,
+        npm: false,
+        commitMessage: 'Release <%= version %>',
+        tagMessage: 'Version <%= version %>'
+      }
     }
   });
 
