@@ -2,6 +2,9 @@
 
 module.exports = function(grunt){
 
+// load all grunt tasks
+require('load-grunt-tasks')(grunt);
+
 grunt.initConfig({
     less: {
       development: {
@@ -65,11 +68,6 @@ grunt.initConfig({
       }
     }
   });
-
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('build', ['less', 'uglify', 'exec']);
 };
