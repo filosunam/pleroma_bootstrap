@@ -8,13 +8,15 @@
   <meta charset="utf-8">
   <title><?php
 
-    global $page, $paged;
+    global $paged;
 
+    // Set empty variable
     $page_title = '';
 
     // Add page numeral if needed
-    if ( $paged > 1 || $page > 1 )
-      $page_title = '&lsaquo; ' . sprintf( __( 'Página %s', 'pleromabootstrap' ), max( $paged, $page ) ) . ' |';
+    if ( $paged > 1 ) {
+      $page_title = '&lsaquo; ' . sprintf( __( 'Página %s', 'pleromabootstrap' ), $paged ) . ' |';
+    }
 
     // Add page title
     wp_title( $page_title ? $page_title : '|', true, 'right' );
