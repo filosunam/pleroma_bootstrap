@@ -44,19 +44,19 @@ grunt.initConfig({
       target: {
         files: {
           'js/pleroma_bootstrap.min.js': [
-            "bootstrap/js/bootstrap-transition.js",
-            "bootstrap/js/bootstrap-alert.js",
-            "bootstrap/js/bootstrap-button.js",
-            "bootstrap/js/bootstrap-carousel.js",
-            "bootstrap/js/bootstrap-collapse.js",
-            "bootstrap/js/bootstrap-dropdown.js",
-            "bootstrap/js/bootstrap-modal.js",
-            "bootstrap/js/bootstrap-tooltip.js",
-            "bootstrap/js/bootstrap-popover.js",
-            "bootstrap/js/bootstrap-scrollspy.js",
-            "bootstrap/js/bootstrap-tab.js",
-            "bootstrap/js/bootstrap-typeahead.js",
-            "bootstrap/js/bootstrap-affix.js",
+            "components/bootstrap/js/bootstrap-transition.js",
+            "components/bootstrap/js/bootstrap-alert.js",
+            "components/bootstrap/js/bootstrap-button.js",
+            "components/bootstrap/js/bootstrap-carousel.js",
+            "components/bootstrap/js/bootstrap-collapse.js",
+            "components/bootstrap/js/bootstrap-dropdown.js",
+            "components/bootstrap/js/bootstrap-modal.js",
+            "components/bootstrap/js/bootstrap-tooltip.js",
+            "components/bootstrap/js/bootstrap-popover.js",
+            "components/bootstrap/js/bootstrap-scrollspy.js",
+            "components/bootstrap/js/bootstrap-tab.js",
+            "components/bootstrap/js/bootstrap-typeahead.js",
+            "components/bootstrap/js/bootstrap-affix.js",
             "js/pleroma.js"
           ]
         }
@@ -64,7 +64,7 @@ grunt.initConfig({
     },
     exec: {
       bootstrap: {
-        command: 'cp ./bootstrap/img/* ./img'
+        command: 'cp ./components/bootstrap/img/* ./img'
       }
     },
     release: {
