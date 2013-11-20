@@ -204,7 +204,7 @@ function pleroma_search($form) {
   $form = ' <form role="search" class="navbar-search pull-right" action="%1$s">
               <input type="text" value="%2$s" name="s" id="s" class="search-query" placeholder="%3$s">
             </form> ';
-  return sprintf( $form, home_url( '/' ), get_search_query(), esc_attr__('Search for:') );
+  return sprintf( $form, home_url( '/' ), get_search_query(), esc_attr__('Buscar', 'pleromabootstrap') );
 
 }
 

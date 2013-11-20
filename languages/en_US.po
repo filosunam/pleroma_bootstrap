@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pleromabootstrap\n"
-"POT-Creation-Date: 2013-06-06 19:48-0600\n"
-"PO-Revision-Date: 2013-06-06 19:58-0600\n"
+"POT-Creation-Date: 2013-11-20 05:06-0600\n"
+"PO-Revision-Date: 2013-11-20 05:11-0600\n"
 "Last-Translator: Marco Godínez <mgodinez@filos.unam.mx>\n"
 "Language-Team: Facultad de Filosofía y Letras <web@filos.unam.mx>\n"
 "Language: en_US\n"
@@ -10,16 +10,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.5\n"
-"X-Poedit-KeywordsList: __;_e;_;gettext;gettext_noop\n"
+"X-Poedit-KeywordsList: __;_e;_;gettext;gettext_noop;esc_attr__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
 
-#: 404.php:9 library/navs.php:237
+#: ../404.php:9 ../library/navs.php:236
 msgid "Error 404 - Artículo no encontrado"
 msgstr "Error 404 - Article not found"
 
-#: 404.php:10
+#: ../404.php:10
 msgid ""
 "El artículo que buscas no fue encontrado, puedes intentar realizar una "
 "búsqueda"
@@ -27,93 +28,93 @@ msgstr ""
 "The article you are looking for was not found, you can try to perform a "
 "search"
 
-#: archive-single.php:3 library/navs.php:180
+#: ../archive-single.php:3 ../library/navs.php:179
 msgid "Archivos de categoría"
 msgstr "Category Archives"
 
-#: archive-single.php:8 library/navs.php:185
+#: ../archive-single.php:8 ../library/navs.php:184
 msgid "Entradas etiquetadas"
 msgstr "Entries tagged"
 
-#: archive-single.php:13 library/navs.php:233
+#: ../archive-single.php:13 ../library/navs.php:232
 msgid "Publicado por"
 msgstr "Published by"
 
-#: archive-single.php:18
+#: ../archive-single.php:18
 msgid "Archivo diario"
 msgstr "Daily archive"
 
-#: archive-single.php:23
+#: ../archive-single.php:23
 msgid "Archivo mensual"
 msgstr "Monthly archive"
 
-#: archive-single.php:28
+#: ../archive-single.php:28
 msgid "Archivo anual"
 msgstr "Yearly archive"
 
-#: footer.php:43 footer.php:46
+#: ../footer.php:43 ../footer.php:46
 msgid "Visita la Facultad"
 msgstr "Visit the Faculty"
 
-#: footer.php:51
+#: ../footer.php:51
 msgid "Edificio \"Adolfo Sánchez Vázquez\""
 msgstr "\"Adolfo Sánchez Vázquez\" Building"
 
-#: footer.php:55
+#: ../footer.php:55
 msgid "Facultad de Filosofía y Letras"
 msgstr "Faculty of Philosophy and Literature"
 
-#: header.php:15
+#: ../header.php:18
 #, php-format
 msgid "Página %s"
 msgstr "Page %s"
 
-#: index-parent.php:81
+#: ../index-parent.php:87
 msgid "No events found"
 msgstr ""
 
-#: index-parent.php:88
+#: ../index-parent.php:93
 msgid "Events"
 msgstr ""
 
-#: index-parent.php:92
+#: ../index-parent.php:97
 msgid "Events Calendar"
 msgstr ""
 
-#: search.php:13 search.php:38
-msgid "Search for:"
-msgstr ""
+#: ../search.php:8 ../search.php:41 ../library/pleroma.php:207
+msgid "Buscar"
+msgstr "Search for:"
 
-#: search.php:22 search.php:47
+#: ../search.php:17 ../search.php:50
 msgid "Disculpa, no hay resultados."
 msgstr "Sorry, not found results."
 
-#: search.php:23 search.php:48
+#: ../search.php:18 ../search.php:51
 msgid "Intenta de nuevo la búsqueda."
 msgstr "Try to search again."
 
-#: single-part.php:54
+#: ../single-part.php:59
 msgid "Publicada"
 msgstr "Published"
 
-#: single-part.php:57
+#: ../single-part.php:62
 msgid "archivada en"
 msgstr "file under"
 
-#: library/boletin.php:10
+#: ../library/boletin.php:8
 msgid "Boletín"
 msgstr "Bulletin"
 
-#: library/navs.php:106
+#: ../library/navs.php:105
 msgid "Home"
 msgstr ""
 
-#: library/navs.php:200
+#: ../library/navs.php:199
 #, php-format
 msgid "Resultados de búsqueda de: \"%s\""
 msgstr "Search results: \"%s\""
 
-#: library/pleroma.php:213
+#: ../library/pleroma.php:220
 msgid "Leer más"
 msgstr "Read more"
 
