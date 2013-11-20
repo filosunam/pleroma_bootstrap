@@ -1,7 +1,7 @@
 <?php
 
 class Pleroma_Nav_Menu extends Walker_Nav_Menu {
-  function start_lvl(&$output, $depth) {
+  function start_lvl(&$output, $depth = 0, $args = array()) {
     $output .= "\n<ul class=\"dropdown-menu\">\n";
   }
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
