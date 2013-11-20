@@ -345,17 +345,17 @@ function pleroma_admin_menu ()
    
         foreach ($options as $value)
         {
-          if (isset($value['id']))
+          if ( isset($value['id']) && isset( $_REQUEST[ $value['id'] ] ) )
           {
             update_option( $value['id'], $_REQUEST[ $value['id'] ] );
           }
         }  
      
         foreach ($options as $value) {
-          if( isset( $_REQUEST[ $value['id'] ] ) )
+          if ( isset($value['id']) && isset( $_REQUEST[ $value['id'] ] ) )
           {
             update_option( $value['id'], $_REQUEST[ $value['id'] ]  );
-          } else
+          } else if ( isset($value['id']) )
           {
             delete_option( $value['id'] );
           }
