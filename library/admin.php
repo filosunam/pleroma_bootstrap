@@ -162,20 +162,24 @@ $options = array (
 if( 1 == get_current_blog_id() )
 {
 
-  $page  = get_page_by_path('investigacion/proyectos');
+  // Args to get research projects
+  $args = array(
+    'sort_order' => 'desc',
+    'sort_column' => 'menu_order',
+    'exclude_tree' => '',
+    'number' => 6,
+    'post_type' => 'research-project',
+    'post_status' => 'publish'
+  );
 
-  if ($page) {
+  // Get Research Projects
+  $projects = get_posts( $args );
 
-    $pages = get_children(
-      array( 
-          'post_parent' => $page->ID
-        , 'post_type'   => 'page'
-        , 'post_status' => 'publish' 
-      )
-    );
+  if ($projects) {
+
     $wp_researches = array('Elige un contenido');
-    foreach ( $pages as $page_list )
-      $wp_researches[$page_list->ID] = $page_list->post_title;
+    foreach ( $projects as $project )
+      $wp_researches[$project->ID] = $project->post_title;
 
     $proyectos = array(
 

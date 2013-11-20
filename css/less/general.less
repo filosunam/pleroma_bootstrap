@@ -96,13 +96,13 @@ ul.eo-events {
     }
   }
 }
-.home-product {
+.home-product, .research-project {
   position: relative;
   .article-footer {
     position: absolute;
     right: 20px;
     bottom: 20px;
-    left: 40%;
+    max-width: 40%;
     padding: 10px 5%;
     background: black;
     .opacity(80);
@@ -115,6 +115,15 @@ ul.eo-events {
     }
     a, a:hover, a:focus {
       color: @white;
+    }
+  }
+}
+
+.research-project {
+  .article-footer {
+    .lead {
+      line-height: @baseLineHeight * 1.5;
+      font-size: 1.6em;
     }
   }
 }

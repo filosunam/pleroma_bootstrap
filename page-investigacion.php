@@ -1,4 +1,4 @@
-<?php if ( get_current_blog_id() == 1 ) { // if parent home ?>
+<?php if ( get_current_blog_id() === 1 ) { // if parent blog ?>
 
 <?php get_header(); ?>
 
@@ -18,13 +18,14 @@
 
     <?php
 
+      // Get ids
       $ids = array(
-                get_option('pleroma_project_featured_1')
-              , get_option('pleroma_project_featured_2')
-              , get_option('pleroma_project_featured_3')
-              , get_option('pleroma_project_featured_4')
-              , get_option('pleroma_project_featured_5')
-            );
+        get_option('pleroma_project_featured_1'),
+        get_option('pleroma_project_featured_2'),
+        get_option('pleroma_project_featured_3'),
+        get_option('pleroma_project_featured_4'),
+        get_option('pleroma_project_featured_5')
+      );
       
       $ids = array_filter($ids); // remove nulls
 
@@ -42,10 +43,19 @@
             if ( has_post_thumbnail() ) { $i++;
               $active = ($i == 1) ? 'active ' : '';
         ?>
-        <div class="<?php print $active ?>item">
-          <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail( 'large' ); ?>
-          </a>
+        <div class="research-project <?php print $active ?>item" id="post-<?php the_ID(); ?>" role="article">
+          <header class="article-header">
+            <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+              <?php the_post_thumbnail( 'large' ); ?>
+            </a>
+          </header>
+          <footer class="article-footer">
+            <h2 class="lead">
+              <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                <?php the_title(); ?>
+              </a>
+            </h2>
+          </footer>
         </div>
         <?php } ?>
         <?php endforeach; ?>
@@ -61,20 +71,54 @@
 
     <div class="row-fluid">
       <div class="span8">
-        <?php
-          if (have_posts()) : 
-            while (have_posts()) : 
-              the_post();
-              the_content();
-            endwhile; 
-          endif;
-        ?>
-      </div><!-- /.span8 -->
+        <div class="row-fluid">
+          <?php
 
+            // Args to get research projects
+            $args = array(
+              'sort_order' => 'desc',
+              'sort_column' => 'menu_order',
+              'exclude_tree' => '',
+              'number' => 6,
+              'post_type' => 'research-project',
+              'post_status' => 'publish'
+            );
+
+            // Get Research Projects
+            $projects = get_posts( $args );
+
+            // Research projects
+            foreach ($projects as $index => $project) :
+
+          ?>
+
+          <?php if( $index % 2 == 0 ) : ?>
+            </div>
+            <div class="row-fluid">
+          <?php endif; ?>
+      
+          <div class="span6">
+            <p>
+              <?php
+                $permalink = get_permalink($project->ID);
+                $thumbnail = get_the_post_thumbnail($project->ID, 'medium');
+              ?>
+
+              <a href="<?php echo $permalink; ?>">
+                <?php echo $thumbnail; ?>
+              </a>
+
+              <a href="<?php echo $permalink; ?>" style="font-size: 0.9em; display:block; background: #555; color: white; padding: 10px">
+                <?php echo $project->post_title; ?>
+              </a>
+            </p>
+          </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
       <div class="span4">
         <?php get_sidebar('page-2'); ?>
-      </div><!-- /.span4 -->
-    
+      </div>
     </div>
   </div><!-- /.span9 -->
 
