@@ -340,8 +340,11 @@ function pleroma_admin_menu ()
       
    
         foreach ($options as $value)
-        {  
-          update_option( $value['id'], $_REQUEST[ $value['id'] ] );
+        {
+          if (isset($value['id']))
+          {
+            update_option( $value['id'], $_REQUEST[ $value['id'] ] );
+          }
         }  
      
         foreach ($options as $value) {
