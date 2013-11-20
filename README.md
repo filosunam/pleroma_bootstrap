@@ -1,5 +1,5 @@
 # Pleroma Bootstrap
-Plantilla de Wordpress diseñada y desarrollada para la [Facultad de Filosofía y Letras, UNAM](http://www.filos.unam.mx). Basado en [Bootstrap](https://twitter.github.com/bootstrap).
+Plantilla de Wordpress diseñada y desarrollada para la [Facultad de Filosofía y Letras, UNAM](http://www.filos.unam.mx). Basado en [Bootstrap](https://github.com/twbs/bootstrap).
 
 ## ¿Cómo empezar?
 
@@ -18,7 +18,7 @@ También puedes generar por tipo de archivo:
 
 * `grunt less` para compilar LESS y generar CSS.
 * `grunt uglify` para concatenar y minificar archivos javascript
-* `grunt exec:bootstrap` para generar imágenes de [Boostrap](https://twitter.github.com/bootstrap)
+* `grunt exec:bootstrap` para generar imágenes de [Bootstrap](https://github.com/twbs/bootstrap)
 
 ## ¿Cómo contribuir?
 
