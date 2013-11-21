@@ -174,8 +174,8 @@ if( 1 == get_current_blog_id() )
 
   // Get Research Projects
   $projects = get_posts( $args );
-
-  if ($projects) {
+  
+  if (count($projects) > 0) {
 
     $wp_researches = array('Elige un contenido');
     foreach ( $projects as $project )
