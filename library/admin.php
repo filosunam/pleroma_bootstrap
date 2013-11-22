@@ -164,22 +164,21 @@ if( 1 == get_current_blog_id() )
 
   // Args to get research projects
   $args = array(
-    'sort_order' => 'desc',
-    'sort_column' => 'menu_order',
-    'exclude_tree' => '',
-    'number' => 6,
     'post_type' => 'research-project',
+    'orderby' => 'title',
+    'order' => 'ASC',
     'post_status' => 'publish'
   );
 
   // Get Research Projects
   $projects = get_posts( $args );
-  
+
   if (count($projects) > 0) {
 
     $wp_researches = array('Elige un contenido');
-    foreach ( $projects as $project )
+    foreach ( $projects as $project ) {
       $wp_researches[$project->ID] = $project->post_title;
+    }
 
     $proyectos = array(
 
