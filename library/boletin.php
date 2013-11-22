@@ -23,28 +23,29 @@ if( 1 == get_current_blog_id() )
   {
       global $wp_query;
 
-      if ($wp_query->is_page)
-          return true; // apply to category & single
+      // apply to category & single
+      if ($wp_query->is_category || $wp_query->is_singular('post')) {
 
-      // get current object
-      $cat = $wp_query->get_queried_object();
+        // get current object
+        $cat = $wp_query->get_queried_object();
 
-      // trace back the parent hierarchy and locate a template
-      while ($cat && !is_wp_error($cat) && get_bloginfo('language') == 'es-ES') {
-          $template = TEMPLATEPATH . "/category-{$cat->slug}.php";
+        // trace back the parent hierarchy and locate a template
+        while ($cat && !is_wp_error($cat) && get_bloginfo('language') == 'es-ES') {
+            $template = TEMPLATEPATH . "/category-{$cat->slug}.php";
 
-          // overriding default style
-          wp_register_style( 'pleroma',    get_stylesheet_directory_uri() . '/css/style-boletin.css' );
+            // overriding default style
+            wp_register_style( 'pleroma',    get_stylesheet_directory_uri() . '/css/style-boletin.css' );
 
-          // overriding primary nav
-          add_filter('pleroma_primary_nav', 'pleroma_boletin_nav');
+            // overriding primary nav
+            add_filter('pleroma_primary_nav', 'pleroma_boletin_nav');
 
-          if (file_exists($template)) {
-              load_template($template);
-              exit;
-          }
+            if (file_exists($template)) {
+                load_template($template);
+                exit;
+            }
 
-          $cat = $cat->parent ? get_category($cat->parent) : false;
+            $cat = $cat->parent ? get_category($cat->parent) : false;
+        }
       }
   }
 
