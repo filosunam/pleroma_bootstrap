@@ -150,7 +150,7 @@ function the_breadcrumb() {
             //If you don't set a post to a category, WordPress will assign it a default category.
             if ($num_cat <= 1)  //I put less or equal than 1 just in case the variable is not set (a catch all).
             {
-                if($category[0])
+                if(isset($category[0]))
                 {
                   echo get_category_parents($category[0],  true, ' ' . $delimiter . ' ');
                   
