@@ -1,6 +1,6 @@
 {
   "name": "pleroma_bootstrap",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "description": "Wordpress Theme. Developed with love and joy to FFyL UNAM, based on Twitter Bootstrap",
   "main": "Gruntfile.js",
   "repository": {
