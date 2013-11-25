@@ -167,6 +167,7 @@ if( 1 == get_current_blog_id() )
     'post_type' => 'research-project',
     'orderby' => 'title',
     'order' => 'ASC',
+    'posts_per_page' => -1,
     'post_status' => 'publish'
   );
 
