@@ -23,7 +23,7 @@ function pleroma_init() {
   add_post_type_support('page', 'excerpt');
   // custom excerpt
   add_filter('excerpt_length', 'pleroma_excerpt_length', 999);
-  add_filter('the_excerpt',   'pleroma_the_excerpt');
+  add_filter('excerpt_more',   'pleroma_excerpt_more');
 
   // featured image
   add_theme_support( 'post-thumbnails' );
@@ -213,13 +213,13 @@ function pleroma_search($form) {
  ********* EXCERPT **********
  ****************************/
 
-function pleroma_the_excerpt($excerpt) {
+function pleroma_excerpt_more() {
   global $post;
 
   $format = '<a href="%1$s" class="btn btn-primary" title="%2$s">%3$s <i class="icon-chevron-right icon-white"></i></a>';
   $more   = sprintf($format, get_permalink($post->ID), get_the_title($post->ID), __('Leer más', 'pleromabootstrap') );
 
-  return $excerpt . $more;
+  return ' [...] <br>' . $more;
 }
 function pleroma_excerpt_length($length) {
   return 20;
