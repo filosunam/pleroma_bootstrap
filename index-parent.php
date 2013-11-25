@@ -150,7 +150,8 @@
               );
 
         $args = array(
-          'post__in'  => $ids
+            'post_type' => 'research-project'
+          , 'post__in'  => $ids
           , 'orderby'   => 'post__in'
         );
         
