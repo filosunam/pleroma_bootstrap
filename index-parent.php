@@ -150,7 +150,7 @@
               );
 
         $args = array(
-          , 'post__in'  => $ids
+          'post__in'  => $ids
           , 'orderby'   => 'post__in'
         );
         
