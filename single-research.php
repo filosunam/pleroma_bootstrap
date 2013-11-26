@@ -10,16 +10,70 @@ get_header(); ?>
 
   <!-- Get sidebar -->
   <div class="span3">
+    <!-- Categories -->
+    <div class="widget">
+      <h4 class="widget-title h4 lead">
+        <?php _e('Líneas de investigación'); ?>
+      </h4>
+      <ul class="nav nav-tabs nav-stacked">
+      <?php
+
+        $cats = array();
+        $current = get_the_terms( get_the_ID(), 'research_category' );
+        foreach ($current as $key => $cat) {
+          $cats[] = $cat->slug;
+        }
+
+        $taxonomy = 'research_category';
+        $categories = get_terms( $taxonomy, '' );
+
+        if ($categories) {
+          foreach ( $categories as $category ) {
+            echo '<li '. (array_search($category->slug, $cats) !== false ? 'class="active"' : '') . '>';
+            echo '<a href="' . esc_attr(get_term_link( $category, $taxonomy )) . '">' . $category->name . '</a>';
+            echo '</li>';
+          }
+        }
+
+      ?>
+      </ul>
+    </div>
     <?php get_sidebar('page-1'); // sidebar page 1 ?>
   </div>
   
   <!-- Main -->
   <div id="main" class="span6" role="main">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="research-project" id="post-<?php the_ID(); ?>" role="article" itemscope itemtype="http://schema.org/BlogPosting">
       <!-- Header -->
       <header>
+        <?php
+          if ( has_post_thumbnail() ) :
+          $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+          $format_img      = '<img src="%s" alt="%s">';
+        ?>
+        <figure>
+          <?php printf( $format_img, $large_image_url[0], the_title_attribute('echo=0') ); ?>
+        </figure>
+        <?php endif; ?>
         <h1 class="h3 lead" itemprop="headline"><?php echo the_title(); ?></h1>
+        <p class="well well-small">
+          <?php
+
+            $categories = array();
+            $categories_list = get_the_terms( get_the_ID(), 'research_category' );
+
+            if (count($categories_list) > 0) {
+              
+              foreach ($categories_list as $key => $value) {
+                $categories[] = '<a href="'. get_term_link( $value->slug, 'research_category' ) .'" class="label">'. $value->name .'</a>';
+              }
+
+              echo 'Líneas de investigación: ' . implode($categories, ' ');
+            }
+
+          ?>
+        </p>
       </header>
       <!-- Content -->
       <section class="post-content" itemprop="articleBody">

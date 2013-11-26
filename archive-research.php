@@ -42,20 +42,22 @@ get_header(); ?>
       ?>
       </ul>
     </div>
+
+    <?php get_sidebar('page-1'); // sidebar page 1 ?>
   </div>
   
   <!-- Main -->
   <div id="main" class="span9" role="main">
-    <h1 class="h3 lead">Línea de investigación: <?php echo $current ?></h1>
+    <h1 class="h3 lead">Línea de investigación: <?php single_cat_title(); ?></h1>
     <?php if (have_posts()) : $i = 0; ?> 
     <div class="row-fluid">
       <?php while (have_posts()) : the_post(); $i++; ?>
 
-        <?php if ($i % 2) { ?>
+        <?php if ($i % 3 === 1) { ?>
           </div><div class="row-fluid">
         <?php } ?>
 
-        <div class="span6">
+        <div class="span4">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <p>
               <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
@@ -81,10 +83,16 @@ get_header(); ?>
                 if (count($categories_list) > 0) {
                   
                   foreach ($categories_list as $key => $value) {
-                    $categories[] = '<a href="/'. _x('projects/category', 'Slug URL (archive)', 'research-projects') . '/' . $value->slug .'">'. $value->name .'</a>';
+                    $categories[] = '<a href="'. get_term_link( $value->slug, 'research_category' ) .'">'. $value->name .'</a>';
                   }
 
-                  echo "Archivada en: " . implode($categories, ', ');
+                  if (count($categories_list) > 1) {
+                    echo 'Categorías: ';
+                  } else {
+                    echo 'Categoría: ';
+                  }
+
+                  echo implode($categories, ', ');
                 }
 
               ?>
