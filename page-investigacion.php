@@ -11,6 +11,28 @@
 <div class="row-fluid">
 
   <div class="span3">
+    <!-- Categories -->
+    <div class="widget">
+      <h4 class="widget-title h4 lead">
+        <?php _e('Líneas de investigación'); ?>
+      </h4>
+      <ul class="nav nav-tabs nav-stacked">
+      <?php
+
+        $current = get_query_var('term');
+        $taxonomy = 'research_category';
+        $categories = get_terms( $taxonomy, '' );
+
+        if ($categories) {
+          foreach ( $categories as $category ) {
+            echo '<li '. ($current === $category->slug ? 'class="active"' : '') . '>';
+            echo '<a href="' . esc_attr(get_term_link( $category, $taxonomy )) . '">' . $category->name . '</a>';
+            echo '</li>';
+          }
+        }
+
+      ?>
+      </ul>
     <?php get_sidebar('page-1'); ?>
   </div>
 
