@@ -33,6 +33,7 @@
 
       ?>
       </ul>
+    </div>
     <?php get_sidebar('page-1'); ?>
   </div>
 
