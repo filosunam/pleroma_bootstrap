@@ -117,21 +117,21 @@
         <div class="row-fluid">
       <?php endif; ?>
   
-      <div class="span4">
-        <p>
-          <?php
-            $permalink = get_permalink($project->ID);
-            $thumbnail = get_the_post_thumbnail($project->ID, 'medium');
-          ?>
+      <div class="span4" style="margin-bottom: 20px; position: relative">
+        <?php
+          $permalink = get_permalink($project->ID);
+          $thumbnail = get_the_post_thumbnail($project->ID, 'medium');
+        ?>
 
-          <a href="<?php echo $permalink; ?>">
-            <?php echo $thumbnail; ?>
-          </a>
-
-          <a href="<?php echo $permalink; ?>" style="font-size: 0.9em; display:block; background: #555; color: white; padding: 10px">
+        <a href="<?php echo $permalink; ?>">
+          <?php echo $thumbnail; ?>
+        </a>
+        
+        <div style="position: absolute; opacity: 0.8; width: 100%; bottom: 0; font-size: 0.9em; background: #555; ">          
+          <a href="<?php echo $permalink; ?>" style="display: block; color: white; padding: 5px 10px">
             <?php echo $project->post_title; ?>
           </a>
-        </p>
+        </div>
       </div>
       <?php endforeach; ?>
     </div>
