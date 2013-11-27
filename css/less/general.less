@@ -56,6 +56,9 @@ figure {
   }
 }
 
+
+// Events
+// -------------------------
 ul.eo-events {
   list-style: none;
 }
@@ -96,6 +99,9 @@ ul.eo-events {
     }
   }
 }
+
+// Research projects
+// -------------------------
 .home-product, .research-project {
   position: relative;
   .article-footer {
@@ -128,6 +134,54 @@ ul.eo-events {
   }
 }
 
+.research-featured {
+  margin-bottom: @baseLineHeight;
+  a {
+    width: 100%;
+    display: block;
+    position: relative;
+    color: white;
+    .title {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background: black;
+      .transition(all 0.2s ease-in);
+      .opacity(60);
+      height: 100%;
+      bottom: 0;
+      span {
+        .h4();
+        bottom: 0;
+        position: absolute;
+        display: block;
+        padding: 15px;
+      }
+    }
+    &:hover {
+      .title {
+        .transition(all 0.2s ease-out);
+        .opacity(0);
+      }
+    }
+  }
+  // footer {
+  //   position: absolute;
+  //   width: 100%;
+  //   bottom: 0;
+  //   opacity: 0.8;
+  //   background: #000;
+  //   font-size: 0.9em;
+  //   a {
+  //     display: block;
+  //     color: white;
+  //     padding: 5px 10px;
+  //   }
+  // }
+}
+
+// Carousel (Home)
+// -------------------------
 #homeCarousel {
   .item img {
     width: 100%;
