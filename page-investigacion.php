@@ -93,55 +93,47 @@
     <?php endif; // end slider ?>
 
     <div class="row-fluid">
-      <div class="span8">
+      <?php
+
+        // Args to get research projects
+        $args = array(
+          'orderby' => 'rand',
+          'exclude_tree' => '',
+          'number' => 9,
+          'post_type' => 'research-project',
+          'post_status' => 'publish'
+        );
+
+        // Get Research Projects
+        $projects = get_posts( $args );
+
+        // Research projects
+        foreach ($projects as $index => $project) :
+
+      ?>
+
+      <?php if( $index % 3 == 0 ) : ?>
+        </div>
         <div class="row-fluid">
+      <?php endif; ?>
+  
+      <div class="span4">
+        <p>
           <?php
-
-            // Args to get research projects
-            $args = array(
-              'sort_order' => 'desc',
-              'sort_column' => 'menu_order',
-              'exclude_tree' => '',
-              'number' => 6,
-              'post_type' => 'research-project',
-              'post_status' => 'publish'
-            );
-
-            // Get Research Projects
-            $projects = get_posts( $args );
-
-            // Research projects
-            foreach ($projects as $index => $project) :
-
+            $permalink = get_permalink($project->ID);
+            $thumbnail = get_the_post_thumbnail($project->ID, 'medium');
           ?>
 
-          <?php if( $index % 2 == 0 ) : ?>
-            </div>
-            <div class="row-fluid">
-          <?php endif; ?>
-      
-          <div class="span6">
-            <p>
-              <?php
-                $permalink = get_permalink($project->ID);
-                $thumbnail = get_the_post_thumbnail($project->ID, 'medium');
-              ?>
+          <a href="<?php echo $permalink; ?>">
+            <?php echo $thumbnail; ?>
+          </a>
 
-              <a href="<?php echo $permalink; ?>">
-                <?php echo $thumbnail; ?>
-              </a>
-
-              <a href="<?php echo $permalink; ?>" style="font-size: 0.9em; display:block; background: #555; color: white; padding: 10px">
-                <?php echo $project->post_title; ?>
-              </a>
-            </p>
-          </div>
-          <?php endforeach; ?>
-        </div>
+          <a href="<?php echo $permalink; ?>" style="font-size: 0.9em; display:block; background: #555; color: white; padding: 10px">
+            <?php echo $project->post_title; ?>
+          </a>
+        </p>
       </div>
-      <div class="span4">
-        <?php get_sidebar('page-2'); ?>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div><!-- /.span9 -->
 
