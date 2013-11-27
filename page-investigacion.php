@@ -99,7 +99,7 @@
         $args = array(
           'orderby' => 'rand',
           'exclude_tree' => '',
-          'number' => 9,
+          'posts_per_page' => 9,
           'post_type' => 'research-project',
           'post_status' => 'publish'
         );
