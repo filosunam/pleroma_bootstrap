@@ -127,7 +127,7 @@
           <?php echo $thumbnail; ?>
         </a>
         
-        <div style="position: absolute; opacity: 0.8; width: 100%; bottom: 0; font-size: 0.9em; background: #555; ">          
+        <div style="position: absolute; opacity: 0.8; width: 100%; bottom: 0; font-size: 0.9em; background: #000; ">          
           <a href="<?php echo $permalink; ?>" style="display: block; color: white; padding: 5px 10px">
             <?php echo $project->post_title; ?>
           </a>
