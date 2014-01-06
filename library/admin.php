@@ -89,7 +89,7 @@ $options = array (
 
   array(
         "name"    => "#1 contenido destacado", 
-        "desc"    => "En la primera columna (1/4)",  
+        "desc"    => "En la primera columna (1/8)",  
         "id"      => "pleroma_home_featured_1",
         "type"    => "select",
         "options" => $wp_posts,  
@@ -98,7 +98,7 @@ $options = array (
 
   array(
         "name"    => "#2 contenido destacado", 
-        "desc"    => "En la segunda columna (2/4)",  
+        "desc"    => "En la segunda columna (2/8)",  
         "id"      => "pleroma_home_featured_2",
         "type"    => "select",
         "options" => $wp_posts,  
@@ -107,7 +107,7 @@ $options = array (
 
   array(
         "name"    => "#3 contenido destacado", 
-        "desc"    => "En la tercera columna (3/4)",  
+        "desc"    => "En la tercera columna (3/8)",  
         "id"      => "pleroma_home_featured_3",
         "type"    => "select",
         "options" => $wp_posts,  
@@ -116,8 +116,44 @@ $options = array (
 
   array(
         "name"    => "#4 contenido destacado", 
-        "desc"    => "En la cuarta columna (4/4)",  
+        "desc"    => "En la cuarta columna (4/8)",  
         "id"      => "pleroma_home_featured_4",
+        "type"    => "select",
+        "options" => $wp_posts,  
+        "std"     => ""
+  ),
+
+  array(
+        "name"    => "#5 contenido destacado", 
+        "desc"    => "En la primera columna (5/8)",  
+        "id"      => "pleroma_home_featured_5",
+        "type"    => "select",
+        "options" => $wp_posts,  
+        "std"     => ""
+  ),
+
+  array(
+        "name"    => "#6 contenido destacado", 
+        "desc"    => "En la segunda columna (6/8)",  
+        "id"      => "pleroma_home_featured_6",
+        "type"    => "select",
+        "options" => $wp_posts,  
+        "std"     => ""
+  ),
+
+  array(
+        "name"    => "#7 contenido destacado", 
+        "desc"    => "En la tercera columna (7/8)",  
+        "id"      => "pleroma_home_featured_7",
+        "type"    => "select",
+        "options" => $wp_posts,  
+        "std"     => ""
+  ),
+
+  array(
+        "name"    => "#8 contenido destacado", 
+        "desc"    => "En la cuarta columna (8/8)",  
+        "id"      => "pleroma_home_featured_8",
         "type"    => "select",
         "options" => $wp_posts,  
         "std"     => ""
