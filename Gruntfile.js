@@ -69,7 +69,7 @@ grunt.initConfig({
     },
     release: {
       options: {
-        commit: true,
+        commit: false,
         push: false,
         pushTags: false,
         npm: false,
