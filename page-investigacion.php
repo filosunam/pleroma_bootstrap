@@ -1,149 +1,220 @@
-<?php if ( get_current_blog_id() === 1 ) { // if parent blog ?>
+<?php
+
+  // Check if is parent blog
+  if ( is_main_site() ) :
+
+?>
 
 <?php get_header(); ?>
 
-<div class="row-fluid">
-  <div class="span9 offset3">
-    <h1 class="h3 lead" itemprop="headline"><?php the_title(); ?></h1>
-  </div>
-</div>
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3">
+      <h1 class="h3 hidden-xs">
+        <?php the_title(); ?>
+      </h1>
+    </div>
+  </div><!-- /.row -->
+</div><!-- /.container -->
 
-<div class="row-fluid">
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <!-- .navbar.navbar-stacked -->
+      <nav class="navbar navbar-default navbar-stacked" role="navigation">    
+        <!-- .navbar-header -->
+        <div class="navbar-header">
+          <a class="navbar-brand visible-xs" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#researchlines-navbar-collapse">
+            <span class="sr-only">Navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div><!-- /.navbar-header -->
+        <!-- .navbar-collapse -->
+        <div class="collapse navbar-collapse" id="researchlines-navbar-collapse">
+          <ul class="nav navbar-nav">
+          <?php
 
-  <div class="span3">
-    <!-- Categories -->
-    <div class="widget">
-      <h4 class="widget-title h4 lead">
-        <?php _e('Líneas de investigación'); ?>
-      </h4>
-      <ul class="nav nav-tabs nav-stacked">
+            // Get current term
+            $current = get_query_var( 'term' );
+
+            // Set taxonomy variable
+            $taxonomy = 'research_category';
+
+            // Get terms depending on taxonomy
+            $categories = get_terms( $taxonomy, '' );
+
+            // Check if categories exist
+            if ( $categories ) {
+
+              // For each category
+              foreach ( $categories as $category ) {
+
+                // Display <li> element
+                echo '<li '. ( $current === $category->slug ? 'class="active"' : '' ) . '>';
+                echo '<a href="' . esc_attr( get_term_link( $category, $taxonomy ) ) . '">' . $category->name . '</a>';
+                echo '</li>';
+
+              }
+
+            }
+
+          ?>
+          </ul>
+        </div><!-- .navbar-collapse -->
+      </nav><!-- /.navbar.navbar-stacked -->
+
       <?php
 
-        $current = get_query_var('term');
-        $taxonomy = 'research_category';
-        $categories = get_terms( $taxonomy, '' );
-
-        if ($categories) {
-          foreach ( $categories as $category ) {
-            echo '<li '. ($current === $category->slug ? 'class="active"' : '') . '>';
-            echo '<a href="' . esc_attr(get_term_link( $category, $taxonomy )) . '">' . $category->name . '</a>';
-            echo '</li>';
-          }
-        }
+        // Sidebar Page 1
+        get_sidebar('page-1');
 
       ?>
-      </ul>
-    </div>
-    <?php get_sidebar('page-1'); ?>
-  </div>
 
-  <div id="main" role="main" class="span9">
-
-    <?php
-
-      // Get ids
-      $ids = array(
-        get_option('pleroma_project_featured_1'),
-        get_option('pleroma_project_featured_2'),
-        get_option('pleroma_project_featured_3'),
-        get_option('pleroma_project_featured_4'),
-        get_option('pleroma_project_featured_5')
-      );
-      
-      $ids = array_filter($ids); // remove nulls
-
-      if ( is_array($ids) ) :
-
-    ?>
-
-    <div id="myCarousel" class="carousel carousel-fade slide">
-      <div class="carousel-inner">
-        <?php 
-          $i = 0; foreach( $ids as $id ) :
-
-            $post = get_post( $id );
-
-            if ( has_post_thumbnail() ) { $i++;
-              $active = ($i == 1) ? 'active ' : '';
-        ?>
-        <div class="research-project <?php print $active ?>item" id="post-<?php the_ID(); ?>" role="article">
-          <header class="article-header">
-            <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-              <?php the_post_thumbnail( 'large' ); ?>
-            </a>
-          </header>
-          <footer class="article-footer">
-            <h2 class="lead">
-              <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-                <?php the_title(); ?>
-              </a>
-            </h2>
-          </footer>
-        </div>
-        <?php } ?>
-        <?php endforeach; ?>
-      </div>
-
-      <?php if ( $i > 1 ) : ?>
-      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-      <?php endif; ?>
-    </div>
-
-    <?php endif; // end slider ?>
-
-    <div class="row-fluid">
+    </div><!-- /.col-md-3 -->
+    
+    <!-- #main.col-md-9 -->
+    <div id="main" role="main" class="col-md-9">
       <?php
 
-        // Args to get research projects
+        // Get ids
+        $ids = array(
+          get_option( 'pleroma_project_featured_1' ),
+          get_option( 'pleroma_project_featured_2' ),
+          get_option( 'pleroma_project_featured_3' ),
+          get_option( 'pleroma_project_featured_4' ),
+          get_option( 'pleroma_project_featured_5' )
+        );
+        
+        // Set arguments
         $args = array(
-          'orderby' => 'rand',
-          'exclude_tree' => '',
-          'posts_per_page' => 9,
-          'post_type' => 'research-project',
-          'post_status' => 'publish'
+          'post_type'       => 'research-project',
+          'post__in'        => $ids,
+          'meta_key'        => '_thumbnail_id',
+          'posts_per_page'  => 5
         );
 
-        // Get Research Projects
-        $projects = get_posts( $args );
+        // Set query posts
+        query_posts( $args );
 
-        // Research projects
-        foreach ($projects as $index => $project) :
+        // Check if exists posts
+        if ( have_posts() ) :
 
       ?>
 
-      <?php if( $index % 3 == 0 ) : ?>
-        </div>
-        <div class="row-fluid">
-      <?php endif; ?>
+      <!-- #CarouselHome -->
+      <div id="CarouselHome" class="carousel carousel-fade slide">
+        <?php if ( $wp_query->post_count > 1 ) : ?>
+        <!-- .carousel-indicators -->
+        <ol class="carousel-indicators">
+          <?php
+            // Display indicators
+            for ( $i = 0; $i < $wp_query->post_count; $i++ ) { 
+              echo '<li data-target="#CarouselHome" data-slide-to="' . $i . '" class="' . ( $i == 0 ? ' active' : '' ) . '"></li> ';
+            }
+          ?>
+        </ol><!-- /.carousel-indicators -->
+        <?php endif; ?>
 
-      <div class="span4 research-featured" id="post-<?php echo $project->ID; ?>" role="article">
-        <?php
-          $permalink = get_permalink($project->ID);
-          $thumbnail = get_the_post_thumbnail($project->ID, 'medium');
-        ?>
-        <header>
-          <a href="<?php echo $permalink; ?>">
-            <?php echo $thumbnail; ?>
-            <div class="title">
-              <span><?php echo $project->post_title; ?></span>
-            </div>
+        <!-- .carousel-inner -->
+        <div class="carousel-inner">
+          <?php
+
+            // Loop the posts
+            while ( have_posts() ) : the_post();
+
+              // Set 'active' class the first post in te loop
+              $active = $wp_query->current_post == 0 ? 'active' : '';
+
+              // Get link image with 'large' size
+              $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+
+          ?>
+          <!-- .item -->
+          <div class="item <?php echo $active ?>">
+            <?php
+
+              // Thumbnail
+              $thumbnail = '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute( 'echo=0' ) . '">';
+
+              // Displays item
+              echo '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
+              
+            ?> 
+            <div class="carousel-caption"><?php the_title() ?></div>
+          </div><!-- /.item -->
+          <?php endwhile; // End the loop ?>
+        </div><!-- /.carousel-inner -->
+
+        <?php if ( $wp_query->post_count > 1 ) : ?>
+        <!-- .carousel-controls -->
+        <div class="carousel-controls">        
+          <a class="left carousel-control" href="#CarouselHome" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
           </a>
-        </header>
-      </div>
-      <?php endforeach; ?>
-    </div>
-  </div><!-- /.span9 -->
+          <a class="right carousel-control" href="#CarouselHome" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div><!-- /.carousel-controls -->
+        <?php endif; ?>
+      </div><!-- /#CarouselHome -->
 
-</div><!-- /.row-fluid -->
+      <?php endif; // end check if exist posts ?>
+
+      <?php
+
+        // Set arguments
+        $args = array(
+          'post_type'       => 'research-project',
+          'orderby'         => 'rand',
+          'meta_key'        => '_thumbnail_id',
+          'posts_per_page'  => 9
+        );
+
+        // Set query posts
+        query_posts( $args );
+
+        // Check if exists posts
+        if ( have_posts() ) :
+
+      ?>
+
+      <!-- .row -->
+      <div class="row">
+        <?php while ( have_posts() ) : the_post(); ?>
+          <div class="col-md-4 col-xs-6 research-featured" id="post-<?php the_ID(); ?>">
+            <a href="<?php echo get_permalink(); ?>">
+              <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive img-thumbnail' ) ); ?>
+              <div class="title">
+                <span><?php the_title() ?></span>
+              </div>
+            </a>
+          </div>
+        <?php endwhile; ?>
+      </div><!-- /.row -->
+
+      <?php endif; ?>
+    </div><!-- /#main.col-md-9 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
 
 <?php get_footer(); ?>
 
 <?php
 
-  } else 
-  { 
+  // If is child blog
+  else:
+
+    // Displays page default template
     get_template_part( 'page' );
-  }
+  
+  endif;
 
 ?>

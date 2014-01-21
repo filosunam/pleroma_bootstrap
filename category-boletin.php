@@ -1,100 +1,175 @@
 <?php get_header(); ?>
 
-<div class="row-fluid">
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
+    <!-- .col-md-9 -->
+    <div class="col-md-9">
 
-  <div class="span9">
+      <!-- #main -->
+      <div id="main" role="main">
+        <?php
 
-    <div id="main" role="main">
-      <h1 class="lead h3 hide"><?php single_cat_title(); ?></h1>
-      <?php if (!is_paged() && is_category('boletin')) : ?>
+          // Get category slider
+          $category_slider = get_option( 'pleroma_boletin_slider' );
 
-        <div id="homeCarousel" class="carousel slide carousel-fade">
+          // Get if is manual
+          $manual = get_option( 'pleroma_boletin_manual' );
+
+          // If is manual
+          if ( $manual ) {
+
+            // Get ID's of posts
+            $ids = array(
+              get_option( 'pleroma_boletin_featured_1' ),
+              get_option( 'pleroma_boletin_featured_2' ),
+              get_option( 'pleroma_boletin_featured_3' ),
+              get_option( 'pleroma_boletin_featured_4' ),
+              get_option( 'pleroma_boletin_featured_5' )
+            );
+
+            // Set arguments
+            $args = array(
+              'post_type'           => array( 'post', 'page', 'event' ),
+              'post__in'            => $ids,
+              'orderby'             => 'post__in',
+              'meta_key'            => '_thumbnail_id',
+              'posts_per_page'      => 5,
+              'ignore_sticky_posts' => 1
+            );
+
+          // If is not manual
+          } else {
+
+            // Set arguments
+            $args = array(
+              'cat'                 => $category_slider,
+              'meta_key'            => '_thumbnail_id',
+              'posts_per_page'      => 5,
+              'ignore_sticky_posts' => 1
+            );
+
+          }
+
+          // Set query posts
+          query_posts( $args );
+
+          // Check if exists posts
+          if ( have_posts() ) :
+
+        ?>
+
+        <!-- #CarouselHome -->
+        <div id="CarouselHome" class="carousel carousel-fade slide">
+          <?php if ( $wp_query->post_count > 1 ) : ?>
+          <!-- .carousel-indicators -->
+          <ol class="carousel-indicators">
+            <?php
+              // Display indicators
+              for ( $i = 0; $i < $wp_query->post_count; $i++ ) { 
+                echo '<li data-target="#CarouselHome" data-slide-to="' . $i . '" class="' . ( $i == 0 ? ' active' : '' ) . '"></li> ';
+              }
+            ?>
+          </ol><!-- /.carousel-indicators -->
+          <?php endif; ?>
+
+          <!-- .carousel-inner -->
           <div class="carousel-inner">
             <?php
 
-              if (get_option('pleroma_boletin_manual')) {
-                
-                $ids = array(
-                  get_option('pleroma_boletin_featured_1'),
-                  get_option('pleroma_boletin_featured_2'),
-                  get_option('pleroma_boletin_featured_3'),
-                  get_option('pleroma_boletin_featured_4'),
-                  get_option('pleroma_boletin_featured_5'),
-                );
+              // Loop the posts
+              while ( have_posts() ) : the_post();
 
-              } else
-              {
+                // Set 'active' class the first post in te loop
+                $active = $wp_query->current_post == 0 ? 'active' : '';
 
-                query_posts( array( 'cat' => get_option('pleroma_boletin_slider'), 'posts_per_page' => 5 ) );
-
-                $ids = array();
-                while(have_posts()):
-                  the_post();
-                  $ids[] = get_the_ID();
-                endwhile;
-
-              }
-
-              $i = 0;
-              foreach($ids as $id)
-              {
-
-                $post = get_post($id);
-                if ($post->ID):
-
-                  if (has_post_thumbnail())
-                  {
-                    $i++;
-                    $active = ($i == 1) ? 'active ' : '';
+                // Get link image with 'large' size
+                $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
 
             ?>
-              <div class="<?php print $active ?>item">
-                <a href="<?php the_permalink(); ?>">
-                  <?php the_post_thumbnail('large'); ?>
-                </a>
-                <div class="carousel-caption">
-                  <p><?php the_title() ?></p>
-                </div>
-              </div>
-            <?php } // end has_post_thumbnail ?>
-            <?php endif; // end if $post->ID ?>
-            <?php } // end foreach ?>
-          </div>
+            <!-- .item -->
+            <div class="item <?php echo $active ?>">
+              <?php
 
-          <?php if ( $i > 1 ) : ?>
-          <a class="carousel-control left" href="#homeCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#homeCarousel" data-slide="next">&rsaquo;</a>
+                // Thumbnail
+                $thumbnail = '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute( 'echo=0' ) . '">';
+
+                // Add link to all formats except to 'image' format
+                switch ( get_post_format() ) {
+                  case 'image':
+                    echo $thumbnail;
+                    break;
+                  
+                  default:
+                    echo '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
+                    break;
+
+                }
+                
+              ?> 
+              <div class="carousel-caption"><?php the_title() ?></div>
+            </div><!-- /.item -->
+            <?php endwhile; // End the loop ?>
+          </div><!-- /.carousel-inner -->
+
+          <?php if ( $wp_query->post_count > 1 ) : ?>
+          <!-- .carousel-controls -->
+          <div class="carousel-controls">        
+            <a class="left carousel-control" href="#CarouselHome" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#CarouselHome" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div><!-- /.carousel-controls -->
           <?php endif; ?>
+        </div><!-- /#CarouselHome -->
 
-        </div>
-      <?php endif; ?>
+        <?php endif; ?>
+      </div><!-- /#main -->
 
-    </div><!-- /#main -->
-    
-    <div class="row-fluid">
-      
-      <div class="span8">
-        <?php wp_reset_query(); ?>
-        <?php get_template_part( 'archive', 'single' ); ?>
-        <?php page_navi(); ?>
-      </div><!-- /.span8 -->
-      
-      <div class="span4">
+      <!-- .row -->
+      <div class="row">
+        <!-- .col-md-8 -->
+        <div class="col-md-8">
+          <?php
 
-        <?php get_sidebar(1); // sidebar 1 ?>
+            // Reset query
+            wp_reset_query();
 
-      </div><!-- /.span4 -->
+            // Get partial of archive
+            get_template_part( 'partials/content-archive', 'single' );
 
-    </div><!-- /#row-fluid -->
+            // Get pagination
+            the_pagination();
 
-  </div><!-- /.span9 -->
+          ?>
+        </div><!-- /.col-md-8 -->
 
-  <div class="span3">
+        <!-- .col-md-4 -->
+        <div class="col-md-4">
+          <?php
 
-    <?php get_sidebar(2); // sidebar 2 ?>
+            // Sidebar 1
+            get_sidebar( 1 );
 
-  </div><!-- /.span3 -->
+          ?>
+        </div><!-- /.col-md-4 -->
+      </div><!-- /.row -->
 
-</div><!-- /.row-fluid -->
+    </div><!-- /.col-md-9 -->
+
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
+
+        // Sidebar 2
+        get_sidebar( 2 );
+
+      ?>
+    </div><!-- /.col-md-3 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
 
 <?php get_footer(); ?>

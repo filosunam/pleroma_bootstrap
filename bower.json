@@ -5,10 +5,10 @@
   "authors": [
     "Marco Godínez <markotom@gmail.com>"
   ],
-  "description": "Wordpress Theme. Developed with love and joy to FFyL UNAM, based on Twitter Bootstrap",
+  "description": "Wordpress Theme. Developed with love and joy to FFyL UNAM, based on Bootstrap",
   "license": "BSD",
   "private": true,
   "dependencies": {
-    "bootstrap": "2.3.2"
+    "bootstrap": "~3.0.3"
   }
 }

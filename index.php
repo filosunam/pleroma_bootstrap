@@ -1,17 +1,13 @@
 <?php 
 
-  if( !is_multisite() ||  1 == get_current_blog_id() )
-  {
+  if ( ! is_multisite() || is_main_site() ) {
     
     // www.filos.unam.mx
     get_template_part( 'index', 'parent' );
     
-  } else 
-  {
+  } else {
 
     // *.filos.unam.mx
     get_template_part( 'index', 'child' );
   
   }
-
-?>

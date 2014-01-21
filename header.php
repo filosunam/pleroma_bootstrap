@@ -25,114 +25,130 @@
     bloginfo( 'name' );
 
   ?></title>
-
   <!-- Google Chrome Frame for IE -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <!-- mobile meta -->
+  <!-- Mobile meta -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- icons & favicons -->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-  
-  <!-- pingback -->
+  <!-- Pingback -->
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
-  <!-- wordpress head -->
-    <?php wp_head(); ?>
-
-  <!-- end wordpress head -->
+  <!-- Wordpress head -->
+  <?php wp_head(); ?>
 </head>
 <body class="home blog">
-  <?php if( ( has_nav_menu( 'secondary' ) ) || ( get_current_blog_id() > 1 ) ) : ?>   
-    <div class="navbar navbar-inverse navbar-static-top <?php if( get_current_blog_id() == 1 && is_home() ) print 'hidden-desktop' ?>">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse-secondary">
+  <?php if ( has_nav_menu( 'secondary' ) || ! is_main_site() ) : ?>
+    <nav class="navbar navbar-inverse navbar-static-top <?php if ( is_main_site() && is_home() ) print 'visible-xs visible-sm' ?>" role="navigation">
+      <div class="container">      
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#secondary-navbar-collapse">
+            <span class="sr-only">Navegación</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
-
-          <a class="brand">
+          </button>
+          <span class="navbar-brand">
             <?php
-            
-              switch_to_blog(1);
+              
+              // Switch to parent blog
+              if ( ! is_main_site() )
+                switch_to_blog( 1 );
 
+              // Get menu locations
               $menus = get_nav_menu_locations();
 
-              if (isset($menus['secondary'])) {
-                $menu = wp_get_nav_menu_object($menus['secondary']);
+              // Check if secondary nav exists
+              if ( isset( $menus['secondary'] ) ) {
+                $menu = wp_get_nav_menu_object( $menus['secondary'] );
                 echo $menu->name;
               }
 
-              restore_current_blog();
+              // Restore to child blog
+              if ( ! is_main_site() )
+                restore_current_blog();
 
             ?>
-          </a>
+          </span>
+        </div>
 
-          <div class="nav-collapse nav-collapse-secondary collapse">
-            <?php pleroma_secondary_nav(''); ?>
-          </div>
+        <div class="collapse navbar-collapse" id="secondary-navbar-collapse">
+          <?php
+            
+            // Use empty string for avoiding default classes
+            pleroma_secondary_nav( 'navbar-nav' );
+
+          ?>
         </div>
       </div>
-    </div>
+    </nav>
   <?php endif; ?>
 
-  <div class="container">
+  <!-- #header -->
+  <div id="header" class="container">
     <div class="row">
-      <div class="span12">
+      <!-- .col-xs-6 (logo unam) -->
+      <div class="col-xs-6">
+        <a href="http://www.unam.mx" rel="nofollow" class="logo unam">Universidad Nacional Autónoma de México</a>
+      </div><!-- /.col-xs-6 -->
 
-        <!-- header -->
-        <div class="row-fluid">
-          <div class="logo pull-left">
-            <a href="http://www.unam.mx" class="unam"></a>
-          </div>
-          <div class="logo pull-right">
-            <?php if( get_current_blog_id() > 1 ) : ?> 
-            <a href="http://www.filos.unam.mx" class="ffyl"></a>
-            <?php else : ?>
-            <a href="<?php bloginfo('url'); ?>" rel="home" class="ffyl"></a>
-            <?php endif; ?>
-          </div>
-        </div>
-        <!-- end header -->
+      <!-- .col-xs-6 (logo filosunam) -->
+      <div class="col-xs-6">
+        <?php if( ! is_main_site() ) : ?> 
+        <a href="http://www.filos.unam.mx" rel="nofollow" class="logo filosunam">Facultad de Filosofía y Letras, UNAM</a>
+        <?php else : ?>
+        <a href="<?php echo get_option( 'siteurl' ) ?>" rel="home" class="logo filosunam"><?php echo get_option( 'blogname' ) ?></a>
+        <?php endif; ?>
+      </div><!-- /.col-xs-6 -->
+    </div>
+  </div><!-- /#header -->
 
-        <!-- navigation -->
-        <div class="row-fluid">
-          <div class="navbar navbar-primary span12">
-            <div class="navbar-inner">
-              <div class="container">
+  <div class="container">
+    <!-- .navbar-primary -->
+    <nav class="navbar navbar-default navbar-primary" role="navigation">
+      <!-- .navbar-header -->
+      <div class="navbar-header">
+        <a class="navbar-brand visible-xs" href="http://www.filos.unam.mx">Facultad de Filosofía y Letras</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-navbar-collapse">
+          <span class="sr-only">Navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div><!-- /.navbar-header -->
+      
+      <!-- .navbar-collapse -->
+      <div class="collapse navbar-collapse" id="primary-navbar-collapse">
+        <?php
 
-                <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse-primary">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </a>
+          // Displays primary nav
+          pleroma_primary_nav();
 
-                <a class="brand" href="http://www.filos.unam.mx">FFyL UNAM</a>
+          // Displays search form
+          get_search_form();
 
-                <div class="nav-collapse nav-collapse-primary collapse">
-                  <?php get_search_form(); ?>
-                  <?php pleroma_primary_nav(); ?>
-                </div>
-              </div>
-            </div>
-          </div><!--/.navbar -->
-        </div>
-        <!-- end navigation -->
+        ?>
+      </div><!-- /.navbar-collapse -->
+    </nav><!-- /.navbar-primary -->
+    
+    <?php
 
-        <!-- content -->
-        <?php the_breadcrumb(); ?>
+      // Displays blog name of child blog
+      if ( ! is_main_site() ) {
 
-        <?php if ( get_current_blog_id() > 1 ) { ?>
-        <div class="row-fluid">
-          <div class="span12">
-            <div class="offset3">
-              <h3><a href="<?php bloginfo('url') ?>"><?php bloginfo('name') ?></a></h3>
-            </div>
-          </div>
-        </div>
-        <?php } ?>
+        // Displays the blogname
+        echo '<div class="page-header page-childblog col-md-9 col-md-offset-3 hidden-xs">'
+            . '<h1 class="h3">' . get_option( 'blogname' ) . '</h1>'
+            . '</div>';
+
+      } else {
+
+        // Displays the breadcrumb
+        the_breadcrumb();
+
+      }
+
+    ?>
+  </div>
+

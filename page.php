@@ -1,37 +1,80 @@
 <?php get_header(); ?>
 
-<div class="row-fluid">
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
 
-  <?php if( get_current_blog_id() == 1 ) { // if child blog ?>
+    <?php if ( is_main_site() ) : ?>
 
-  <div id="main" role="main" class="span6">
-    <?php get_template_part( 'page', 'single' ); ?>
-  </div><!-- /.span6#main -->
+    <!-- #main.col-md-6 -->
+    <div id="main" role="main" class="col-md-6">
+      <?php
 
-  <div class="span3">
-    <?php get_sidebar('page-1'); // sidebar page 1 ?>
-  </div><!-- /.span3 -->
+        // Get partial of single page
+        get_template_part( 'partials/content-page', 'single' );
 
-  <div class="span3">
-    <?php get_sidebar('page-2'); // sidebar page 2 ?>
-  </div><!-- /.span3 -->          
-  
-  <?php } else { // if parent blog ?>
+      ?>
+    </div><!-- /#main.col-md-6 -->
 
-  <div class="span3">
-    <?php get_sidebar(1); // sidebar 1 ?>
-  </div><!-- /.span3 -->
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
 
-  <div id="main" role="main" class="span6">
-    <?php get_template_part( 'page', 'single' ); ?>
-  </div><!-- /.span6#main -->
+        // Sidebar Page 1
+        get_sidebar( 'page-1' );
 
-  <div class="span3">
-    <?php get_sidebar(2); // sidebar 2 ?>
-  </div><!-- /.span3 -->
+      ?>
+    </div><!-- /.col-md-3 -->
 
-  <?php } ?>
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
 
-</div><!-- /.row-fluid -->
+        // Sidebar Page 2
+        get_sidebar( 'page-2' );
+
+      ?>
+    </div><!-- /.col-md-3 -->          
+    
+    <?php else : ?>
+
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
+
+        // Sidebar 1
+        get_sidebar( 1 );
+
+      ?>
+    </div><!-- /.col-md-3 -->
+
+    <!-- #main.col-md-6 -->
+    <div id="main" role="main" class="col-md-6">
+      <?php
+        
+        // Displays the breadcrumb
+        the_breadcrumb();
+
+        // Get partial of single page
+        get_template_part( 'partials/content-page', 'single' );
+
+      ?>
+    </div><!-- /#main.col-md-6 -->
+
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
+
+        // Sidebar 2
+        get_sidebar( 2 );
+
+      ?>
+    </div><!-- /.col-md-3 -->
+
+    <?php endif; ?>
+
+  </div><!-- /.row -->
+</div><!-- /.container -->
 
 <?php get_footer(); ?>
