@@ -1,183 +1,255 @@
 <?php get_header(); ?>
-        
-<div class="row-fluid">
-  <div class="span9 visible-tablet-span9">
-    
-  <?php
 
-    $category_slides = get_option('pleroma_home_slider');
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
+    <!-- .col-md-9 -->
+    <div class="col-md-9">
+      <?php
 
-    if( is_home() ) :
+        // Get category slider
+        $category_slider = get_option( 'pleroma_home_slider' );
+        $category_slider = !$category_slider ? -1 : $category_slider;
 
-      $query = new wp_query(array(
-        'cat' => $category_slides,
-        'posts_per_page' => 8
-      ));
+        // Display carousel if is home
+        if ( is_home() ) :
 
-      if ( $query->post_count > 0 ) :
+          // Set arguments
+          $args = array(
+            'cat'             => $category_slider,
+            'posts_per_page'  => 6,
+            'meta_key'        => '_thumbnail_id'
+          );
 
-  ?>
-    <div id="homeCarousel" class="carousel carousel-fade slide">
-      <div class="carousel-inner">
+          // Set query posts
+          query_posts( $args );
+
+          // Check if exists at least one
+          if ( $wp_query->post_count > 0 ) :
+
+      ?>
+
+      <!-- #CarouselHome -->
+      <div id="CarouselHome" class="carousel carousel-fade slide">
+        <?php if ( $wp_query->post_count > 1 ) : ?>
+        <!-- .carousel-indicators -->
+        <ol class="carousel-indicators">
+          <?php
+            // Display indicators
+            for ( $i = 0; $i < $wp_query->post_count; $i++ ) { 
+              echo '<li data-target="#CarouselHome" data-slide-to="' . $i . '" class="' . ( $i == 0 ? ' active' : '' ) . '"></li> ';
+            }
+          ?>
+        </ol><!-- /.carousel-indicators -->
+        <?php endif; ?>
+
+        <!-- .carousel-inner -->
+        <div class="carousel-inner">
+          <?php
+
+            // Loop the posts
+            while ( have_posts() ) : the_post();
+
+                // Set 'active' class the first post in te loop
+                $active = $wp_query->current_post == 0 ? 'active' : '';
+
+                // Get link image with 'large' size
+                $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+
+          ?>
+          <!-- .item -->
+          <div class="item <?php echo $active ?>">
+            <?php
+
+              // Thumbnail
+              $thumbnail = '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute( 'echo=0' ) . '">';
+
+              // Add link to all formats except to 'image' format
+              switch ( get_post_format() ) {
+                case 'image':
+                  echo $thumbnail;
+                  break;
+                
+                default:
+                  echo '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
+                  break;
+
+              }
+              
+            ?> 
+            <div class="carousel-caption"><?php the_title() ?></div>
+          </div><!-- /.item -->
+          <?php endwhile; // End the loop ?>
+        </div><!-- /.carousel-inner -->
+
+        <?php if ( $wp_query->post_count > 1 ) : ?>
+        <!-- .carousel-controls -->
+        <div class="carousel-controls">        
+          <a class="left carousel-control" href="#CarouselHome" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#CarouselHome" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div><!-- /.carousel-controls -->
+        <?php endif; ?>
+      </div><!-- /#CarouselHome -->
+      
+        <?php endif; ?>
+      <?php endif; ?>
+    </div><!-- /.col-md-9 -->
+
+    <!-- .col-md-9 -->
+    <div class="col-md-3">
+      <?php
+
+        // If has 'secondary' nav menu
+        if ( has_nav_menu( 'secondary' ) ) :
+
+      ?>
+      <!-- .nav-titled -->
+      <nav class="nav-titled widget hidden-xs hidden-sm">
         <?php
 
-          $i = 0; while ( $query->have_posts() ) : $i++;
+          // Get menu locations
+          $menus = get_nav_menu_locations();
 
-            $active = ($i == 1) ? 'active ' : '';
-            $query->the_post();
+          // Get nav menu object for display nav name
+          echo '<h4 class="nav-title">' . wp_get_nav_menu_object( $menus['secondary'] )->name . '</h4>';
+
+          // // Display secondary nav
+          pleroma_secondary_nav();
+          
+        ?>
+      </nav><!-- /.nav-titled -->
+      <?php endif; // has 'secondary' nav menu ?>
+      
+      <?php
+
+        // Get sidebar home
+        get_sidebar( 'home' );
+
+      ?>
+    </div><!-- /.col-md-3 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+<!-- .wrapper.wrapper-primary -->
+<div class="wrapper wrapper-primary wrapper-margins">
+  <div class="container">
+    <div class="row">
+      <?php
+        
+        // Display featured posts
+        get_template_part( 'index', 'featured' );
+
+      ?>
+    </div>
+  </div>
+</div><!-- /.wrapper.wrapper-primary -->
+
+<!-- .wrapper.wrapper-default -->
+<div class="wrapper wrapper-default wrapper-margin-bottom">
+  <!-- .container -->
+  <div class="container">
+    <!-- .row -->
+    <div class="row">
+      <!-- .col-md-5.col-lg-4 -->
+      <div class="col-md-5 col-lg-4 featured-events">
+        <?php
+
+          // Set arguments for get last events
+          $args = array(
+            'title'           => '',
+            'numberposts'     => 4,
+            'showpastevents'  => 0,
+            'template'        => '',
+            'no_events'       => __( 'No events found', 'eventorganiser' )
+          );
+
+          // If there are events
+          if ( eo_get_events( $args ) ) :
 
         ?>
-        
-        <?php if ( has_post_thumbnail() ) { ?>
-        <div class="<?php print $active ?>item">
-          <?php 
-            $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
-            echo '<img src="' . $large_image_url[0] . '" alt="' . the_title_attribute('echo=0') . '">';
-          ?>
-          <div class="carousel-caption">
-            <p><?php the_title() ?></p>
-          </div>
-        </div>
-        <?php } ?>
-
-        <?php endwhile; ?>
-
-      </div>
-
-      <?php if ( $query->post_count > 1 ) : ?>
-      <a class="carousel-control left" href="#homeCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#homeCarousel" data-slide="next">&rsaquo;</a>
-      <?php endif; ?>
-    
-    </div>
-    <?php endif; // end if slides > 0 ?>
-  <?php endif; // end if home ?>
-
-  </div>
-
-  <div class="span3 visible-desktop">
-    
-    <?php if ( has_nav_menu( 'secondary' ) ) : ?>
-    <nav class="nav-info">
-      <h4><?php
-        $menus = get_nav_menu_locations();
-        echo wp_get_nav_menu_object($menus['secondary'])->name;
-      ?></h4>
-      <?php pleroma_secondary_nav() ?>
-    </nav>
-    <?php endif; // has_nav_menu ?>
-    
-    <?php get_sidebar('home'); ?>
-    
-  </div>
-</div>  
-
-<?php get_template_part( 'index', 'featured' ); ?>
-
-<?php if( 'es-ES' == get_bloginfo('language') ): ?>
-
-<div class="row-fluid">
-
-  <?php
-
-    $args = array(
-        'title'          => ''
-      , 'numberposts'    => 3
-      , 'showpastevents' => 0
-      , 'no_events'      => __('No events found', 'eventorganiser')
-    );
-
-  ?>
-  <?php if (eo_get_events($args)) : ?>
-  <div class="span4 home-events">
-    <h2 class="h3 lead"><?php _e('Events', 'eventorganiser'); ?></h2>
-    <?php the_widget('EO_Event_List_Widget', $args); ?>
-    <a class="btn btn-small" href="/calendario-de-eventos">
-      <i class="icon-th"></i>
-      <?php _e('Events Calendar', 'eventorganiser'); ?>
-    </a>
-  </div>
-  
-  <hr class="visible-phone">
-  <?php endif; ?>
-
-  <div class="span8">
-    <?php
-        
-        $research_product = get_option('pleroma_research_product');
-
-        if ($research_product) {
-
-          query_posts(array(
-              'p'         => $research_product
-            , 'post_type' => array( 'post', 'page', 'event' )
-          ));
-
-          if (have_posts()) : the_post();
-
-          $fields   = get_post_custom();
-          $website  = isset($fields['website']) ? $fields['website'][0] : null;
-          $url      = isset($website) ? $website : get_permalink();
-
-    ?>
-
-    <div class="home-product hidden-phone" id="post-<?php the_ID(); ?>" role="article">
-      <header class="article-header">
-        <a href="<?php echo $url ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-          <?php the_post_thumbnail( 'large' ); ?>
+        <h3 class="lead"><?php _e( 'Events', 'eventorganiser' ); ?></h3>
+        <?php the_widget( 'EO_Event_List_Widget', $args ); ?>
+        <a class="btn btn-sm btn-default" href="/calendario-de-eventos">
+          <span class="glyphicon glyphicon-calendar"></span>
+          <?php _e( 'Events Calendar', 'eventorganiser' ); ?>
         </a>
-      </header>
-      <footer class="article-footer">
-        <h2 class="lead">
-          <a href="<?php echo $url ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <?php the_title(); ?>
-          </a>
-        </h2>
-      </footer>
-    </div>
+        <?php endif; ?>
+      </div><!-- /.col-md-5.col-lg-4 -->
+      <!-- .col-md-7.col-lg-8 -->
+      <div class="col-md-7 col-lg-8">
+        <?php
+            
+          // Get ID of research product
+          $research_product = get_option('pleroma_research_product');
 
-    <hr class="hidden-phone">
+          // Check if ID exists
+          if ( $research_product ) :
 
-    <?php endif; ?>
-    <?php } ?>
+            // Set query posts
+            query_posts(
+              array(
+                'p'         => 1,
+                'post_type' => array( 'post', 'page', 'event' ),
+                'meta_key'  => '_thumbnail_id'
+              )
+            );
 
-    <div class="row-fluid hidden-phone">
-      <?php
-        $ids = array(
-                  get_option('pleroma_project_featured_1')
-                , get_option('pleroma_project_featured_2')
-                , get_option('pleroma_project_featured_3')
-              );
+            // Check if the post exists
+            if ( have_posts() ) : the_post();
 
-        $args = array(
-            'post_type' => 'research-project'
-          , 'post__in'  => $ids
-          , 'orderby'   => 'post__in'
-        );
+              // Get partial of research product
+              get_template_part( 'partials/content-featured', 'research-product' );
+
+            endif;
+
+          endif;
+
+        ?>
+
+        <hr class="hidden-xs hidden-sm">
+
+        <!-- .row.hidden-xs.hidden-sm -->
+        <div class="row hidden-xs hidden-sm">
+        <?php
+
+          // Get ID's of research projects
+          $ids = array(
+            get_option( 'pleroma_project_featured_1' ),
+            get_option( 'pleroma_project_featured_2' ),
+            get_option( 'pleroma_project_featured_3' )
+          );
+
+          // Set arguments
+          $args = array(
+            'post_type' => 'research-project',
+            'post__in'  => $ids,
+            'orderby'   => 'post__in',
+            'meta_key'  => '_thumbnail_id'
+          );
+          
+          // Set query posts
+          query_posts($args);
+
+          if ( have_posts() ) :
+            while ( have_posts() ) : the_post();
+
+              // Get partial of research project
+              get_template_part( 'partials/content-featured', 'research' );
         
-        query_posts($args);
+            endwhile;
+          endif;
 
-        if (have_posts()) : while (have_posts()) : the_post();
-      ?>
-      <div id="post-<?php the_ID(); ?>" role="article" class="span4">
-        <header class="article-header">
-          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <?php the_post_thumbnail( 'small' ); ?>
-          </a>
-          <h4>
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </h4>
-        </header>
-      </div>
-      <?php endwhile; ?>
-      <?php endif; ?>
-    </div>
-  </div>
+        ?>
+        </div><!-- /.row -->
 
-</div>
-
-<?php endif; ?>
+      </div><!-- /.col-md-7.col-lg-8 -->
+    </div><!-- /.row -->
+  </div><!-- ./container -->
+</div><!-- /.wrapper.wrapper-default -->
 
 <?php get_footer(); ?>

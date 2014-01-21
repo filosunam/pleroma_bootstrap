@@ -1,75 +1,136 @@
-        
-        <!-- end content -->
-        <?php if ( is_active_sidebar( 'bottom' ) ) : ?>
-        <hr>
-        <div class="row-fluid">
-          <?php
+<?php if ( is_active_sidebar( 'bottom' ) ) : ?>
+<!-- .wrapper -->
+<div class="wrapper wrapper-primary">
+  <!-- .container -->
+  <div class="container">
+    <!-- .row -->
+    <div class="row">
+      <?php
 
-              $i              = 0;
-              $widgets        = wp_get_sidebars_widgets( 'bottom' );
-              $widgets_bottom = $widgets['bottom'];
-              $count_widgets  = count($widgets_bottom);
-              $span           = 12 / $count_widgets;
+        // Displays sidebar
+        dynamic_sidebar( 'bottom' );
 
-              register_sidebar(array(
-                  'id'            => 'bottom'
-                , 'before_widget' => '<div id="%1$s" class="widget %2$s span'.$span.'">'
-                , 'after_widget'  => '</div>'
-                , 'before_title'  => '<h4 class="h4 lead widget-title">'
-                , 'after_title'   => '</h4>'
-              ));
-
-              dynamic_sidebar( 'bottom' );
-          ?>
-        </div>
-        <?php endif; ?>
-
-      </div><!-- /.span12 -->
+      ?>
     </div><!-- /.row -->
   </div><!-- /.container -->
+</div><!-- /.wrapper -->
+<?php endif; ?>
 
-      <!-- footer -->
-      <div id="footer">
-        <div class="container footer-inner">
-          <div class="row-fluid">
-            <div class="span3">
-              <?php pleroma_secondary_nav_2(); ?>
-            </div>
-            <div class="span3">
-              <?php pleroma_secondary_nav_3(); ?>
-            </div>
-            <div class="span6">
-              <div class="map pull-right">
-                <a href="http://www.filos.unam.mx/visitantes/" title="<?php _e('Visita la Facultad', 'pleromabootstrap'); ?>">
-                </a>
-              </div>
-              <h4><?php _e('Visita la Facultad', 'pleromabootstrap'); ?></h4>
-              <p>
-                Circuito Interior.
-                Ciudad Universitaria, s/n. C.P. 04510. México, DF.
-              </p>
-              <p><a href="http://www.filos.unam.mx/asv/"><?php _e('Edificio "Adolfo Sánchez Vázquez"', 'pleromabootstrap'); ?></a></p>
-            </div>
-          </div>
-          <hr class="hr-inverse">
-          © <?php echo date('Y') ?> <?php _e('Facultad de Filosofía y Letras', 'pleromabootstrap'); ?>, UNAM.
-          <?php social_media(); ?>
+<!-- #footer.wrapper -->
+<div id="footer" class="wrapper wrapper-footer"> 
+  <!-- .container -->
+  <div class="container">
+    <!-- .row -->
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <?php
+
+          // Secondary Nav Menu 2
+          pleroma_secondary_nav_2();
+
+        ?>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <?php
+
+          // Secondary Nav Menu 3
+          pleroma_secondary_nav_3();
+
+        ?>
+      </div>
+        
+      <div class="col-xs-12 col-md-6">
+        <div class="widget">
+          <hr class="visible-xs visible-sm">
+          <h4><?php _e( 'Visita la Facultad', 'pleromabootstrap' ); ?></h4>
+          <p>
+            Circuito Interior.
+            Ciudad Universitaria, s/n. C.P. 04510. México, DF.
+          </p>
+          <a href="http://www.filos.unam.mx/asv/"><?php _e( 'Edificio "Adolfo Sánchez Vázquez"', 'pleromabootstrap' ); ?></a>
         </div>
-      </div>
-      <!-- end footer -->
 
-      <?php if (function_exists('pll_the_languages')): ?>
-      <?php $translations = pll_the_languages(array('raw'=>1)); ?>
-      <div class="selectlang">
-        <ul>
-          <?php foreach($translations as $lang) : ?>
-            <li><a href="<?php print $lang['url']; ?>"><?php print $lang['name']; ?></a></li>
-          <?php endforeach; ?>
-        </ul>
+        <!-- .icons -->
+        <div class="icons">
+          <?php
+
+            // Get social links
+            $socials = array(
+              'facebook'  => get_option( 'pleroma_facebook' ),
+              'twitter'   => get_option( 'pleroma_twitter' ),
+              'youtube'   => get_option( 'pleroma_youtube' ),
+              'vimeo'     => get_option( 'pleroma_vimeo' )
+            );
+
+            // Remove empty values
+            $socials = array_filter( $socials );
+
+            // Displays each social link
+            foreach ( $socials as $social => $value ) {
+              
+              // Build handle
+              switch ( $social ) {
+                case 'twitter':
+                  $value = "http://twitter.com/$value";
+                  break;
+
+                case 'youtube':
+                  $value = "http://youtube.com/$value";
+                  break;
+
+                case 'vimeo':
+                  $value = "http://vimeo.com/$value";
+                  break;
+              }
+
+              // Displays social link
+              if ( $value ) {
+                echo '<a href="' . $value . '" class="' . $social . '"></a> ';
+              }
+
+            }
+
+
+          ?>
+          <a href="<?php echo bloginfo( 'rss2_url' ); ?>" class="rss"></a>
+        </div><!-- /.icons -->
       </div>
-      <?php endif; ?>
+    </div><!-- /.row -->
+    
+    <hr>
+
+    <?php echo date( 'Y' ) ?> © <?php _e( 'Facultad de Filosofía y Letras', 'pleromabootstrap' ); ?>, UNAM.
+  </div><!-- /.container -->
+
+
+</div><!-- /#footer.wrapper -->
+
+<?php
+
+  // Use polylang plugin
+  if ( function_exists( 'pll_the_languages' ) ) :
+
+    // Get languages
+    $languages = pll_the_languages( array( 'raw' => 1 ) );
+
+?>
+<div class="wrapper wrapper-inverse languages-controls">
+  <div class="container">
+    <ul>
+      <?php
+      
+        // Display each language
+        foreach ( $languages as $language ) :
+          echo '<li><a href="' . $language['url'] . ' ">' . $language['name'] . '</a></li> ';
+        endforeach;
+
+      ?>
+    </ul>
+  </div>
+</div>
+<?php endif; ?>
   
-  <?php wp_footer();?>
+<?php wp_footer();?>
 
-</body>
+  </body>
 </html>

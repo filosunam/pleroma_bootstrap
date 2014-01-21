@@ -1,75 +1,78 @@
 'use strict';
 
-module.exports = function(grunt){
+module.exports = function (grunt) {
+  
+  // Load all grunt tasks
+  require('load-grunt-tasks')(grunt);
 
-// load all grunt tasks
-require('load-grunt-tasks')(grunt);
+  // Config
+  grunt.initConfig({
 
-grunt.initConfig({
+    // Read package.json
+    pkg: grunt.file.readJSON('package.json'),
+
+    // Compile less files
     less: {
       development: {
         options: {
-          paths: [ 'css/less' ],
-          yuicompress: true
+          paths: [ 'less' ]
         },
-        files: [
-          {
-            expand: true,
-            cwd: 'css/less',
-            src: [
-              'style*.less',
-              'admin.less'
-            ],
-            dest: 'css' ,
-            ext: '.css'
-          }
-        ]
+        files: {
+          'css/style.css': 'less/style.less',
+          'css/admin.css': 'less/admin.less'
+        }
+      },
+      production: {
+        options: {
+          paths: [ 'less' ],
+          cleancss: true
+        },
+        files: {
+          'css/style.css': 'less/style.less',
+          'css/admin.css': 'less/admin.less'
+        }
       }
     },
+
+    // Uglify javascript files
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> (v<%= pkg.version %>) - ' +
+          '<%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */'
+      },
+      production: {
+        files: {
+          'js/pleroma.min.js': [ 'js/pleroma.js' ]
+        }
+      }
+    },
+
+    // Watch
     watch: {
       less: {
-        files: [ 'css/less/*.less' ],
-        tasks: [ 'less' ],
+        files: [ 'less/**/*' ],
+        tasks: [ 'less:development' ],
+        options: { nospawn: true }
+      },
+      uglify: {
+        files: [ 'js/**/*', '!js/**/*.min.js' ],
+        tasks: [ 'uglify:production' ],
         options: { nospawn: true }
       },
       livereload: {
         options: { livereload: true },
         files: [
-          '**/*.less',
+          'less/**/*',
+          'js/**/*',
           '**/*.php'
         ]
       }
     },
-    uglify: {
-      target: {
-        files: {
-          'js/pleroma_bootstrap.min.js': [
-            "components/bootstrap/js/bootstrap-transition.js",
-            "components/bootstrap/js/bootstrap-alert.js",
-            "components/bootstrap/js/bootstrap-button.js",
-            "components/bootstrap/js/bootstrap-carousel.js",
-            "components/bootstrap/js/bootstrap-collapse.js",
-            "components/bootstrap/js/bootstrap-dropdown.js",
-            "components/bootstrap/js/bootstrap-modal.js",
-            "components/bootstrap/js/bootstrap-tooltip.js",
-            "components/bootstrap/js/bootstrap-popover.js",
-            "components/bootstrap/js/bootstrap-scrollspy.js",
-            "components/bootstrap/js/bootstrap-tab.js",
-            "components/bootstrap/js/bootstrap-typeahead.js",
-            "components/bootstrap/js/bootstrap-affix.js",
-            "js/pleroma.js"
-          ]
-        }
-      }
-    },
-    exec: {
-      bootstrap: {
-        command: 'cp ./components/bootstrap/img/* ./img'
-      }
-    },
+
+    // Handle releases
     release: {
       options: {
-        commit: false,
+        commit: true,
         push: false,
         pushTags: false,
         npm: false,
@@ -77,7 +80,10 @@ grunt.initConfig({
         tagMessage: 'Version <%= version %>'
       }
     }
+
   });
 
-  grunt.registerTask('build', ['less', 'uglify', 'exec']);
+  // Build Task
+  grunt.registerTask('build', [ 'less:production', 'uglify:production' ]);
+
 };

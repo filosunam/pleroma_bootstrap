@@ -1,5 +1,8 @@
-<?php if ( is_active_sidebar( 'sidebar-info-1' ) ) : ?>
-
-  <?php dynamic_sidebar( 'sidebar-info-1' ); ?>
+<?php
   
-<?php endif; ?>
+  // Sidebar Info 1
+  if ( is_active_sidebar( 'sidebar-info-1' ) ) {
+    echo '<div class="sidebar">';
+      dynamic_sidebar( 'sidebar-info-1' );
+    echo '</div>';
+  }

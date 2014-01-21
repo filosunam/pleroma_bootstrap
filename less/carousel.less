@@ -1,0 +1,40 @@
+//
+// Carousel
+// --------------------------------------------------
+
+// Carousel Home
+#CarouselHome {
+  max-width: 870px;
+  .item {
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 870px;
+      max-height: 403px;
+    }
+  }
+}
+
+// Carousel Post
+.carousel-post {
+  max-width: 870px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: @screen-xs-max) {
+  #CarouselHome {
+    margin: 0 -20px;
+  }
+}
+
+// Carousel Posts
+.carousel-posts {
+  .carousel-control {
+    width: 5%;
+    background: none;
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right {
+      top: 50px;
+    }
+  }
+}

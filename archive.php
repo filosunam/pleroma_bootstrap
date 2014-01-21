@@ -1,39 +1,92 @@
 <?php get_header(); ?>
 
-<div class="row-fluid">
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
 
-  <?php if( get_current_blog_id() === 1 ) { ?>
+    <?php if ( is_main_site() ) : ?>
 
-    <div id="main" class="span6" role="main">
-      <?php get_template_part( 'archive', 'single' ); ?>
-      <?php page_navi(); ?>
-    </div> <!-- /.span6#main -->
+      <!-- #main.col-sm-8.col-md-6 -->
+      <div id="main" class="col-sm-8 col-md-6" role="main">
+        <?php
 
-    <div class="span3">
-      <?php get_sidebar(1); // sidebar 1 ?>
-    </div> <!-- /.span3 -->
+          // Get partial of archive
+          get_template_part( 'partials/content-archive', 'single' );
 
-    <div class="span3">
-      <?php get_sidebar(2); // sidebar 2 ?>
-    </div> <!-- /.span3 -->
+          // Get pagination
+          the_pagination();
 
-  <?php } else { ?>
+        ?>
+      </div><!-- /#main.col-sm-8.col-md-6 -->
 
-    <div class="span3">
-      <?php get_sidebar(1); // sidebar 1 ?>
-    </div> <!-- /.span3 -->
+      <!-- .col-sm-4.col-md-6 -->
+      <div class="col-sm-4 col-md-6">
+        <!-- .row -->
+        <div class="row">
+          <!-- .col-md-6 -->   
+          <div class="col-md-6">
+            <?php
 
-    <div id="main" class="span6" role="main">
-      <?php get_template_part( 'archive', 'single' ); ?>
-      <?php page_navi(); ?>
-    </div> <!-- /.span6#main -->
+              // Sidebar 1
+              get_sidebar( 1 );
 
-    <div class="span3">
-      <?php get_sidebar(2); // sidebar 2 ?>
-    </div> <!-- /.span3 -->
-          
-  <?php } ?>
+            ?>
+          </div><!-- /.col-md-6 -->
+          <!-- .col-md-6 -->
+          <div class="col-md-6">
+            <?php
 
-</div> <!-- /.row-fluid -->
+              // Sidebar 2
+              get_sidebar( 2 );
+
+            ?>
+          </div><!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->     
+      </div><!-- /.col-sm-4.col-md-6 -->
+
+    <?php else : ?>
+
+      <!-- .col-md-3 -->
+      <div class="col-md-3">
+        <?php
+
+          // Sidebar 1
+          get_sidebar( 1 );
+
+        ?>
+      </div><!-- /.col-md-3 -->
+
+      <!-- #main.col-md-6 -->
+      <div id="main" class="col-md-6" role="main">
+        <?php
+
+          // Get breadcrumb
+          the_breadcrumb();
+
+          // Get partial of archive
+          get_template_part( 'partials/content-archive', 'single' );
+
+          // Get pagination
+          the_pagination();
+
+        ?>
+      </div> <!-- /#main.col-md-6 -->
+
+      <!-- .col-md-3 -->
+      <div class="col-md-3">
+        <?php
+
+          // Sidebar 2
+          get_sidebar( 2 );
+
+        ?>
+      </div><!-- /.col-md-3 -->
+            
+    <?php endif; ?>
+
+  </div><!-- /.row -->
+</div><!-- /.container -->
 
 <?php get_footer(); ?>

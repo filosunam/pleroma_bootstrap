@@ -1,28 +1,24 @@
 # Pleroma Bootstrap
-Plantilla de Wordpress diseñada y desarrollada para la [Facultad de Filosofía y Letras, UNAM](http://www.filos.unam.mx). Basado en [Bootstrap](https://github.com/twbs/bootstrap).
+Plantilla de Wordpress para la [Facultad de Filosofía y Letras, UNAM](http://www.filos.unam.mx). Basada en [Bootstrap](https://github.com/twbs/bootstrap).
 
 ## ¿Cómo empezar?
 
     $ git clone git@github.com:filosunam/pleroma_bootstrap.git
+    $ npm install && bower install
 
 ## Generar archivos
 
-Es muy sencillo generar todos los archivos (css, js, imágenes) para la plantilla, utilizando [Grunt.js](http://gruntjs.com):
+Generar archivos (js, css) de producción para la plantilla, utilizando [Grunt.js](http://gruntjs.com):
 
-    $ cd [path]/pleroma_bootstrap
-    $ npm install && bower install
-    $ npm install -g grunt-cli
     $ grunt build
 
-También puedes generar por tipo de archivo:
+Es posible generarlos por tipo de archivo:
 
-* `grunt less` para compilar LESS y generar CSS.
-* `grunt uglify` para concatenar y minificar archivos javascript
-* `grunt exec:bootstrap` para generar imágenes de [Bootstrap](https://github.com/twbs/bootstrap)
+* `grunt less` para compilar LESS y generar archivos CSS minificados.
+* `grunt uglify` para concatenar y minificar archivos JavaScript.
 
 ## ¿Cómo contribuir?
 
-Hay un *workflow* definido para el desarrollo web de esta plantilla.
+Para que el desarrollo web de la plantilla sea más rápido y sencillo, con *livereload*, utilizar la tarea:
 
-Utiliza la tarea `grunt watch` para que el desarrollo web de la plantilla sea mucho más rápido y fácil. De tal manera que puedes editar archivos LESS y PHP con *livereload*.
-
+    $ grunt watch

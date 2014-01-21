@@ -1,37 +1,77 @@
 <?php get_header(); ?>
-      
-<div class="row-fluid">
 
-  <?php if( get_current_blog_id() == 1 ) { ?>
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
 
-  <div id="main" class="span6" role="main">
-    <?php get_template_part( 'single', 'part' ); ?>
-  </div> <!-- /.span6#main -->
-  
-  <div class="span3">
-    <?php get_sidebar(1); // sidebar 1 ?>
-  </div> <!-- /.span3 -->
+    <?php if ( is_main_site() ) : ?>
 
-  <div class="span3">
-    <?php get_sidebar(2); // sidebar 2 ?>
-  </div> <!-- /.span3 -->
+    <!-- #main.col-md-6 -->
+    <div id="main" class="col-md-6" role="main">
+      <?php
 
-  <?php } else { ?>
+        // Get partial of single post
+        get_template_part( 'partials/content-post', 'single' );
 
-  <div class="span3">
-    <?php get_sidebar(1); // sidebar 1 ?>
-  </div> <!-- /.span3 -->        
+      ?>
+    </div><!-- /#main.col-md-6 -->
+    
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
 
-  <div id="main" class="span6" role="main">
-    <?php get_template_part( 'single', 'part' ); ?>
-  </div> <!-- /.span6#main -->
+        // Sidebar 1
+        get_sidebar( 1 );
 
-  <div class="span3">
-    <?php get_sidebar(2); // sidebar 2 ?>
-  </div> <!-- /.span3 -->
+      ?>
+    </div><!-- /.col-md-3 -->
 
-  <?php } ?>
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
 
-</div> <!-- /.row-fluid -->
+        // Sidebar 2
+        get_sidebar( 2 );
+
+      ?>
+    </div><!-- /.col-md-3 -->
+
+    <?php else : ?>
+
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
+
+        // Sidebar 1
+        get_sidebar( 1 );
+
+      ?>
+    </div><!-- /.col-md-3 -->
+
+    <!-- #main.col-md-6 -->
+    <div id="main" class="col-md-6" role="main">
+      <?php
+
+        // Get partial of single post
+        get_template_part( 'partials/content-post', 'single' );
+
+      ?>
+    </div><!-- /#main.col-md-6 -->
+
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <?php
+
+        // Sidebar 2
+        get_sidebar( 2 );
+
+      ?>
+    </div><!-- /.col-md-3 -->
+
+    <?php endif; ?>
+
+  </div> <!-- /.row -->
+</div><!-- /.container -->
 
 <?php get_footer(); ?>

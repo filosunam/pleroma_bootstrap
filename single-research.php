@@ -2,135 +2,125 @@
 /**
  * The template for displaying a single research
  */
+?>
 
-// Get template header
-get_header(); ?>
+<?php get_header(); ?>
 
-<div class="row-fluid">
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
 
-  <!-- Get sidebar -->
-  <div class="span3">
-    <!-- Categories -->
-    <div class="widget">
-      <h4 class="widget-title h4 lead">
-        <?php _e('Líneas de investigación'); ?>
-      </h4>
-      <ul class="nav nav-tabs nav-stacked">
-      <?php
-
-        $cats = array();
-        $current = get_the_terms( get_the_ID(), 'research_category' );
-        foreach ($current as $key => $cat) {
-          $cats[] = $cat->slug;
-        }
-
-        $taxonomy = 'research_category';
-        $categories = get_terms( $taxonomy, '' );
-
-        if ($categories) {
-          foreach ( $categories as $category ) {
-            echo '<li '. (array_search($category->slug, $cats) !== false ? 'class="active"' : '') . '>';
-            echo '<a href="' . esc_attr(get_term_link( $category, $taxonomy )) . '">' . $category->name . '</a>';
-            echo '</li>';
-          }
-        }
-
-      ?>
-      </ul>
-    </div>
-    <?php get_sidebar('page-1'); // sidebar page 1 ?>
-  </div>
-  
-  <!-- Main -->
-  <div id="main" class="span6" role="main">
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <article class="research-project" id="post-<?php the_ID(); ?>" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-      <!-- Header -->
-      <header>
-        <?php
-          if ( has_post_thumbnail() ) :
-          $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-          $format_img      = '<img src="%s" alt="%s">';
-        ?>
-        <figure>
-          <?php printf( $format_img, $large_image_url[0], the_title_attribute('echo=0') ); ?>
-        </figure>
-        <?php endif; ?>
-        <h1 class="h3 lead" itemprop="headline"><?php echo the_title(); ?></h1>
-        <p class="well well-small">
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
+      <!-- .navbar.navbar-stacked -->
+      <nav class="navbar navbar-default navbar-stacked" role="navigation">    
+        <!-- .navbar-header -->
+        <div class="navbar-header">
+          <a class="navbar-brand visible-xs" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#researchlines-navbar-collapse">
+            <span class="sr-only">Navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div><!-- /.navbar-header -->
+        <!-- .navbar-collapse -->
+        <div class="collapse navbar-collapse" id="researchlines-navbar-collapse">
+          <ul class="nav navbar-nav">
           <?php
 
-            $categories = array();
-            $categories_list = get_the_terms( get_the_ID(), 'research_category' );
+            // Get current term
+            $current = get_query_var( 'term' );
 
-            if (count($categories_list) > 0) {
-              
-              foreach ($categories_list as $key => $value) {
-                $categories[] = '<a href="'. get_term_link( $value->slug, 'research_category' ) .'" class="label">'. $value->name .'</a>';
+            // Set taxonomy variable
+            $taxonomy = 'research_category';
+
+            // Get terms depending on taxonomy
+            $categories = get_terms( $taxonomy, '' );
+
+            // Check if categories exist
+            if ( $categories ) {
+
+              // For each category
+              foreach ( $categories as $category ) {
+
+                // Display <li> element
+                echo '<li '. ( $current === $category->slug ? 'class="active"' : '' ) . '>';
+                echo '<a href="' . esc_attr( get_term_link( $category, $taxonomy ) ) . '">' . $category->name . '</a>';
+                echo '</li>';
+
               }
 
-              echo 'Líneas de investigación: ' . implode($categories, ' ');
             }
 
           ?>
-        </p>
-      </header>
-      <!-- Content -->
-      <section class="post-content" itemprop="articleBody">
-        <?php the_content(); ?>
-      </section>
-    </article>
-    <?php endwhile; ?>
-    <?php endif; ?>
-  </div>
-  
-  <!-- Get options-->
-  <div class="span3">
+          </ul>
+        </div><!-- .navbar-collapse -->
+      </nav><!-- /.navbar.navbar-stacked -->
 
-    <?php 
+      <?php
 
-      // Get the ID
-      $post_id = get_the_ID();
+        // Sidebar Page 1
+        get_sidebar('page-1');
 
-      // Add default arguments
-      $widget_args = array(
-        'before_title' => '<h4 class="widget-title h4 lead">'
-      );
+      ?>
 
-    ?>
+    </div><!-- /.col-md-3 -->
+    
+    <!-- #main.col-md-3 -->
+    <div id="main" class="col-md-6" role="main">
+      <?php
 
-    <?php
+        // Get partial of single research
+        get_template_part( 'partials/content-research', 'single' );
 
-      // RSS Link
-      $rss = get_post_meta( $post_id, 'rp_rss_link', true );
+      ?>
+    </div><!-- /#main.col-md-3 -->
+    
+    <!-- .col-md-3 -->
+    <div class="col-md-3">
 
-      if ($rss) {
+      <?php 
 
-        // RSS widget options
-        $rss_options = array(
-          'title' => 'Productos recientes',  // Title of the Widget
-          'url' => esc_url($rss), // URL of the RSS Feed
-          'items' => 10, // Number of items to be displayed
-          'show_summary' => 0, // Show post excerpts?
-          'show_author' => 0, // Set 1 to display post author
-          'show_date' => 0 // Set 1 to display post dates
+        // Get the ID
+        $post_id = get_the_ID();
+
+        // Add default arguments
+        $widget_args = array(
+          'before_title' => '<h4 class="widget-title h4 lead">'
         );
 
-        // Add custom arguments to RSS widget
-        $widget_args['after_title'] = 
-            '</h4><div class="alert alert-info" style="text-align: center">Productos recientes del proyecto '
-          . 'en el <a href="http://ru.ffyl.unam.mx" style="color: inherit;">Repositorio RUFFYL</a></div>';
+        // RSS Link
+        $rss = get_post_meta( $post_id, 'rp_rss_link', true );
 
-        // Show the widget
-        the_widget( 'WP_Widget_RSS', $rss_options, $widget_args );
-        
-      }
+        if ($rss) {
 
-    ?>
+          // RSS widget options
+          $rss_options = array(
+            'title' => 'Productos recientes', // Title of the Widget
+            'url' => esc_url( $rss ), // URL of the RSS Feed
+            'items' => 10, // Number of items to be displayed
+            'show_summary' => 0, // Show post excerpts?
+            'show_author' => 0, // Set 1 to display post author
+            'show_date' => 0 // Set 1 to display post dates
+          );
 
-  </div>
+          // Add custom arguments to RSS widget
+          $widget_args['after_title'] = 
+              '</h4><div class="alert alert-info" style="text-align: center">Productos recientes del proyecto '
+            . 'en el <a href="http://ru.ffyl.unam.mx" style="color: inherit;">Repositorio RUFFYL</a></div>';
 
-</div>
+          // Show the widget
+          the_widget( 'WP_Widget_RSS', $rss_options, $widget_args );
+          
+        }
 
-<!-- Get template footer -->
+      ?>
+
+    </div><!-- /.col-md-3 -->
+
+  </div><!-- .row -->
+</div><!-- .container -->
+
 <?php get_footer(); ?>

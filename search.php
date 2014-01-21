@@ -1,65 +1,126 @@
 <?php get_header(); ?>
 
-<div class="row-fluid">
-<?php if ( get_current_blog_id() == 1 ) { ?>
+<!-- .container -->
+<div class="container">
+  <!-- .row -->
+  <div class="row">
 
-  <div id="main" class="span6" role="main">
+  <?php if ( is_main_site() ) : ?>
 
-    <h1 class="lead h4"><span><?php _e('Buscar', 'pleromabootstrap'); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
-  
-    <?php get_template_part( 'archive', 'single' ); ?>
-    
-    <?php page_navi(); ?>    
+    <!-- #main.col-sm-8.col-md-6 -->
+    <div id="main" class="col-sm-8 col-md-6" role="main">
+      <h1 class="h4">
+        <span class="glyphicon glyphicon-search"></span>
+        <?php _e( 'Buscar', 'pleromabootstrap' ); ?> "<?php echo esc_attr( get_search_query() ); ?>"
+      </h1>
 
-    <?php if (!have_posts()) : ?>
+      <?php
 
+        // Get partial of archive
+        get_template_part( 'partials/content-archive', 'single' );
+
+        // Get pagination
+        the_pagination();
+
+      ?>
+
+      <?php if ( ! have_posts() ) : ?>
+
+      <!-- .well -->
+      <div class="well">
+        <strong><?php _e( 'Disculpa, no hay resultados.', 'pleromabootstrap' ); ?></strong> <br>
+        <?php  _e( 'Intenta de nuevo la búsqueda.', 'pleromabootstrap' ); ?>
+      </div><!-- /.well -->
+
+      <?php endif; ?>
+    </div><!-- /#main.col-sm-8.col-md-6 -->
+
+    <!-- .col-sm-4.col-md-6 -->
+    <div class="col-sm-4 col-md-6">
+      <!-- .row -->
+      <div class="row">
+        <!-- .col-md-6 -->   
+        <div class="col-md-6">
+          <?php
+
+            // Sidebar 1
+            get_sidebar( 1 );
+
+          ?>
+        </div><!-- /.col-md-6 -->
+        <!-- .col-md-6 -->
+        <div class="col-md-6">
+          <?php
+
+            // Sidebar 2
+            get_sidebar( 2 );
+
+          ?>
+        </div><!-- /.col-md-6 -->
+      </div>
+      <!-- /.row -->     
+    </div><!-- /.col-sm-4.col-md-6 -->
+      
+  <?php else : ?>
+
+    <!-- .col-md-3 -->
+      <div class="col-md-3">
+        <?php
+
+          // Sidebar 1
+          get_sidebar( 1 );
+
+        ?>
+      </div><!-- /.col-md-3 -->
+
+      <!-- #main.col-md-6 -->
+      <div id="main" class="col-md-6" role="main">
+        <?php
+
+          // Get breadcrumb
+          the_breadcrumb();
+
+        ?>
+        
+        <h1 class="h4">
+          <span class="glyphicon glyphicon-search"></span>
+          <?php _e( 'Buscar', 'pleromabootstrap' ); ?> "<?php echo esc_attr( get_search_query() ); ?>"
+        </h1>
+
+        <?php
+
+          // Get partial of archive
+          get_template_part( 'partials/content-archive', 'single' );
+
+          // Get pagination
+          the_pagination();
+
+        ?>
+
+        <?php if ( ! have_posts() ) : ?>
+
+        <!-- .well -->
         <div class="well">
-          <h1 class="lead"><?php _e("Disculpa, no hay resultados.", "pleromabootstrap"); ?></h1>
-          <p><?php _e("Intenta de nuevo la búsqueda.", "pleromabootstrap"); ?></p>
+          <strong><?php _e( 'Disculpa, no hay resultados.', 'pleromabootstrap' ); ?></strong> <br>
+          <?php  _e( 'Intenta de nuevo la búsqueda.', 'pleromabootstrap' ); ?>
         </div><!-- /.well -->
 
-    <?php endif; ?>
+        <?php endif; ?>
+      </div> <!-- /#main.col-md-6 -->
 
-  </div> <!-- end #main -->
+      <!-- .col-md-3 -->
+      <div class="col-md-3">
+        <?php
 
-  <div class="span3">
-    <?php get_sidebar(1); // sidebar 1 ?>
-  </div><!-- /.span3 -->
+          // Sidebar 2
+          get_sidebar( 2 );
 
-  <div class="span3">
-    <?php get_sidebar(2); // sidebar 2 ?>
-  </div><!-- /.span3 -->
-    
-<?php } else { ?>
+        ?>
+      </div><!-- /.col-md-3 -->
 
-  <div class="span3">
-    <?php get_sidebar(1); // sidebar 1 ?>
-  </div><!-- /.span3 -->
+  <?php endif;?>
 
-  <div id="main" class="span6" role="main">
-
-    <h1 class="lead h4"><span><?php _e('Buscar', 'pleromabootstrap'); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
-  
-    <?php get_template_part( 'archive', 'single' ); ?>
-    
-    <?php page_navi(); ?>    
-
-    <?php if (!have_posts()) : ?>
-
-        <div class="well">
-          <h1 class="lead"><?php _e("Disculpa, no hay resultados.", "pleromabootstrap"); ?></h1>
-          <p><?php _e("Intenta de nuevo la búsqueda.", "pleromabootstrap"); ?></p>
-        </div><!-- /.well -->
-
-    <?php endif; ?>
-
-  </div> <!-- end #main -->
-
-  <div class="span3">
-    <?php get_sidebar(2); // sidebar 2 ?>
-  </div><!-- /.span3 -->
-
-<?php } ?>
-</div> <!-- /.row-fluid -->
+  </div> <!-- /.row -->
+</div><!-- /.container -->
 
 <?php get_footer(); ?>

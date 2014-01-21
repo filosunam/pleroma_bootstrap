@@ -1,0 +1,315 @@
+// Bootstrap
+@import '../components/bootstrap/less/bootstrap.less';
+
+// Custom variables
+@import 'variables.less';
+
+// Core CSS
+@import 'type.less';
+@import 'grid.less';
+
+// Components
+@import 'navs.less';
+@import 'navbar.less';
+@import 'carousel.less';
+
+// Wordpress
+@import 'wordpress.less';
+
+//
+// General
+// --------------------------------------------------
+
+// Wrapper for container element
+
+#main, .sidebar {
+  margin-bottom: 40px;
+}
+
+// Header
+// -------------------------
+
+// Header element
+#header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .logo {
+    height: 90px;
+    display: block;
+    background: url(@pleroma-sprite) no-repeat;
+    .hide-text();
+    &.unam {
+      width: 270px;
+      background-position: -10px -10px;
+    }
+    &.filosunam {
+      .pull-right();
+      width: 225px;
+      background-position: 0 -110px;
+    }
+  }
+  @media (max-width: @screen-xs-max) {
+    .logo.unam {
+      width: 80px;
+    }
+  }
+}
+
+// Content
+// -------------------------
+
+// Research Featured
+.research-featured {
+  margin-top: 20px;
+  a {
+    min-height: 85px;
+    display: block;
+    position: relative;
+    color: white;
+    .title {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background: @color1;
+      .transition(all .2s ease-in);
+      .opacity(.6);
+      height: 100%;
+      bottom: 0;
+      span {
+        .h4();
+        bottom: 0;
+        position: absolute;
+        display: block;
+        padding: 15px;
+      }
+    }
+    &:hover {
+      .title {
+        .transition(all .2s ease-out);
+        .opacity(0);
+      }
+    }
+  }
+}
+
+// Featured Product or Research Project
+.post-featured-product, .research-project {
+  position: relative;
+  .post-footer {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    max-width: 75%;
+    padding: 20px 5%;
+    background: black;
+    .opacity(0.8);
+    .post-title {
+      margin: 0;
+      padding: 0;
+      .text-right();
+      font-size: 1.2em;
+    }
+    a, a:hover, a:focus {
+      color: white;
+    }
+  }
+}
+
+@media (min-width: @screen-lg-min) {
+  .post-featured-product {
+    background: black;
+    overflow: hidden;
+    .post-header {
+      position: static;
+      float: left;
+      width: 65%;
+    }
+    .post-footer {
+      position: static;
+      float: right;
+      width: 29%;
+      margin: 0;
+      padding: 20px 3% 0 0;
+      .post-title {
+        .lead();
+        font-size: 1.4em;
+      }
+    }
+  }
+}
+
+// Widgets
+// -------------------------
+
+// Base widget
+.widget {
+  margin-bottom: 20px;
+  .widget-title {
+    margin: 0 0 10px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    background: @color2;
+  }
+  .clearfix()
+}
+
+// Calendar widget
+.widget_calendar {
+  #wp-calendar {
+    width: 100%;
+  }
+}
+
+// RSS widget
+.widget_rss { 
+  .widget-title {
+    a { 
+      color: white;
+    }
+  }
+}
+
+// Events List Widget
+ul.eo-events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.eo-events-widget { 
+  margin: 0;
+  li {
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .date {
+    float: left;
+    width: 75px;
+    padding: 5px;
+    text-align: center;
+    font-size: 0.9em;
+  }
+  .event {
+    .clearfix();
+    margin-left: 85px;
+    h3 {
+      margin: 5px 0;
+      font-weight: normal;      
+    }
+  }
+}
+
+// Featured events
+.featured-events {
+  .eo-events-widget .date {
+    background: white;
+    border: 1px solid @navbar-default-border;
+    .border-bottom-radius(4px);
+    b {
+      display: block;
+      padding: 5px;
+      margin: -6px -6px 5px -6px;
+      background-color: @color2;
+      color: white;        
+      .border-top-radius(4px);
+    }
+  }
+}
+
+
+// Footer
+// -------------------------
+
+// Footer element
+.wrapper-footer {
+  background: @color1;
+  color: lighten(@color1, 40%);
+  h4 {
+    margin-top: 5px;
+    font-weight: normal;
+    color: white;
+  }
+  a {
+    color: lighten(@color1, 50%);
+  }
+  .nav {
+    > li > a {
+      color: lighten(@color1, 50%);
+      &:hover {
+        background-color: lighten(@color1, 10%);
+      }
+    }
+  }
+  hr {
+    border-top: 1px solid darken(@color1, 5%);
+    border-bottom: 1px solid lighten(@color1, 5%);
+  }
+}
+
+// Icons
+.icons {
+  margin-top: 40px;
+  a {
+    background: url(@pleroma-social) -10px -10px;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    .text-hide();
+    .transition(all .25s ease-in-out);
+  }
+  .facebook {
+    background-position: -50px -90px;
+    &:hover, &:focus {
+      background-position: -50px -130px;
+    }
+  }
+  .twitter {
+    background-position: -10px -330px;
+    &:hover, &:focus {
+      background-position: -10px -370px;
+    }
+  }
+  .youtube {
+    background-position: -290px -330px;
+    &:hover, &:focus {
+      background-position: -290px -370px;
+    }
+  }
+  .vimeo {
+    background-position: -90px -330px;
+    &:hover, &:focus {
+      background-position: -90px -370px;
+    }
+  }
+  .rss {
+    background-position: -210px -250px;
+    &:hover, &:focus {
+      background-position: -210px -290px;
+    }
+  }
+}
+
+@media (max-width: @screen-sm-max) {
+  .icons {
+    .text-center();
+  }
+}
+
+// Languages controls
+.languages-controls {
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    li {
+      display: inline-block;
+      padding: 0 5px;
+      a {
+        color: @gray-light;
+        &:hover, &:focus {
+          color: @gray-lighter;
+        }
+      }
+    }
+  }
+}

@@ -1,30 +1,49 @@
 <?php
 
-// I had read somewhere:
-// "I would say RTFM, but you would say, write the fucking manual"
-// but actually this isn't a big deal
-// so move your lazy ass!
+  // If you've problems with Wordpress: GIYF, don't forget it!
 
-require_once('library/pleroma.php');
-require_once('library/admin.php');
-require_once('library/sidebars.php');
-require_once('library/navs.php');
-require_once('library/widgets.php');
-require_once('library/dev.php');
+  // Initializer
+  require get_template_directory() . '/inc/initializer.php';
 
-require_once('library/boletin.php'); // this line is embarrassing and no standard
+  // Navigation
+  require get_template_directory() . '/inc/navigation.php';
+
+  // Sidebars
+  require get_template_directory() . '/inc/sidebars.php';
+
+  // Widgets
+  require get_template_directory() . '/inc/widgets.php';
+
+  // Content
+  require get_template_directory() . '/inc/content.php';
+
+  // Backend
+  require get_template_directory() . '/inc/backend.php';
+
+  // Extra
+  require get_template_directory() . '/inc/extra.php';
 
 
-update_option('thumbnail_size_w', 125);
-update_option('thumbnail_size_h', 125);
-update_option('thumbnail_crop', 1);
+  // For web development purposes
+  if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ) {
 
-add_image_size( 'small', 347, 161, 1 );
+    // Set livereload only in the front end
+    if ( ! is_admin () ) {
 
-update_option('medium_size_w', 700);
-update_option('medium_size_h', 322);
-update_option('medium_crop', 1);
+      // Add to init hook
+      add_action( 'init', 'register_livereload' );
 
-update_option('large_size_w', 870);
-update_option('large_size_h', 403);
-update_option('large_crop', 1);
+      // Register livereload
+      function register_livereload() {
+        
+        // Register livereload script (Take a look to Gruntfile.js for more info)
+        wp_register_script( 'livereload', 'http://localhost:35729/livereload.js' );
+        
+        // Enqueue livereload script
+        wp_enqueue_script( 'livereload' );
+
+      }
+
+    }
+
+  }
