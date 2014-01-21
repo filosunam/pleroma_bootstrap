@@ -72,7 +72,7 @@ module.exports = function (grunt) {
     // Handle releases
     release: {
       options: {
-        commit: true,
+        commit: false,
         push: false,
         pushTags: false,
         npm: false,
