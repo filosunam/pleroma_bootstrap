@@ -25,11 +25,12 @@
   <div class="row">
     <!-- .col-md-3 -->
     <div class="col-md-3">
+      <h4 class="widget-title hidden-xs"><?php _e( 'Líneas de investigación' ); ?></h4>
       <!-- .navbar.navbar-stacked -->
       <nav class="navbar navbar-default navbar-stacked" role="navigation">    
         <!-- .navbar-header -->
         <div class="navbar-header">
-          <a class="navbar-brand visible-xs" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+          <a class="navbar-brand visible-xs" href="<?php echo get_permalink(); ?>"><?php _e( 'Líneas de investigación' ); ?></a>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#researchlines-navbar-collapse">
             <span class="sr-only">Navegación</span>
             <span class="icon-bar"></span>

@@ -12,7 +12,7 @@
         <?php
 
           // Get partial of archive
-          get_template_part( 'partials/content-archive', 'single' );
+          get_template_part( 'partials/content', 'archive' );
 
           // Get pagination
           the_pagination();
