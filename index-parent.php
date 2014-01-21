@@ -193,7 +193,7 @@
             // Set query posts
             query_posts(
               array(
-                'p'         => 1,
+                'p'         => $research_product,
                 'post_type' => array( 'post', 'page', 'event' ),
                 'meta_key'  => '_thumbnail_id'
               )
