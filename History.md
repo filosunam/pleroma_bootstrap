@@ -3,6 +3,10 @@ Plantilla de Wordpress para la [Facultad de Filosofía y Letras, UNAM](http://ww
 
 ## Changelog
 
+### 1.0.1
+
+* Ajustes generales, corrección de errores
+
 ### 1.0.0
 
 * Primer release
