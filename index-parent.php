@@ -4,8 +4,8 @@
 <div class="container">
   <!-- .row -->
   <div class="row">
-    <!-- .col-md-8.col-md-9 -->
-    <div class="col-md-8 col-md-9">
+    <!-- .col-md-8.col-lg-9 -->
+    <div class="col-md-8 col-lg-9">
       <?php
 
         // Get category slider
