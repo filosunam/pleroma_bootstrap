@@ -4,8 +4,8 @@
 <div class="container">
   <!-- .row -->
   <div class="row">
-    <!-- .col-md-9 -->
-    <div class="col-md-9">
+    <!-- .col-md-8.col-md-9 -->
+    <div class="col-md-8 col-md-9">
       <?php
 
         // Get category slider
@@ -98,10 +98,10 @@
       
         <?php endif; ?>
       <?php endif; ?>
-    </div><!-- /.col-md-9 -->
+    </div><!-- /.col-md-8.col-md-9 -->
 
-    <!-- .col-md-9 -->
-    <div class="col-md-3">
+    <!-- .col-md-4.col-lg-3 -->
+    <div class="col-md-4 col-lg-3">
       <?php
 
         // If has 'secondary' nav menu
@@ -131,7 +131,7 @@
         get_sidebar( 'home' );
 
       ?>
-    </div><!-- /.col-md-3 -->
+    </div><!-- /.col-md-4.col-lg-3 -->
   </div><!-- /.row -->
 </div><!-- /.container -->
 
