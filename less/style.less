@@ -40,7 +40,7 @@ img {
   .logo {
     height: 90px;
     display: block;
-    background: url(@pleroma-sprite) no-repeat;
+    .img-retina(@pleroma-sprite-1x, @pleroma-sprite-2x, 290px, auto);
     .hide-text();
     &.unam {
       width: 270px;
@@ -254,7 +254,7 @@ ul.eo-events {
 .icons {
   margin-top: 40px;
   a {
-    background: url(@pleroma-social) -10px -10px;
+    .img-retina(@pleroma-social-1x, @pleroma-social-2x, 290px, auto);
     display: inline-block;
     height: 32px;
     width: 32px;
