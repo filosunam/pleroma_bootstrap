@@ -3,8 +3,6 @@ node_modules/
 
 css/*.css
 js/pleroma.min.js
-img/glyphicons-halflings.png
-img/glyphicons-halflings-white.png
 
 # Compiled source #
 ###################
