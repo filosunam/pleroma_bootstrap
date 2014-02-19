@@ -1,7 +1,7 @@
 <?php
 
   // Post per page depending on blog id
-  $post_per_page  = is_main_site() ? 8 : 9;
+  $post_per_page  = is_main_site() ? 6 : 9;
 
   // Get if is manual
   $manual = get_option( 'pleroma_home_manual' );
