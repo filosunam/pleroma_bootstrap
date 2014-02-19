@@ -54,101 +54,52 @@ foreach ( $posts as $post_list )
   $wp_posts[$post_list->ID] = $post_list->post_title;
 
 // options!
-$options = array (  
-    
+$options = array();
+
+$options_main = array(
   array( "name" => "Página inicial",  
          "type" => "section"),
 
-  array( "type" => "open"), 
+  array( "type" => "open"),
 
   array(
-      "name"    => "Categoría del slider",  
-      "desc"    => "Elige una categoría para destacarla en el <strong>Slider</strong> de la página inicial.",  
-      "id"      => "pleroma_home_slider",  
-      "type"    => "select",  
-      "options" => $wp_cats,
-      "std"     => "Elige una categoría"
-  ), 
-
-  array(
-        "name"    => "Destacar contenido manualmente en la página principal",  
-        "desc"    => "Si está activado podrá desplegarse el contenido que se añade manualmente.",  
-        "id"      => "pleroma_home_manual",  
-        "type"    => "checkbox",  
-        "std"     => "0"
+    "name"    => "Categoría del slider",  
+    "desc"    => "Elige una categoría para destacarla en el <strong>Slider</strong> de la página inicial.",  
+    "id"      => "pleroma_home_slider",  
+    "type"    => "select",  
+    "options" => $wp_cats,
+    "std"     => "Elige una categoría"
   ),
 
   array(
-        "name"    => "#1 contenido destacado", 
-        "desc"    => "En la primera columna (1/8)",  
-        "id"      => "pleroma_home_featured_1",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
+    "name"    => "Destacar contenido manualmente en la página principal",  
+    "desc"    => "Si está activado podrá desplegarse el contenido que se añade manualmente.",  
+    "id"      => "pleroma_home_manual",  
+    "type"    => "checkbox",  
+    "std"     => "0"
+  )
+);
 
-  array(
-        "name"    => "#2 contenido destacado", 
-        "desc"    => "En la segunda columna (2/8)",  
-        "id"      => "pleroma_home_featured_2",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
+$options = array_merge($options, $options_main);
 
-  array(
-        "name"    => "#3 contenido destacado", 
-        "desc"    => "En la tercera columna (3/8)",  
-        "id"      => "pleroma_home_featured_3",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
+// Featured posts
+$options_featured = array();
+$featured_posts = is_main_site() ? 8 : 6 ;
 
-  array(
-        "name"    => "#4 contenido destacado", 
-        "desc"    => "En la cuarta columna (4/8)",  
-        "id"      => "pleroma_home_featured_4",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
+for ( $i = 1; $i <= $featured_posts; $i++ ) { 
+  $options_featured[] = array(
+    "name"    => "#$i contenido destacado", 
+    "desc"    => "En la primera columna ($i/$featured_posts)",  
+    "id"      => "pleroma_home_featured_$i",
+    "type"    => "select",
+    "options" => $wp_posts,  
+    "std"     => ""
+  );
+}
 
-  array(
-        "name"    => "#5 contenido destacado", 
-        "desc"    => "En la primera columna (5/8)",  
-        "id"      => "pleroma_home_featured_5",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
+$options = array_merge($options, $options_featured);
 
-  array(
-        "name"    => "#6 contenido destacado", 
-        "desc"    => "En la segunda columna (6/8)",  
-        "id"      => "pleroma_home_featured_6",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
-
-  array(
-        "name"    => "#7 contenido destacado", 
-        "desc"    => "En la tercera columna (7/8)",  
-        "id"      => "pleroma_home_featured_7",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
-
-  array(
-        "name"    => "#8 contenido destacado", 
-        "desc"    => "En la cuarta columna (8/8)",  
-        "id"      => "pleroma_home_featured_8",
-        "type"    => "select",
-        "options" => $wp_posts,  
-        "std"     => ""
-  ),
+$options_social = array(
 
   array( "type" => "close"),
 
@@ -182,9 +133,12 @@ $options = array (
         "type" => "text",  
         "std" => ""),
 
-  array( "type" => "close"),
-   
+  array( "type" => "close")
+
 );
+
+$options = array_merge($options, $options_social);
+
 
 if ( is_main_site() )
 {
