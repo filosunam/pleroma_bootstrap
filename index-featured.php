@@ -23,11 +23,12 @@
 
     // Set arguments
     $args = array(
-      'post_type'       => array( 'post', 'page', 'event' ),
-      'post__in'        => $ids,
-      'orderby'         => 'post__in',
-      'meta_key'        => '_thumbnail_id',
-      'posts_per_page'  => $post_per_page
+      'post_type'           => array( 'post', 'page', 'event' ),
+      'post__in'            => $ids,
+      'meta_key'            => '_thumbnail_id',
+      'orderby'             => 'post__in',
+      'posts_per_page'      => $post_per_page,
+      'ignore_sticky_posts' => 1
     );
 
   // If is not manual but sticky
