@@ -53,6 +53,9 @@
     <div id="main" class="col-md-6" role="main">
       <?php
 
+        // Displays the breadcrumb
+        the_breadcrumb();
+
         // Get partial of single post
         get_template_part( 'partials/content-post', 'single' );
 
