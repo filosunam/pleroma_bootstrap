@@ -6,8 +6,7 @@
     <!-- .entry-header -->
     <header class="entry-header">
       <?php if ( is_front_page() ) : ?>
-        <?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
-        <h1 class="h3"><?php the_title(); ?></h1>
+        <?php the_post_thumbnail( 'large', array( 'class' => 'img-thumbnail img-responsive' ) ); ?>
       <?php else : ?>
         <h1 class="h3"><?php the_title(); ?></h1>
       <?php endif; ?>
