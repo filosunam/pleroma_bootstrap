@@ -138,8 +138,10 @@
       if ( ! is_main_site() ) {
 
         // Displays the blogname
-        echo '<div class="page-header page-childblog col-md-9 col-md-offset-3 hidden-xs">'
+        echo '<div class="row">'
+            . '<div class="page-header page-childblog col-md-9 col-md-offset-3 hidden-xs">'
             . '<h1 class="h3">' . get_option( 'blogname' ) . '</h1>'
+            . '</div>'
             . '</div>';
 
       } else {
