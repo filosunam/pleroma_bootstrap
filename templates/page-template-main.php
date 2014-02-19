@@ -23,6 +23,13 @@
     <div id="main" role="main" class="col-md-6">
       <?php
 
+        if ( ! is_main_site() ) {
+
+          // Displays the breadcrumb
+          the_breadcrumb();
+
+        }
+
         // Get partial of single page
         get_template_part( 'partials/content-page', 'single' );
 
