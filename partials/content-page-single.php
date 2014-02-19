@@ -25,12 +25,6 @@
 
     <!-- .entry-meta -->
     <footer class="entry-meta">
-      <hr>
-      <?php
-        if ( is_user_logged_in() ) {
-          echo '<a href="' . get_edit_post_link() . '" class="btn btn-success">Editar página</a>';
-        }
-      ?>
     </footer><!-- /.entry-meta -->
 
   </article><!-- /article -->
