@@ -16,15 +16,6 @@
     }
   }
 
-  @media (max-width: @screen-xs-max) {
-    .navbar-brand {
-      width: 75%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
   .navbar-text {
     color: @navbar-primary-color;
   }
@@ -129,6 +120,16 @@
     }
   }
 
+}
+
+// Navbar brand truncated with ellipsis
+@media (max-width: @screen-xs-max) {
+  .navbar-brand {
+    width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 // Navbar stacked
