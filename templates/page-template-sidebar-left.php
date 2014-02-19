@@ -11,7 +11,7 @@
   <!-- .row -->
   <div class="row">
     <!-- .col-md-4.col-lg-3 -->
-    <div class="col-md-4 col-lg-3">
+    <div class="col-md-3">
       <?php
 
         // Sidebars depending on current blog
@@ -31,7 +31,7 @@
     </div><!-- /.col-md-4.col-lg-3 -->
 
     <!-- #main.col-md-8.col-lg-9 -->
-    <div id="main" role="main" class="col-md-8 col-lg-9">
+    <div id="main" role="main" class="col-md-9">
       <?php
 
         // Get partial of single page
