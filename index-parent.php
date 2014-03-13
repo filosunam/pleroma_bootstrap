@@ -70,6 +70,10 @@
                 case 'image':
                   echo $thumbnail;
                   break;
+
+                case 'link':
+                  echo '<a href="' . get_the_content() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
+                  break;
                 
                 default:
                   echo '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
