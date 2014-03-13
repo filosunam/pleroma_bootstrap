@@ -72,7 +72,7 @@
                   break;
 
                 case 'link':
-                  echo '<a href="' . get_the_content() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
+                  echo '<a href="' . strip_tags( get_the_content() ) . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
                   break;
                 
                 default:
