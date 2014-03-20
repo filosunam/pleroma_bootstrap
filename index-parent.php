@@ -73,16 +73,18 @@
 
                 case 'link':
                   echo '<a href="' . strip_tags( get_the_content() ) . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
+                  echo '<a href="' . strip_tags( get_the_content() ) . '" class="highlight carousel-caption">' . get_the_title() . '</a>';
                   break;
                 
                 default:
                   echo '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
+                  echo '<a href="' . get_permalink() . '" class="carousel-caption">' . get_the_title() . '</a>';
                   break;
 
               }
               
             ?> 
-            <div class="carousel-caption"><?php the_title() ?></div>
+            <!-- <div class="carousel-caption"><?php the_title() ?></div> -->
           </div><!-- /.item -->
           <?php endwhile; // End the loop ?>
         </div><!-- /.carousel-inner -->
