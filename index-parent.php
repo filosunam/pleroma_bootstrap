@@ -31,7 +31,7 @@
       ?>
 
       <!-- #CarouselHome -->
-      <div id="CarouselHome" class="carousel carousel-fade slide">
+      <div id="CarouselHome" class="carousel carousel-fade highlight slide">
         <?php if ( $wp_query->post_count > 1 ) : ?>
         <!-- .carousel-indicators -->
         <ol class="carousel-indicators">
@@ -73,7 +73,7 @@
 
                 case 'link':
                   echo '<a href="' . strip_tags( get_the_content() ) . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
-                  echo '<a href="' . strip_tags( get_the_content() ) . '" class="highlight carousel-caption">' . get_the_title() . '</a>';
+                  echo '<a href="' . strip_tags( get_the_content() ) . '" class="carousel-caption">' . get_the_title() . '</a>';
                   break;
                 
                 default:

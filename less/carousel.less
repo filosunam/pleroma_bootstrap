@@ -13,18 +13,45 @@
       max-height: 403px;
     }
   }
-  .highlight.carousel-caption {
-    opacity: 0.8;
-    color: white;
-    background: black;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    left: auto;
-    width: 60%;
-    text-align: right;
-    padding: 20px;
-    font-size: 1.5em;
+
+  &.highlight {
+  
+    .carousel-caption {
+      opacity: 0.8;
+      color: white;
+      background: black;
+      position: absolute;
+      bottom: 0;
+      left: auto;
+      right: 0;
+      width: 100%;
+      font-size: 1em;
+      padding: 10px;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      .carousel-caption {
+        font-size: 1.2em;
+        padding: 20px;
+      }
+    }
+
+    @media (min-width: @screen-md-min) {
+      .carousel-caption {
+        font-size: 1.3em;
+      }
+    }
+
+    @media (min-width: @screen-lg-min) {
+      .carousel-caption {
+        font-size: 1.5em;
+        text-align: right;
+        width: 60%;
+        right: 30px;
+        bottom: 30px;
+      }
+    }
+
   }
 }
 
