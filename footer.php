@@ -16,13 +16,6 @@
 </div><!-- /.wrapper -->
 <?php endif; ?>
 
-<?php if ( is_page() && is_main_site() ) { ?>
-<div id="comunidad" class="visible-md visible-lg">
-  <a href="http://fotos.filos.unam.mx" class="instafeed-title">Imágenes de nuestra comunidad</a>
-  <div id="instafeed"></div>
-</div>
-<?php } ?>
-
 <!-- #footer.wrapper -->
 <div id="footer" class="wrapper wrapper-footer"> 
   <!-- .container -->
@@ -134,6 +127,13 @@
       ?>
     </ul>
   </div>
+</div>
+<?php endif; ?>
+
+<?php if ( is_home() && is_main_site() ) : ?>
+<div id="comunidad" class="visible-md visible-lg">
+  <a href="http://fotos.filos.unam.mx" class="instafeed-title">Imágenes de nuestra comunidad</a>
+  <div id="instafeed"></div>
 </div>
 <?php endif; ?>
   

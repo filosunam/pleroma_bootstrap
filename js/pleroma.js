@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
     get: 'location',
     locationId: 1167187,
     limit: 35,
-    template: '<a href="{{link}}" data-toggle="tooltip" data-placement="bottom" title="{{caption}}"><img src="{{image}}" alt=""></a>',
+    template: '<a href="{{link}}" data-toggle="tooltip" data-placement="top" title="{{caption}}"><img src="{{image}}" alt=""></a>',
     after: function () {
       $('#instafeed [data-toggle="tooltip"]').tooltip();
     }
