@@ -132,6 +132,24 @@
 
 <?php wp_reset_query(); ?>
 <?php if ( get_option('pleroma_instagram_feed') && is_home() && is_main_site() ) : ?>
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+
+    var feed = new Instafeed({
+      clientId: '3f12224ae6094ea095c8aafa675867e4',
+      get: 'location',
+      locationId: 1167187,
+      limit: 35,
+      template: '<a href="{{link}}" data-toggle="tooltip" data-placement="top" title="{{caption}}"><img src="{{image}}" alt=""></a>',
+      after: function () {
+        $('#instafeed [data-toggle="tooltip"]').tooltip();
+      }
+    });
+
+    feed.run();
+
+  });
+</script>
 <div id="comunidad" class="visible-md visible-lg">
   <a href="http://fotos.filos.unam.mx" class="instafeed-title">Imágenes de nuestra comunidad</a>
   <div id="instafeed"></div>
