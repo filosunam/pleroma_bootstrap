@@ -130,7 +130,8 @@
 </div>
 <?php endif; ?>
 
-<?php if ( is_home() && is_main_site() ) : ?>
+<?php wp_reset_query(); ?>
+<?php if ( get_option('pleroma_instagram_feed') && is_home() && is_main_site() ) : ?>
 <div id="comunidad" class="visible-md visible-lg">
   <a href="http://fotos.filos.unam.mx" class="instafeed-title">Imágenes de nuestra comunidad</a>
   <div id="instafeed"></div>

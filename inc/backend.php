@@ -99,6 +99,29 @@ for ( $i = 1; $i <= $featured_posts; $i++ ) {
 
 $options = array_merge($options, $options_featured);
 
+if ( is_main_site() ) {
+
+  $options_instagram = array(
+    array( "type" => "close"),
+
+    array( "name" => "Instagram",  
+         "type" => "section"),
+
+    array( "type" => "open"),
+
+    array(
+      "name"    => "Mostrar imágenes de la comunidad",
+      "desc"    => "Si está activada muestra las imágenes recientes de la ubicación <strong>Facultad de Filosofía y Letras, UNAM</strong>. <br><br>Location ID: 1167187",
+      "id"      => "pleroma_instagram_feed",
+      "type"    => "checkbox",
+      "std"     => "0"
+    )
+  );
+
+  $options = array_merge($options, $options_instagram);
+
+}
+
 $options_social = array(
 
   array( "type" => "close"),
