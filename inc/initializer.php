@@ -108,8 +108,11 @@
       // Register bootstrap scripts
       wp_register_script( 'bootstrap', get_stylesheet_directory_uri() . '/components/bootstrap/dist/js/bootstrap.min.js', array( 'jquery' ), false, true );
 
+      // Register instafeed.js script
+      wp_register_script( 'instafeed.js', get_stylesheet_directory_uri() . '/components/instafeed.js/instafeed.min.js', array( 'jquery' ), false, true );
+
       // Register main scripts
-      wp_register_script( 'pleroma_script', sprintf( $asset, 'pleroma.min', 'js' ), array( 'jquery', 'bootstrap' ), false, true );
+      wp_register_script( 'pleroma_script', sprintf( $asset, 'pleroma.min', 'js' ), array( 'jquery', 'bootstrap', 'instafeed.js' ), false, true );
 
       // Enqueue bootstrap scripts
       wp_enqueue_script( 'bootstrap' );

@@ -317,3 +317,66 @@ ul.eo-events {
     }
   }
 }
+#comunidad {
+  max-height: 385px;
+  margin-top: 40px;
+  position: relative;
+  padding: 1px 0;
+  background: black;
+  .instafeed-title {
+    .h1();
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 15%;
+    z-index: 10;
+    color: white;
+    text-shadow: 0 1px 10px black;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+#instafeed {
+  .clearfix();
+  .tooltip {
+    .tooltip-inner {
+      color: black;
+      background-color: white;
+    }
+    &.top .tooltip-arrow {
+      border-top-color: white;
+    }
+    &.top-left .tooltip-arrow {
+      border-top-color: white;
+    }
+    &.top-right .tooltip-arrow {
+      border-top-color: white;
+    }
+    &.right .tooltip-arrow {
+      border-right-color: white;
+    }
+    &.left .tooltip-arrow {
+      border-left-color: white;
+    }
+    &.bottom .tooltip-arrow {
+      border-bottom-color: white;
+    }
+    &.bottom-left .tooltip-arrow {
+      border-bottom-color: white;
+    }
+    &.bottom-right .tooltip-arrow {
+      border-bottom-color: white;
+    }
+  }
+  a {
+    .opacity(0.5);
+    float: left;
+    width: 10%;
+    min-width: 50px;
+    &:hover {
+      .opacity(1);
+      .transition(all .2s ease-in);
+    }
+  }
+}
