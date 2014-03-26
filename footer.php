@@ -21,14 +21,21 @@
 <script type="text/javascript">
   jQuery(document).ready(function ($) {
 
+    var images = 0;
     var feed = new Instafeed({
       clientId: '3f12224ae6094ea095c8aafa675867e4',
       get: 'location',
       locationId: 1167187,
-      limit: 35,
+      limit: 60,
       template: '<a href="{{link}}" data-toggle="tooltip" data-placement="bottom" title="{{caption}}"><img src="{{image}}" alt=""></a>',
       after: function () {
         $('#instafeed [data-toggle="tooltip"]').tooltip();
+      },
+      filter: function(image) {
+        images++;
+        
+        if (images <= 20) return true;
+        return false;
       }
     });
 
