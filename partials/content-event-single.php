@@ -9,22 +9,22 @@
         <tbody>
           <?php if( eo_is_all_day() ) { ?>
           <tr>
-            <td><i class="glyphicon glyphicon-time"></i> Comienza</td>
+            <td style="width: 30%"><i class="glyphicon glyphicon-time"></i> Comienza</td>
             <td><?php echo eo_get_the_start('l j \d\e F, Y'); ?> (todo el día)</td>
           </tr>
           <?php } else { ?>
           <tr>
-            <td><i class="glyphicon glyphicon-time"></i> Comienza</td>
+            <td style="width: 30%"><i class="glyphicon glyphicon-time"></i> Comienza</td>
             <td><?php echo eo_get_the_start('l j \d\e F, Y h:i:s A'); ?></td>
           </tr>
           <tr>
-            <td><i class="glyphicon glyphicon-time"></i> Finaliza</td>
+            <td style="width: 30%"><i class="glyphicon glyphicon-time"></i> Finaliza</td>
             <td><?php echo eo_get_the_end('l j \d\e F, Y h:i:s A'); ?></td>
           </tr>
           <?php } ?>
           <?php if ( eo_get_venue_name() ) { ?>
           <tr>
-            <td><i class="glyphicon glyphicon-globe"></i> Lugar</td>
+            <td style="width: 30%"><i class="glyphicon glyphicon-globe"></i> Lugar</td>
             <td>
               <?php
 
