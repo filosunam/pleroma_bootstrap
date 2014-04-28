@@ -31,3 +31,5 @@
     </h3><!-- /.post-title -->
   </footer><!-- /.post-footer -->
 </div><!-- /.post-article -->
+
+<hr class="hidden-xs hidden-sm">

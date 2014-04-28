@@ -34,7 +34,6 @@
 
   <div class="media" id="post-<?php the_ID(); ?>" role="article">
 
-
     <a class="pull-left" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
       <?php the_post_thumbnail( 'thumbnail', array( 'class' => 'media-object img-thumbnail' ) ) ?>
     </a>
@@ -54,7 +53,6 @@
 
       <?php the_excerpt(); ?>
     </div>
-    
 
   </div><!-- /.media -->
 

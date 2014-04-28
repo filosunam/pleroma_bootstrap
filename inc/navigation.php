@@ -254,7 +254,6 @@
                 <div class="form-group">
                   <input type="text" value="%2$s" name="s" id="s" class="form-control" placeholder="%3$s">
                 </div>
-                <button type="submit" class="btn btn-default">%3$s</button>
               </form> ';
 
     return sprintf( $form, home_url( '/' ), get_search_query(), esc_attr__( 'Buscar', 'pleromabootstrap' ) );

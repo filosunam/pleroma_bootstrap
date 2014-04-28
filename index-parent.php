@@ -178,7 +178,6 @@
           if ( eo_get_events( $args ) ) :
 
         ?>
-        <h3 class="lead"><?php _e( 'Events', 'eventorganiser' ); ?></h3>
         <?php the_widget( 'EO_Event_List_Widget', $args ); ?>
         <a class="btn btn-sm btn-default" href="/calendario-de-eventos">
           <span class="glyphicon glyphicon-calendar"></span>
@@ -217,8 +216,6 @@
 
         ?>
 
-        <hr class="hidden-xs hidden-sm">
-
         <!-- .row.hidden-xs.hidden-sm -->
         <div class="row hidden-xs hidden-sm">
         <?php
@@ -242,6 +239,7 @@
           query_posts($args);
 
           if ( have_posts() ) :
+
             while ( have_posts() ) : the_post();
 
               // Get partial of research project

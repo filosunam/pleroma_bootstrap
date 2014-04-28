@@ -4,23 +4,23 @@
 
 // Wrapper for container element
 .wrapper {
-  padding: 20px 0;
+  padding: @line-height-computed 0;
   &.wrapper-default {
-    background: white;
+    background: #fff;
   }
   &.wrapper-primary {
     background: @gray-lighter;
   }
   &.wrapper-inverse {
-    background: @brand-primary;
+    background: darken(@brand-primary, 10%);
   }
   &.wrapper-margins {
-    margin: 20px 0;
+    margin: @line-height-computed 0;
   }
   &.wrapper-margin-top {
-    margin-top: 20px;
+    margin-top: @line-height-computed;
   }
   &.wrapper-margin-bottom {
-    margin-bottom: 20px;
+    margin-bottom: @line-height-computed;
   }
 }

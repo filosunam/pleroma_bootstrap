@@ -11,8 +11,11 @@
     <div id="main" class="col-md-6" role="main">
       <?php
 
+        // Post type
+        $post_type = get_post_type() ? get_post_type() : 'post';
+
         // Get partial of single post
-        get_template_part( 'partials/content-post', 'single' );
+        get_template_part( 'partials/content-' . $post_type , 'single' );
 
       ?>
     </div><!-- /#main.col-md-6 -->
@@ -56,8 +59,11 @@
         // Displays the breadcrumb
         the_breadcrumb();
 
+        // Post type
+        $post_type = get_post_type() ? get_post_type() : 'post';
+
         // Get partial of single post
-        get_template_part( 'partials/content-post', 'single' );
+        get_template_part( 'partials/content-' . $post_type , 'single' );
 
       ?>
     </div><!-- /#main.col-md-6 -->
