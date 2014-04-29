@@ -109,7 +109,7 @@
     <nav class="navbar navbar-default navbar-primary" role="navigation">
       <!-- .navbar-header -->
       <div class="navbar-header">
-        <a class="navbar-brand visible-xs" href="http://www.filos.unam.mx">Facultad de Filosofía y Letras</a>
+        <a class="navbar-brand visible-xs visible-sm" href="http://www.filos.unam.mx">Facultad de Filosofía y Letras</a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-navbar-collapse">
           <span class="sr-only">Navegación</span>
           <span class="icon-bar"></span>
