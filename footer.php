@@ -31,9 +31,12 @@
       after: function () {
         $('#instafeed [data-toggle="tooltip"]').tooltip();
       },
+      success: function () {
+        $('#comunidad').addClass('visible-md visible-lg');
+      },
       filter: function(image) {
         images++;
-        
+
         if (images <= 20) return true;
         return false;
       }
@@ -43,14 +46,16 @@
 
   });
 </script>
-<div id="comunidad" class="visible-md visible-lg">
-  <a href="http://fotos.filos.unam.mx" class="instafeed-title">Imágenes de nuestra comunidad</a>
+<div id="comunidad" class="hide">
+  <a href="http://fotos.filos.unam.mx" class="instafeed-title">
+    <?php _e( 'Imágenes de nuestra comunidad', 'pleromabootstrap' ); ?>
+  </a>
   <div id="instafeed"></div>
 </div>
 <?php endif; ?>
 
 <!-- #footer.wrapper -->
-<div id="footer" class="wrapper wrapper-footer"> 
+<div id="footer" class="wrapper wrapper-footer">
   <!-- .container -->
   <div class="container">
     <!-- .row -->
@@ -71,7 +76,7 @@
 
         ?>
       </div>
-        
+
       <div class="col-xs-12 col-md-6">
         <div class="widget">
           <hr class="visible-xs visible-sm">
@@ -100,7 +105,7 @@
 
             // Displays each social link
             foreach ( $socials as $social => $value ) {
-              
+
               // Build handle
               switch ( $social ) {
                 case 'twitter':
@@ -129,7 +134,7 @@
         </div><!-- /.icons -->
       </div>
     </div><!-- /.row -->
-    
+
     <hr>
 
     <?php echo date( 'Y' ) ?> © <?php _e( 'Facultad de Filosofía y Letras', 'pleromabootstrap' ); ?>, UNAM.
@@ -151,7 +156,7 @@
   <div class="container">
     <ul>
       <?php
-      
+
         // Display each language
         foreach ( $languages as $language ) :
           echo '<li><a href="' . $language['url'] . ' ">' . $language['name'] . '</a></li> ';
@@ -162,7 +167,7 @@
   </div>
 </div>
 <?php endif; ?>
-  
+
 <?php wp_footer();?>
 
   </body>
