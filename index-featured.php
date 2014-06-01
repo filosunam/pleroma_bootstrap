@@ -37,7 +37,7 @@
     // Get sticky posts
     $sticky = get_option( 'sticky_posts' );
 
-    // If sticky posts 
+    // If sticky posts
     if ( $sticky ) {
 
       // Sort posts
@@ -75,46 +75,53 @@
 
 <?php if ( have_posts() ) : ?>
 
-<!-- .carousel-posts -->
-<div id="featuredPosts" class="carousel carousel-posts carousel-stop slide">
+<!-- .wrapper.wrapper-primary -->
+<div class="wrapper wrapper-primary wrapper-margins">
+  <div class="container">
+    <div class="row">
+      <!-- .carousel-posts -->
+      <div id="featuredPosts" class="carousel carousel-posts carousel-stop slide">
 
-  <!-- .carousel-inner -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <?php
+        <!-- .carousel-inner -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <?php
 
-        // Loop the posts
-        while ( have_posts() ) : the_post();
+              // Loop the posts
+              while ( have_posts() ) : the_post();
 
-        // Reset 'row' if there are more than four entries
-        if ( $wp_query->post_count > $reset_row && $wp_query->current_post == $reset_row ) {
-          echo '</div><div class="item">';
-        }
+              // Reset 'row' if there are more than four entries
+              if ( $wp_query->post_count > $reset_row && $wp_query->current_post == $reset_row ) {
+                echo '</div><div class="item">';
+              }
 
-        // Get partial by post format
-        get_template_part( 'partials/content-featured', get_post_format() );
+              // Get partial by post format
+              get_template_part( 'partials/content-featured', get_post_format() );
 
-        endwhile;
+              endwhile;
 
-      ?>
+            ?>
+          </div>
+        </div><!-- /.carousel-inner -->
+
+        <?php if ( $wp_query->post_count > $reset_row ) : ?>
+        <!-- .carousel-controls -->
+        <div class="carousel-controls hidden-xs hidden-sm">
+
+          <a class="left carousel-control" href="#featuredPosts" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+
+          <a class="right carousel-control" href="#featuredPosts" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+
+        </div><!-- /.carousel-controls -->
+        <?php endif; ?>
+
+      </div><!-- /.carousel-posts -->
     </div>
-  </div><!-- /.carousel-inner -->
-
-  <?php if ( $wp_query->post_count > $reset_row ) : ?>
-  <!-- .carousel-controls -->
-  <div class="carousel-controls hidden-xs hidden-sm">        
-    
-    <a class="left carousel-control" href="#featuredPosts" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-
-    <a class="right carousel-control" href="#featuredPosts" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-
-  </div><!-- /.carousel-controls -->
-  <?php endif; ?>
-
-</div><!-- /.carousel-posts -->
+  </div>
+</div><!-- /.wrapper.wrapper-primary -->
 
 <?php endif; ?>

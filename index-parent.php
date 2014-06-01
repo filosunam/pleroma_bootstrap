@@ -37,7 +37,7 @@
         <ol class="carousel-indicators">
           <?php
             // Display indicators
-            for ( $i = 0; $i < $wp_query->post_count; $i++ ) { 
+            for ( $i = 0; $i < $wp_query->post_count; $i++ ) {
               echo '<li data-target="#CarouselHome" data-slide-to="' . $i . '" class="' . ( $i == 0 ? ' active' : '' ) . '"></li> ';
             }
           ?>
@@ -75,15 +75,15 @@
                   echo '<a href="' . strip_tags( get_the_content() ) . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
                   echo '<a href="' . strip_tags( get_the_content() ) . '" class="carousel-caption">' . get_the_title() . '</a>';
                   break;
-                
+
                 default:
                   echo '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . $thumbnail . '</a>';
                   echo '<a href="' . get_permalink() . '" class="carousel-caption">' . get_the_title() . '</a>';
                   break;
 
               }
-              
-            ?> 
+
+            ?>
             <!-- <div class="carousel-caption"><?php the_title() ?></div> -->
           </div><!-- /.item -->
           <?php endwhile; // End the loop ?>
@@ -91,7 +91,7 @@
 
         <?php if ( $wp_query->post_count > 1 ) : ?>
         <!-- .carousel-controls -->
-        <div class="carousel-controls">        
+        <div class="carousel-controls">
           <a class="left carousel-control" href="#CarouselHome" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
           </a>
@@ -101,7 +101,7 @@
         </div><!-- /.carousel-controls -->
         <?php endif; ?>
       </div><!-- /#CarouselHome -->
-      
+
         <?php endif; ?>
       <?php endif; ?>
     </div><!-- /.col-md-8.col-md-9 -->
@@ -126,11 +126,11 @@
 
           // // Display secondary nav
           pleroma_secondary_nav();
-          
+
         ?>
       </nav><!-- /.nav-titled -->
       <?php endif; // has 'secondary' nav menu ?>
-      
+
       <?php
 
         // Get sidebar home
@@ -141,19 +141,12 @@
   </div><!-- /.row -->
 </div><!-- /.container -->
 
-<!-- .wrapper.wrapper-primary -->
-<div class="wrapper wrapper-primary wrapper-margins">
-  <div class="container">
-    <div class="row">
-      <?php
-        
-        // Display featured posts
-        get_template_part( 'index', 'featured' );
+<?php
 
-      ?>
-    </div>
-  </div>
-</div><!-- /.wrapper.wrapper-primary -->
+  // Display featured posts
+  get_template_part( 'index', 'featured' );
+
+?>
 
 <!-- .wrapper.wrapper-default -->
 <div class="wrapper wrapper-default wrapper-margin-bottom">
