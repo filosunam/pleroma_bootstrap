@@ -35,7 +35,9 @@
 // Wrapper for container element
 
 #main, .sidebar {
-  margin-bottom: 40px;
+  @media (min-width: @screen-md-min) {
+    margin-bottom: 40px;
+  }
 }
 
 img {
