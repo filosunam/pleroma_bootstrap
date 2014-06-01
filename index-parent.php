@@ -148,6 +148,8 @@
 
 ?>
 
+<?php if ( get_bloginfo( 'language' ) == 'es-ES' ) : ?>
+
 <!-- .wrapper.wrapper-default -->
 <div class="wrapper wrapper-default wrapper-margin-bottom">
   <!-- .container -->
@@ -181,7 +183,7 @@
       <!-- .col-md-7.col-lg-8 -->
       <div class="col-md-7 col-lg-8">
         <?php
-            
+
           // Get ID of research product
           $research_product = get_option('pleroma_research_product');
 
@@ -227,7 +229,7 @@
             'orderby'   => 'post__in',
             'meta_key'  => '_thumbnail_id'
           );
-          
+
           // Set query posts
           query_posts($args);
 
@@ -237,7 +239,7 @@
 
               // Get partial of research project
               get_template_part( 'partials/content-featured', 'research' );
-        
+
             endwhile;
           endif;
 
@@ -248,5 +250,7 @@
     </div><!-- /.row -->
   </div><!-- ./container -->
 </div><!-- /.wrapper.wrapper-default -->
+
+<?php endif; ?>
 
 <?php get_footer(); ?>
