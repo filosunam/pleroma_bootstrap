@@ -148,10 +148,11 @@
 
 ?>
 
-<?php if ( get_bloginfo( 'language' ) == 'es-ES' ) : ?>
 
 <!-- .wrapper.wrapper-default -->
 <div class="wrapper wrapper-default wrapper-margin-bottom">
+  <?php if ( get_bloginfo( 'language' ) == 'es-ES' ) : ?>
+
   <!-- .container -->
   <div class="container">
     <!-- .row -->
@@ -249,8 +250,9 @@
       </div><!-- /.col-md-7.col-lg-8 -->
     </div><!-- /.row -->
   </div><!-- ./container -->
+  
+  <?php endif; ?>
 </div><!-- /.wrapper.wrapper-default -->
 
-<?php endif; ?>
 
 <?php get_footer(); ?>
