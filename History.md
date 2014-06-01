@@ -3,6 +3,12 @@ Plantilla de Wordpress para la [Facultad de Filosofía y Letras, UNAM](http://ww
 
 ## Changelog
 
+### 1.0.5
+
+* Nuevas traducciones
+* Mejoras en los estilos
+* Corrección de errores
+
 ### 1.0.4
 
 * Instagram (Instafeed.js)
