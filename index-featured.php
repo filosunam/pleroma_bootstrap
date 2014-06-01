@@ -75,10 +75,13 @@
 
 <?php if ( have_posts() ) : ?>
 
+<?php if ( is_main_site() ) : ?>
 <!-- .wrapper.wrapper-primary -->
 <div class="wrapper wrapper-primary wrapper-margins">
   <div class="container">
     <div class="row">
+<?php endif; ?>
+
       <!-- .carousel-posts -->
       <div id="featuredPosts" class="carousel carousel-posts carousel-stop slide">
 
@@ -120,8 +123,11 @@
         <?php endif; ?>
 
       </div><!-- /.carousel-posts -->
+
+<?php if ( is_main_site() ) : ?>
     </div>
   </div>
 </div><!-- /.wrapper.wrapper-primary -->
+<?php endif; ?>
 
 <?php endif; ?>
