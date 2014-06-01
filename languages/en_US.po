@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pleromabootstrap\n"
-"POT-Creation-Date: 2013-11-20 05:06-0600\n"
-"PO-Revision-Date: 2013-11-20 05:11-0600\n"
+"POT-Creation-Date: 2014-06-01 03:04-0600\n"
+"PO-Revision-Date: 2014-06-01 03:05-0600\n"
 "Last-Translator: Marco Godínez <mgodinez@filos.unam.mx>\n"
 "Language-Team: Facultad de Filosofía y Letras <web@filos.unam.mx>\n"
 "Language: en_US\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../404.php:9 ../library/navs.php:236
+#: ../404.php:8 ../inc/navigation.php:413
 msgid "Error 404 - Artículo no encontrado"
 msgstr "Error 404 - Article not found"
 
-#: ../404.php:10
+#: ../404.php:11
 msgid ""
 "El artículo que buscas no fue encontrado, puedes intentar realizar una "
 "búsqueda"
@@ -28,39 +28,25 @@ msgstr ""
 "The article you are looking for was not found, you can try to perform a "
 "search"
 
-#: ../archive-single.php:3 ../library/navs.php:179
-msgid "Archivos de categoría"
-msgstr "Category Archives"
+#: ../archive-research.php:32 ../page-investigacion.php:28
+#: ../page-investigacion.php:33 ../single-research.php:16
+#: ../single-research.php:21
+msgid "Líneas de investigación"
+msgstr "Research lines"
 
-#: ../archive-single.php:8 ../library/navs.php:184
-msgid "Entradas etiquetadas"
-msgstr "Entries tagged"
+#: ../footer.php:51
+msgid "Imágenes de nuestra comunidad"
+msgstr "Images from our community"
 
-#: ../archive-single.php:13 ../library/navs.php:232
-msgid "Publicado por"
-msgstr "Published by"
-
-#: ../archive-single.php:18
-msgid "Archivo diario"
-msgstr "Daily archive"
-
-#: ../archive-single.php:23
-msgid "Archivo mensual"
-msgstr "Monthly archive"
-
-#: ../archive-single.php:28
-msgid "Archivo anual"
-msgstr "Yearly archive"
-
-#: ../footer.php:43 ../footer.php:46
+#: ../footer.php:83
 msgid "Visita la Facultad"
 msgstr "Visit the Faculty"
 
-#: ../footer.php:51
+#: ../footer.php:88
 msgid "Edificio \"Adolfo Sánchez Vázquez\""
 msgstr "\"Adolfo Sánchez Vázquez\" Building"
 
-#: ../footer.php:55
+#: ../footer.php:140
 msgid "Facultad de Filosofía y Letras"
 msgstr "Faculty of Philosophy and Literature"
 
@@ -69,54 +55,72 @@ msgstr "Faculty of Philosophy and Literature"
 msgid "Página %s"
 msgstr "Page %s"
 
-#: ../index-parent.php:87
+#: ../index-parent.php:170
 msgid "No events found"
 msgstr ""
 
-#: ../index-parent.php:93
-msgid "Events"
-msgstr ""
-
-#: ../index-parent.php:97
+#: ../index-parent.php:180
 msgid "Events Calendar"
 msgstr ""
 
-#: ../search.php:8 ../search.php:41 ../library/pleroma.php:207
+#: ../search.php:14 ../search.php:87 ../inc/navigation.php:259
 msgid "Buscar"
 msgstr "Search for:"
 
-#: ../search.php:17 ../search.php:50
+#: ../search.php:31 ../search.php:104
 msgid "Disculpa, no hay resultados."
 msgstr "Sorry, not found results."
 
-#: ../search.php:18 ../search.php:51
+#: ../search.php:32 ../search.php:105
 msgid "Intenta de nuevo la búsqueda."
 msgstr "Try to search again."
 
-#: ../single-part.php:59
-msgid "Publicada"
-msgstr "Published"
-
-#: ../single-part.php:62
-msgid "archivada en"
-msgstr "file under"
-
-#: ../library/boletin.php:8
-msgid "Boletín"
-msgstr "Bulletin"
-
-#: ../library/navs.php:105
+#: ../inc/navigation.php:268
 msgid "Home"
 msgstr ""
 
-#: ../library/navs.php:199
+#: ../inc/navigation.php:351 ../partials/content-archive.php:3
+msgid "Archivos de categoría"
+msgstr "Category Archives"
+
+#: ../inc/navigation.php:358 ../partials/content-archive.php:8
+msgid "Entradas etiquetadas"
+msgstr "Entries tagged"
+
+#: ../inc/navigation.php:374
 #, php-format
 msgid "Resultados de búsqueda de: \"%s\""
 msgstr "Search results: \"%s\""
 
-#: ../library/pleroma.php:220
-msgid "Leer más"
-msgstr "Read more"
+#: ../inc/navigation.php:409 ../partials/content-archive.php:13
+msgid "Publicado por"
+msgstr "Published by"
+
+#: ../partials/content-archive.php:18
+msgid "Archivo diario"
+msgstr "Daily archive"
+
+#: ../partials/content-archive.php:23
+msgid "Archivo mensual"
+msgstr "Monthly archive"
+
+#: ../partials/content-archive.php:28
+msgid "Archivo anual"
+msgstr "Yearly archive"
+
+#: ../partials/content-post-single.php:24
+msgid "Publicada"
+msgstr "Published"
+
+#: ../partials/content-post-single.php:27
+msgid "archivada en"
+msgstr "file under"
+
+#~ msgid "Boletín"
+#~ msgstr "Bulletin"
+
+#~ msgid "Leer más"
+#~ msgstr "Read more"
 
 #~ msgid "Edificio"
 #~ msgstr "Building"
